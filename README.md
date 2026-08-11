@@ -1,15 +1,7 @@
-# NTF — Neural Trust Framework prototype
+# NTF — Neural Trust Framework
 
 PhD research prototype: a trust-reasoning security architecture for
-Brain–Computer Interface cyber-physical systems. See `CLAUDE.md` for the
-frozen architectural specification (source of truth), `docs/THREAT-MODEL.md`
-for the threat model, `docs/RESULTS.md` for the full results section, and
-`docs/LIMITATIONS.md` for what is not claimed.
-
-This is a software-only research prototype: no live BCI hardware, no live
-human subjects, no clinical deployment (CLAUDE.md §1). The `NTF Runtime
-Monitor` dashboard (`artifacts/ntf_runtime_monitor.html`) is a research
-demonstration artifact, not a research contribution (CLAUDE.md §16a).
+Brain–Computer Interface cyber-physical systems.
 
 ## Layout
 
@@ -22,7 +14,7 @@ artifacts/        provenance/       docs/
 ```
 
 Six pluggable evidence sensors, a pure jailed trust kernel, a dumb
-capability-gated enforcer — see `CLAUDE.md` §2/§11 for the full architecture
+capability-gated enforcer, for the full architecture
 and layout rationale.
 
 ## Dependency boundaries (three environments, deliberately separate)
@@ -80,7 +72,7 @@ python3 -m experiments.generate_dashboard
 ```
 
 No figure, table, or dashboard value is hand-typed — every one traces to a
-`artifacts/*.json` produced by a driver above, per CLAUDE.md §13.
+`artifacts/*.json` produced by a driver above.
 
 ## Dataset
 
@@ -92,12 +84,9 @@ verified on every load, fail-closed on mismatch (`bci_pipeline/loader.py`).
 ## Reproducibility discipline
 
 Every experiment driver emits a manifest (`provenance/*_manifest.json`):
-config hashes, git state, hardware/OS, seeds, timestamps — CLAUDE.md §13.
+config hashes, git state, hardware/OS, seeds, timestamps.
 Corrections to an already-reported result are never silent reruns: they are
 disclosed post-hoc, with before/after content hashes recorded in the
 manifest (see `provenance/phase9_measured_roc_manifest.json` and
 `provenance/phase11_attack_framework_manifest.json` for two real examples).
 
-Pre-registration: `docs/OSF-PREREGISTRATION.md` (draft, not submitted — see
-`docs/LIMITATIONS.md` §1 for why a git timestamp does not substitute for
-this).
