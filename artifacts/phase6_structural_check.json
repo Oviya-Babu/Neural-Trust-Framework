@@ -1,0 +1,27 @@
+{
+  "dynamic": {
+    "actuator_writes": 10,
+    "calls_during_enforcement_cycle": [],
+    "ok": true
+  },
+  "static": {
+    "ok": true,
+    "per_file": {
+      "capability.py": {
+        "forbidden_af_strings_found": [],
+        "forbidden_imports_found": [],
+        "forbidden_signing_attrs_found": []
+      },
+      "clamp.py": {
+        "forbidden_af_strings_found": [],
+        "forbidden_imports_found": [],
+        "forbidden_signing_attrs_found": []
+      },
+      "slew.py": {
+        "forbidden_af_strings_found": [],
+        "forbidden_imports_found": [],
+        "forbidden_signing_attrs_found": []
+      }
+    }
+  }
+}

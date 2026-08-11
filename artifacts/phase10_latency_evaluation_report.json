@@ -1,0 +1,436 @@
+{
+  "acquisition_and_filtering_batch": {
+    "acquisition_ms": {
+      "max_ms": 6642.638961000557,
+      "mean_ms": 5341.313433333501,
+      "min_ms": 4539.468621999731,
+      "n": 3,
+      "p50_ms": 4841.832717000216,
+      "p99_ms": 6642.638961000557
+    },
+    "filtering_ms": {
+      "max_ms": 1665.7128719998582,
+      "mean_ms": 1464.8253736668266,
+      "min_ms": 1210.8376790001785,
+      "n": 3,
+      "p50_ms": 1517.9255700004433,
+      "p99_ms": 1665.7128719998582
+    }
+  },
+  "architecture_per_stage": {
+    "artifact_detection": {
+      "max_ms": 1.7231009996976354,
+      "mean_ms": 0.5062813450103931,
+      "min_ms": 0.27070000032836106,
+      "n": 200,
+      "p50_ms": 0.483200999951805,
+      "p99_ms": 1.1348010002620867
+    },
+    "classification": {
+      "max_ms": 4.902004000541638,
+      "mean_ms": 0.7160655000416227,
+      "min_ms": 0.38610000046901405,
+      "n": 200,
+      "p50_ms": 0.6680999995296588,
+      "p99_ms": 1.6919009995035594
+    },
+    "enforcement": {
+      "max_ms": 0.8351009992111358,
+      "mean_ms": 0.37925774000541423,
+      "min_ms": 0.21099999958096305,
+      "n": 200,
+      "p50_ms": 0.37229999998089625,
+      "p99_ms": 0.6978999999773805
+    },
+    "evidence_admission": {
+      "max_ms": 2.789301999655436,
+      "mean_ms": 1.3015958749429046,
+      "min_ms": 0.7215999994514277,
+      "n": 200,
+      "p50_ms": 1.2794009999197442,
+      "p99_ms": 2.571701999841025
+    },
+    "evidence_generation_calibration": {
+      "max_ms": 0.2783999998428044,
+      "mean_ms": 0.0630760600188296,
+      "min_ms": 0.03369999922142597,
+      "n": 200,
+      "p50_ms": 0.05580000015470432,
+      "p99_ms": 0.19559999964258168
+    },
+    "evidence_generation_device": {
+      "max_ms": 0.034499999856052455,
+      "mean_ms": 0.007106504995135765,
+      "min_ms": 0.0031999998100218363,
+      "n": 200,
+      "p50_ms": 0.006100000064179767,
+      "p99_ms": 0.026599999728205148
+    },
+    "evidence_generation_model": {
+      "max_ms": 0.8592000003773137,
+      "mean_ms": 0.39388628001233883,
+      "min_ms": 0.22360000002663583,
+      "n": 200,
+      "p50_ms": 0.3830010000456241,
+      "p99_ms": 0.8060000000114087
+    },
+    "evidence_generation_signal": {
+      "max_ms": 4.268002000571869,
+      "mean_ms": 2.1579109699860055,
+      "min_ms": 1.1489010003060685,
+      "n": 200,
+      "p50_ms": 2.125001000422344,
+      "p99_ms": 3.7407029994938057
+    },
+    "feature_extraction": {
+      "max_ms": 4.189803000372194,
+      "mean_ms": 2.2590375299705556,
+      "min_ms": 1.212901000144484,
+      "n": 200,
+      "p50_ms": 2.303901999766822,
+      "p99_ms": 3.9043030001266743
+    },
+    "kernel_decision": {
+      "max_ms": 0.1677999998719315,
+      "mean_ms": 0.0717055700124547,
+      "min_ms": 0.036299999919719994,
+      "n": 200,
+      "p50_ms": 0.06680000024061883,
+      "p99_ms": 0.14699999974254752
+    },
+    "statement_signing_calibration": {
+      "max_ms": 0.2952999993794947,
+      "mean_ms": 0.09331857006145583,
+      "min_ms": 0.049000000217347406,
+      "n": 200,
+      "p50_ms": 0.08660000003146706,
+      "p99_ms": 0.23130000045057386
+    },
+    "statement_signing_device": {
+      "max_ms": 0.22220000028028153,
+      "mean_ms": 0.0807570500046495,
+      "min_ms": 0.04289999924367294,
+      "n": 200,
+      "p50_ms": 0.0729000003047986,
+      "p99_ms": 0.1953999999386724
+    },
+    "statement_signing_model": {
+      "max_ms": 0.2870999996957835,
+      "mean_ms": 0.08652804998291685,
+      "min_ms": 0.045200000386103056,
+      "n": 200,
+      "p50_ms": 0.07749999986117473,
+      "p99_ms": 0.19949999932578066
+    },
+    "statement_signing_signal": {
+      "max_ms": 0.33540000003995374,
+      "mean_ms": 0.12944658501510276,
+      "min_ms": 0.06630000007135095,
+      "n": 200,
+      "p50_ms": 0.12139999944338342,
+      "p99_ms": 0.2749999994193786
+    },
+    "verdict_signing": {
+      "max_ms": 0.8348999999725493,
+      "mean_ms": 0.30418020998240536,
+      "min_ms": 0.15820099997654324,
+      "n": 200,
+      "p50_ms": 0.28940100037289085,
+      "p99_ms": 0.6185000002005836
+    }
+  },
+  "architecture_total_per_trial_ms": {
+    "max_ms": 14.933911001207889,
+    "mean_ms": 8.550153840042185,
+    "min_ms": 4.962203001014132,
+    "n": 200,
+    "p50_ms": 8.536506001291855,
+    "p99_ms": 14.238209998438833
+  },
+  "baseline_per_stage": {
+    "artifact_detection": {
+      "max_ms": 1.2375010001051123,
+      "mean_ms": 0.5012627750284082,
+      "min_ms": 0.261799999861978,
+      "n": 200,
+      "p50_ms": 0.4535999996733153,
+      "p99_ms": 1.0199999996984843
+    },
+    "classification": {
+      "max_ms": 1.9341010001880932,
+      "mean_ms": 0.5777918849480557,
+      "min_ms": 0.3723999998328509,
+      "n": 200,
+      "p50_ms": 0.505201000123634,
+      "p99_ms": 1.2720009999611648
+    },
+    "feature_extraction": {
+      "max_ms": 3.926803000467771,
+      "mean_ms": 1.9232601650128345,
+      "min_ms": 1.2537009997686255,
+      "n": 200,
+      "p50_ms": 1.703101000202878,
+      "p99_ms": 3.8151000007928815
+    }
+  },
+  "baseline_total_per_trial_ms": {
+    "max_ms": 5.895203999898513,
+    "mean_ms": 3.0023148249892984,
+    "min_ms": 1.9866009997713263,
+    "n": 200,
+    "p50_ms": 2.7206999993723002,
+    "p99_ms": 5.373804000555538
+  },
+  "budget_verification": {
+    "admission_path_stages_summed": [
+      "evidence_generation_signal",
+      "evidence_generation_calibration",
+      "evidence_generation_model",
+      "evidence_generation_device",
+      "statement_signing_signal",
+      "statement_signing_calibration",
+      "statement_signing_model",
+      "statement_signing_device"
+    ],
+    "decision_path_le_67ms": {
+      "budget_ms": 67.0,
+      "margin_ms": 57.29479500222806,
+      "measured_p99_ms": 9.705204997771943,
+      "violated": false
+    },
+    "decision_path_stages_summed": [
+      "evidence_generation_signal",
+      "evidence_generation_calibration",
+      "evidence_generation_model",
+      "evidence_generation_device",
+      "statement_signing_signal",
+      "statement_signing_calibration",
+      "statement_signing_model",
+      "statement_signing_device",
+      "evidence_admission",
+      "kernel_decision",
+      "verdict_signing",
+      "enforcement"
+    ],
+    "evidence_generation_and_signing_le_delta_60ms": {
+      "budget_ms": 60,
+      "margin_ms": 54.32989700198959,
+      "measured_p99_ms": 5.670102998010407,
+      "violated": false
+    },
+    "fsi_inclusion_correction": {
+      "decision_path_le_67ms_INCLUDING_FSI": {
+        "budget_ms": 67.0,
+        "margin_ms": -26.453561998103396,
+        "measured_p99_ms": 93.4535619981034,
+        "violated": true
+      },
+      "evidence_generation_and_signing_le_delta_60ms_INCLUDING_FSI": {
+        "budget_ms": 60.0,
+        "margin_ms": -29.41845999834186,
+        "measured_p99_ms": 89.41845999834186,
+        "violated": true
+      },
+      "open_question_for_the_PI": "FSI's own claim_registry.json provenance_note describes it as attesting firmware/software state 'as measured at boot... boot-time only' -- this may mean a real deployment does NOT need a fresh TPM quote every 100ms window (unlike Signal/Calibration/Model/Device, which are genuinely per-window measurements), in which case this violation is an artifact of this driver's uniform per-window measurement convention applied to a claim whose real cadence may be coarser, not a genuine architectural problem. This driver does not resolve that question -- it measures FSI's ACTUAL cost if invoked every window (which is what a fresh TPM quote genuinely costs, ~60-83ms, measured not assumed) and reports the consequence honestly rather than assuming the coarser cadence without evidence for it.",
+      "reason": "budget_verification above sums only 4 of 5 real-time producers (Signal/Calibration/Model/Device), excluding FSI because it was measured in a separate loop (real swtpm quotes, smaller N) -- documented in budget_verification.fsi_kernel_decision_note, but that note reported FSI's p99 alongside the result without folding it into the VIOLATED verdict, which effectively hid a real violation behind the exclusion. Corrected here post-hoc from the already-recorded per-stage data (no rerun needed): if FSI's evidence_generation_fsi/statement_signing_fsi ARE required every 100ms window (fresh TPM quote per window, as this driver's per-window convention assumed for every other producer), both budgets ARE violated at p99."
+    },
+    "fsi_kernel_decision_note": "FSI's own evidence_generation_fsi/statement_signing_fsi (measured separately, N=30) are NOT included in the sums above (they were measured in a separate loop from the other 4 producers) -- reported alongside, in fsi_stats, for a complete picture; a real single window's decision path would additionally include FSI's real p99 evidence_generation_fsi=83.421ms + statement_signing_fsi=0.327ms.",
+    "kernel_decision_le_kappa_5ms": {
+      "budget_ms": 5,
+      "margin_ms": 4.8530000002574525,
+      "measured_p99_ms": 0.14699999974254752,
+      "violated": false
+    }
+  },
+  "cpu_memory": {
+    "architecture": {
+      "cpu_system_s": 0.0,
+      "cpu_user_s": 1.719740999999999,
+      "max_rss_kb_end": 1398032
+    },
+    "baseline": {
+      "cpu_system_s": 0.0,
+      "cpu_user_s": 0.6040959999999984,
+      "max_rss_kb_end": 1398032
+    },
+    "fsi_loop": {
+      "cpu_system_s": 0.037815000000000154,
+      "cpu_user_s": 0.07997699999999952,
+      "max_rss_kb_end": 1398032
+    }
+  },
+  "fsi_per_stage": {
+    "evidence_generation_fsi": {
+      "max_ms": 83.42135699967912,
+      "mean_ms": 62.3625591333924,
+      "min_ms": 52.86543599959259,
+      "n": 30,
+      "p50_ms": 60.10074099958729,
+      "p99_ms": 83.42135699967912
+    },
+    "statement_signing_fsi": {
+      "max_ms": 0.32700000065233326,
+      "mean_ms": 0.19639676665974548,
+      "min_ms": 0.14819999978499254,
+      "n": 30,
+      "p50_ms": 0.1840999993873993,
+      "p99_ms": 0.32700000065233326
+    }
+  },
+  "headline_overhead": {
+    "mean_overhead_ms": 5.547839015052887,
+    "p50_overhead_ms": 5.8158060019195545,
+    "p99_overhead_ms": 8.864405997883296
+  },
+  "headline_overhead_fraction_of_100ms_window": {
+    "p50": 0.058158060019195545,
+    "p99": 0.08864405997883296
+  },
+  "hung_producer_demonstration": {
+    "collection_latency_bounded_by_deadline_not_hang_duration": true,
+    "control": {
+      "admission": {
+        "Calibration": true,
+        "Device": true,
+        "Model": true,
+        "Signal": true
+      },
+      "collection_wall_ms": 7.750906000183022,
+      "effective_signal": "LOW",
+      "statements_collected": [
+        "Calibration",
+        "Device",
+        "Model",
+        "Signal"
+      ],
+      "verdict": "Safe"
+    },
+    "deadline_ms": 60,
+    "hung": {
+      "admission": {
+        "Calibration": true,
+        "Device": true,
+        "Model": true
+      },
+      "collection_wall_ms": 60.3953410000031,
+      "effective_signal": "LOW",
+      "statements_collected": [
+        "Calibration",
+        "Device",
+        "Model"
+      ],
+      "verdict": "Safe"
+    },
+    "hung_dimension_reads_low": true,
+    "note": "hung_signal() sleeps 2.0s (2000ms) before it would even compute a value -- far longer than Delta(w)=60ms. collect_within_deadline() never waits for it: the hung thread is simply abandoned (daemon=True) once the shared 60ms budget elapses, and admission/kernel/policy proceed on whatever arrived. The invariant under test is collection_latency_bounded_by_deadline_not_hang_duration -- collection wall time is ~60ms, not ~2000ms, regardless of the hung producer's real behaviour.",
+    "signal_absent_from_hung_admission": true,
+    "verdict_still_issued_despite_hung_producer": true
+  },
+  "measured_config_path": "/home/oviya/ProjectBCI-NTF/config/eis.v1-measured.json",
+  "measured_config_roc_config_hash": "beb166a43c77c59edccc373941b6c2272c37c8b71027eb59a358d0ae034bf4d3",
+  "mutation": {
+    "latency_kill_rate_line": "latency mutation kill rate: 13/13 (100%)",
+    "latency_passed": true,
+    "pure_core_kill_rate_line": "Mutation kill rate: 61/61 (100%)",
+    "pure_core_unaffected": true
+  },
+  "n_trials": 200,
+  "n_trials_fsi": 30,
+  "n_warmup": 8,
+  "per_stage_overhead": {
+    "artifact_detection": {
+      "mean_overhead_ms": 0.0050185699819849106,
+      "p50_overhead_ms": 0.029601000278489664,
+      "p99_overhead_ms": 0.11480100056360243
+    },
+    "classification": {
+      "mean_overhead_ms": 0.13827361509356706,
+      "p50_overhead_ms": 0.1628989994060248,
+      "p99_overhead_ms": 0.41989999954239465
+    },
+    "enforcement": {
+      "mean_overhead_ms": 0.37925774000541423,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.37229999998089625,
+      "p99_overhead_ms": 0.6978999999773805
+    },
+    "evidence_admission": {
+      "mean_overhead_ms": 1.3015958749429046,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 1.2794009999197442,
+      "p99_overhead_ms": 2.571701999841025
+    },
+    "evidence_generation_calibration": {
+      "mean_overhead_ms": 0.0630760600188296,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.05580000015470432,
+      "p99_overhead_ms": 0.19559999964258168
+    },
+    "evidence_generation_device": {
+      "mean_overhead_ms": 0.007106504995135765,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.006100000064179767,
+      "p99_overhead_ms": 0.026599999728205148
+    },
+    "evidence_generation_model": {
+      "mean_overhead_ms": 0.39388628001233883,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.3830010000456241,
+      "p99_overhead_ms": 0.8060000000114087
+    },
+    "evidence_generation_signal": {
+      "mean_overhead_ms": 2.1579109699860055,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 2.125001000422344,
+      "p99_overhead_ms": 3.7407029994938057
+    },
+    "feature_extraction": {
+      "mean_overhead_ms": 0.33577736495772115,
+      "p50_overhead_ms": 0.6008009995639441,
+      "p99_overhead_ms": 0.08920299933379283
+    },
+    "kernel_decision": {
+      "mean_overhead_ms": 0.0717055700124547,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.06680000024061883,
+      "p99_overhead_ms": 0.14699999974254752
+    },
+    "statement_signing_calibration": {
+      "mean_overhead_ms": 0.09331857006145583,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.08660000003146706,
+      "p99_overhead_ms": 0.23130000045057386
+    },
+    "statement_signing_device": {
+      "mean_overhead_ms": 0.0807570500046495,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.0729000003047986,
+      "p99_overhead_ms": 0.1953999999386724
+    },
+    "statement_signing_model": {
+      "mean_overhead_ms": 0.08652804998291685,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.07749999986117473,
+      "p99_overhead_ms": 0.19949999932578066
+    },
+    "statement_signing_signal": {
+      "mean_overhead_ms": 0.12944658501510276,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.12139999944338342,
+      "p99_overhead_ms": 0.2749999994193786
+    },
+    "verdict_signing": {
+      "mean_overhead_ms": 0.30418020998240536,
+      "note": "stage does not exist in baseline (new in architecture) -- overhead == stage's own latency",
+      "p50_overhead_ms": 0.28940100037289085,
+      "p99_overhead_ms": 0.6185000002005836
+    }
+  },
+  "subject": 1,
+  "task": "phase10_latency_evaluation",
+  "throughput": {
+    "architecture_windows_per_s": 116.01058794760756,
+    "baseline_windows_per_s": 331.0330026530296,
+    "fsi_windows_per_s": 15.973951137312278
+  }
+}

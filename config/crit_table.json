@@ -1,0 +1,5 @@
+{
+  "_comment": "CLAUDE.md §4: strict dimensions floor to Safe on LOW alone; lenient dimensions floor to Constrained on LOW alone. This partition is FROZEN architecture (§4), not a measured quantity -- it is data here so it can be hashed into crit_table_hash and referenced from the signed verdict (§8), not because it is subject to re-derivation. L8->L6 relattice (changelog 2026-07-19): Safety and Context removed from the dimension set entirely.",
+  "strict": ["Signal", "Model", "FSI", "ActuationFidelity", "Calibration"],
+  "lenient": ["Device"]
+}

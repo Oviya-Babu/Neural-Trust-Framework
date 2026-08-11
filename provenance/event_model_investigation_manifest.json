@@ -1,0 +1,45 @@
+{
+  "artifacts": {
+    "report_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/event_model_investigation_report.json",
+      "sha256": "d5c080f407c58d1612e27738a982b021b822dbad2ea9398fc380ae6019b13d41"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "dataset_pins": "400af61e7c8369325d670aadb582ee5b5e637c121a75a1e7cb2bff1d401f31ba"
+  },
+  "experiment": "event_model_investigation",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "analysis_window_s": 1.0,
+    "debounce_percentile": 5.0,
+    "hop_s": 0.1,
+    "percentiles": [
+      5.0,
+      1.0
+    ],
+    "session_budgets": [
+      0.001,
+      0.01,
+      0.05
+    ],
+    "subjects": [
+      1,
+      2,
+      3
+    ]
+  },
+  "seeds": {
+    "note": "no stochastic seeds -- deterministic real-data sliding-window measurement"
+  },
+  "timestamp_utc": "2026-07-20T15:51:59.606952+00:00"
+}

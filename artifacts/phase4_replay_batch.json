@@ -1,0 +1,75 @@
+{
+  "agreement_rate": 1.0,
+  "rows": [
+    {
+      "agreement": true,
+      "raw_measurement": 50,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 200
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 55,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 201
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 60,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 202
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 65,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 203
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 70,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 204
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 75,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 205
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 80,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 206
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 85,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 207
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 90,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 208
+    },
+    {
+      "agreement": true,
+      "raw_measurement": 95,
+      "recomputed_verdict": "Normal",
+      "recorded_verdict": "Normal",
+      "window_id": 209
+    }
+  ]
+}

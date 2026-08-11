@@ -1,0 +1,18 @@
+{
+  "after_tamper_valid": false,
+  "baseline_valid": true,
+  "broken_seqs": [
+    3,
+    4,
+    5
+  ],
+  "clean_seqs": [
+    0,
+    1,
+    2
+  ],
+  "correct": true,
+  "first_broken_seq": 3,
+  "log_length": 6,
+  "tampered_position_k": 3
+}

@@ -1,0 +1,66 @@
+{
+  "_comment": "CLAUDE.md §8: structural registry of claim types, separate from config/eis.v0.json's interpretation config (ROC/thresholds) -- hashed independently (claim_registry_hash) so rotating one doesn't silently reinterpret the other. L8->L6 relattice (changelog 2026-07-19): safety.provisional_v0 and context.provisional_v0 removed. Phase 8 Step 1: every claim now carries the three-field provenance tuple (measurement_source, host_independence, forgeable_under_A_code) plus a mandatory provenance_note -- this is the registry stating the honest-evidence case for T5 in its own contents: every V1 row is forgeable_under_A_code TRUE, which is correct and expected under Position A (§3), not a defect to fix.",
+  "schema_version": 1,
+  "claims": {
+    "signal.provisional_v0": {
+      "dimension": "Signal",
+      "boundary": "TB2",
+      "source_id": "signal_sensor_v0",
+      "epoch_derived": false,
+      "measurement_source": "REAL",
+      "host_independence": "SAME_HOST",
+      "forgeable_under_A_code": "TRUE",
+      "provenance_note": "raw_measurement computed directly from the real Phase-7 filtered EEG trace (SNR / band-power / line-noise) on the same host process as the pipeline that produced it -- no protocol emulation involved. Runs on the host, so A_code (arbitrary code execution at host privilege, §3) can rewrite it; this is honest-evidence-conditional, per T4/T5's honest partition."
+    },
+    "model.provisional_v0": {
+      "dimension": "Model",
+      "boundary": "TB2",
+      "source_id": "model_sensor_v0",
+      "epoch_derived": false,
+      "measurement_source": "EMULATED_PROTOCOL",
+      "host_independence": "SAME_HOST",
+      "forgeable_under_A_code": "TRUE",
+      "provenance_note": "Real Ed25519 signature and hash verification over the on-path Phase-7 classifier artifact (the actual model object used for inference this session, not a stand-in) -- the cryptography is real, but it runs on the same host as the model it is checking, so it is EMULATED_PROTOCOL rather than REAL: it is a protocol demonstration, not an independent hardware root of trust."
+    },
+    "calibration.provisional_v0": {
+      "dimension": "Calibration",
+      "boundary": "TB2",
+      "source_id": "calibration_sensor_v0",
+      "epoch_derived": false,
+      "measurement_source": "REAL",
+      "host_independence": "SAME_HOST",
+      "forgeable_under_A_code": "TRUE",
+      "provenance_note": "raw_measurement computed directly from real session-E feature-distribution drift against the session-T enrollment distribution (BCIC IV 2a's own cross-session structure, §17a) on the same host process -- no protocol emulation involved."
+    },
+    "device.provisional_v0": {
+      "dimension": "Device",
+      "boundary": "TB2",
+      "source_id": "device_sensor_v0",
+      "epoch_derived": false,
+      "measurement_source": "EMULATED_PROTOCOL",
+      "host_independence": "SAME_HOST",
+      "forgeable_under_A_code": "TRUE",
+      "provenance_note": "Real DTLS handshake result plus sequence/replay-counter check via OpenSSL/mbedTLS, OFF-path: the EEG data path does not traverse this DTLS channel, only the emulated device-link protocol under test does. A real protocol run, but not the path the trust decision is actually about."
+    },
+    "fsi.provisional_v0": {
+      "dimension": "FSI",
+      "boundary": "TB2",
+      "source_id": "fsi_sensor_v0",
+      "epoch_derived": false,
+      "measurement_source": "EMULATED_PROTOCOL",
+      "host_independence": "SAME_HOST",
+      "forgeable_under_A_code": "TRUE",
+      "provenance_note": "Real swtpm PCR-extend/quote/AIK verification, ON-path in the sense that it gates this window's evidence, but boot-time only -- it attests firmware/software state as measured at boot, not ongoing runtime execution, so it provides no protection against A_code acting after boot (§3 Position A)."
+    },
+    "actuationfidelity.provisional_v0": {
+      "dimension": "ActuationFidelity",
+      "boundary": "TB2",
+      "source_id": "actuationfidelity_sensor_v0",
+      "epoch_derived": false,
+      "measurement_source": "SIMULATED",
+      "host_independence": "INDEPENDENT_SUBSYSTEM",
+      "forgeable_under_A_code": "TRUE",
+      "provenance_note": "Commanded-vs-observed discrepancy measured by the Phase-6 Observer against a simulated actuator, running as an independent subsystem process, never inside the enforcer (P2, structurally checked by Phase 6's static+dynamic scan). Independent of the enforcer process does not mean independent of the host: A_code at host privilege can still reach this process, so forgeable_under_A_code is TRUE like every other V1 row."
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "_comment": "Prerequisite-to-Phase-9 REPRESENTATION FIX ONLY (docs/EVENT-MODEL-INVESTIGATION.md Step 5), not a threshold derivation: widens the fixed-point rate scale from basis points (eis.v0.json, scale 1e4, min nonzero rate 1e-4) to parts-per-billion (scale 1e9, min nonzero rate 1e-9), the precision event_model's episode-based availability formula requires (measured required alpha ranged 1.30e-7..1.33e-5 across all 18 subject x claim x budget combinations -- unrepresentable in bp, representable in ppb with 130x-13300x margin). Every ROC point and alpha_bp/beta_bp value here is IDENTICAL in rate terms to eis.v0.json's placeholder curve, just multiplied by 100000 (PPB_SCALE/BP_SCALE) -- same synthetic 5%/5% alpha/beta, same placeholder ROC shape, same calibration_status: provisional. This file changes ONLY how finely a rate can be expressed; it does not assert any new threshold, and Phase 9's real ROC/threshold derivation has not happened yet. eis.v0.json is NOT modified by this file's existence -- eis.v0-format verdicts continue to validate, hash, and replay exactly as before (trust_kernel/bands.py's format detection treats the absence of eis_schema_version + presence of alpha_bp as eis.v0, unchanged code path). Each claim also carries resolution_status (CLAUDE.md 20's Tail-Floor Rule stable-label convention, added when the Tail-Floor Rule was frozen): a per-swept-budget label in {pending, stable, tail_floor}. All 'pending' here -- Phase 9 has not run, so no claim has actually been assigned stable or tail_floor yet; this field's presence (and its coverage by roc_config_hash, since that function hashes this entire file's raw JSON content) is what changed, not any real derivation.",
+  "eis_schema_version": 1,
+  "calibration_status": "provisional",
+  "alpha_ppb": 50000000,
+  "beta_ppb": 50000000,
+  "claims": {
+    "signal.provisional_v0": {
+      "dimension": "Signal", "polarity": 1, "placeholder": true,
+      "resolution_status": {"0.1%": "pending", "1%": "pending", "5%": "pending"},
+      "roc": [
+        {"threshold": -100, "fpr_ppb": 0, "tpr_ppb": 0},
+        {"threshold": -50, "fpr_ppb": 10000000, "tpr_ppb": 300000000},
+        {"threshold": 0, "fpr_ppb": 50000000, "tpr_ppb": 800000000},
+        {"threshold": 50, "fpr_ppb": 200000000, "tpr_ppb": 950000000},
+        {"threshold": 100, "fpr_ppb": 1000000000, "tpr_ppb": 1000000000}
+      ]
+    },
+    "model.provisional_v0": {
+      "dimension": "Model", "polarity": 1, "placeholder": true,
+      "resolution_status": {"0.1%": "pending", "1%": "pending", "5%": "pending"},
+      "roc": [
+        {"threshold": -100, "fpr_ppb": 0, "tpr_ppb": 0},
+        {"threshold": -50, "fpr_ppb": 10000000, "tpr_ppb": 300000000},
+        {"threshold": 0, "fpr_ppb": 50000000, "tpr_ppb": 800000000},
+        {"threshold": 50, "fpr_ppb": 200000000, "tpr_ppb": 950000000},
+        {"threshold": 100, "fpr_ppb": 1000000000, "tpr_ppb": 1000000000}
+      ]
+    },
+    "calibration.provisional_v0": {
+      "dimension": "Calibration", "polarity": 1, "placeholder": true,
+      "resolution_status": {"0.1%": "pending", "1%": "pending", "5%": "pending"},
+      "roc": [
+        {"threshold": -100, "fpr_ppb": 0, "tpr_ppb": 0},
+        {"threshold": -50, "fpr_ppb": 10000000, "tpr_ppb": 300000000},
+        {"threshold": 0, "fpr_ppb": 50000000, "tpr_ppb": 800000000},
+        {"threshold": 50, "fpr_ppb": 200000000, "tpr_ppb": 950000000},
+        {"threshold": 100, "fpr_ppb": 1000000000, "tpr_ppb": 1000000000}
+      ]
+    },
+    "device.provisional_v0": {
+      "dimension": "Device", "polarity": 1, "placeholder": true,
+      "resolution_status": {"0.1%": "pending", "1%": "pending", "5%": "pending"},
+      "roc": [
+        {"threshold": -100, "fpr_ppb": 0, "tpr_ppb": 0},
+        {"threshold": -50, "fpr_ppb": 10000000, "tpr_ppb": 300000000},
+        {"threshold": 0, "fpr_ppb": 50000000, "tpr_ppb": 800000000},
+        {"threshold": 50, "fpr_ppb": 200000000, "tpr_ppb": 950000000},
+        {"threshold": 100, "fpr_ppb": 1000000000, "tpr_ppb": 1000000000}
+      ]
+    },
+    "fsi.provisional_v0": {
+      "dimension": "FSI", "polarity": 1, "placeholder": true,
+      "resolution_status": {"0.1%": "pending", "1%": "pending", "5%": "pending"},
+      "roc": [
+        {"threshold": -100, "fpr_ppb": 0, "tpr_ppb": 0},
+        {"threshold": -50, "fpr_ppb": 10000000, "tpr_ppb": 300000000},
+        {"threshold": 0, "fpr_ppb": 50000000, "tpr_ppb": 800000000},
+        {"threshold": 50, "fpr_ppb": 200000000, "tpr_ppb": 950000000},
+        {"threshold": 100, "fpr_ppb": 1000000000, "tpr_ppb": 1000000000}
+      ]
+    },
+    "actuationfidelity.provisional_v0": {
+      "dimension": "ActuationFidelity", "polarity": 1, "placeholder": true,
+      "resolution_status": {"0.1%": "pending", "1%": "pending", "5%": "pending"},
+      "roc": [
+        {"threshold": -100, "fpr_ppb": 0, "tpr_ppb": 0},
+        {"threshold": -50, "fpr_ppb": 10000000, "tpr_ppb": 300000000},
+        {"threshold": 0, "fpr_ppb": 50000000, "tpr_ppb": 800000000},
+        {"threshold": 50, "fpr_ppb": 200000000, "tpr_ppb": 950000000},
+        {"threshold": 100, "fpr_ppb": 1000000000, "tpr_ppb": 1000000000}
+      ]
+    }
+  }
+}

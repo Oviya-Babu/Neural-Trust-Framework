@@ -1,0 +1,16 @@
+# CLAUDE.md §11: the pure core (trust_kernel/, evidence_plane/, enforcement/,
+# observer/) has zero runtime dependencies. bci_pipeline/ is explicitly not
+# part of that core -- it is the Phase 7 signal-processing substrate, and
+# real EEG signal processing genuinely needs these. Install into a separate
+# virtualenv, e.g.:
+#   python3 -m venv .venv-pipeline && .venv-pipeline/bin/pip install -r requirements-bci_pipeline.txt
+#
+# Pinned to what experiments/phase7_bci_pipeline.py was actually run against
+# (§13: reproducibility requires pinned versions, not floating ranges).
+numpy==2.5.1
+scipy==1.18.0
+scikit-learn==1.9.0
+mne==1.12.1
+moabb==1.5.0
+pyriemann==0.12
+cryptography==49.0.0

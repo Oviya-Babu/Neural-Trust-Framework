@@ -1,0 +1,42 @@
+{
+  "artifacts": {
+    "report": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/calibration_full9_sufficiency_report.json",
+      "sha256": "5946d0e66ed5fc9e3e285d5cda0d737024c8bcc1236f00452b4397daa72f94ed"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {},
+  "experiment": "calibration_full9_sufficiency_part1",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "bootstrap_n": 1000,
+    "bootstrap_seeds": [
+      20260728,
+      20260729
+    ],
+    "full_subjects": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "seeds": {
+    "note": "reuses experiments/roc_estimability_diagnostic.py's FOIL_MAP and sample construction unmodified"
+  },
+  "timestamp_utc": "2026-07-21T14:55:10.601990+00:00"
+}

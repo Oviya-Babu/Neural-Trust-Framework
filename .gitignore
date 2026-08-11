@@ -1,0 +1,11 @@
+# Phase 7 (CLAUDE.md §17a): bci_pipeline/ has real numpy/scipy/mne/moabb
+# dependencies, isolated in their own venv, and downloads real EEG data to
+# a local cache -- neither belongs in version control.
+.venv-pipeline/
+.bci_data_cache/
+.bci_download.log
+
+__pycache__/
+*.pyc
+
+.venv-figures/

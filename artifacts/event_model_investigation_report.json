@@ -1,0 +1,808 @@
+{
+  "debounce_percentile": 5.0,
+  "mutation": {
+    "event_model_kill_rate_line": "event_model mutation kill rate: 12/12 (100%)",
+    "event_model_passed": true,
+    "pure_core_kill_rate_line": "Mutation kill rate: 61/61 (100%)",
+    "pure_core_unaffected": true
+  },
+  "percentiles": [
+    5.0,
+    1.0
+  ],
+  "session_budgets": [
+    0.001,
+    0.01,
+    0.05
+  ],
+  "subject_reports": [
+    {
+      "availability_table": {
+        "Calibration": {
+          "budget_rows": [
+            {
+              "alpha_episode": 1.3465336953847038e-07,
+              "alpha_episode_bp": 0.0013465336953847038,
+              "alpha_per_window": 3.473959453437203e-09,
+              "alpha_per_window_bp": 3.473959453437203e-05,
+              "episode_representable": false,
+              "n_onsets_per_session": 7426.475872290003,
+              "per_window_representable": false,
+              "session_budget": 0.001
+            },
+            {
+              "alpha_episode": 1.3465336953847038e-06,
+              "alpha_episode_bp": 0.013465336953847037,
+              "alpha_per_window": 3.489699884617892e-08,
+              "alpha_per_window_bp": 0.00034896998846178917,
+              "episode_representable": false,
+              "n_onsets_per_session": 7426.475872290003,
+              "per_window_representable": false,
+              "session_budget": 0.01
+            },
+            {
+              "alpha_episode": 6.7326684769235195e-06,
+              "alpha_episode_bp": 0.0673266847692352,
+              "alpha_per_window": 1.7810170072074527e-07,
+              "alpha_per_window_bp": 0.0017810170072074527,
+              "episode_representable": false,
+              "n_onsets_per_session": 7426.475872290003,
+              "per_window_representable": false,
+              "session_budget": 0.05
+            }
+          ],
+          "debounce_interval": 2,
+          "mean_episode_length_windows": 7.018425460636516,
+          "mean_gap_windows": 31.761744966442954
+        },
+        "Signal": {
+          "budget_rows": [
+            {
+              "alpha_episode": 2.660002789738135e-07,
+              "alpha_episode_bp": 0.002660002789738135,
+              "alpha_per_window": 3.473959453437203e-09,
+              "alpha_per_window_bp": 3.473959453437203e-05,
+              "episode_representable": false,
+              "n_onsets_per_session": 3759.394553486335,
+              "per_window_representable": false,
+              "session_budget": 0.001
+            },
+            {
+              "alpha_episode": 2.660002789738135e-06,
+              "alpha_episode_bp": 0.026600027897381348,
+              "alpha_per_window": 3.489699884617892e-08,
+              "alpha_per_window_bp": 0.00034896998846178917,
+              "episode_representable": false,
+              "n_onsets_per_session": 3759.394553486335,
+              "per_window_representable": false,
+              "session_budget": 0.01
+            },
+            {
+              "alpha_episode": 1.3300013948690674e-05,
+              "alpha_episode_bp": 0.13300013948690673,
+              "alpha_per_window": 1.7810170072074527e-07,
+              "alpha_per_window_bp": 0.0017810170072074527,
+              "episode_representable": false,
+              "n_onsets_per_session": 3759.394553486335,
+              "per_window_representable": false,
+              "session_budget": 0.05
+            }
+          ],
+          "debounce_interval": 5,
+          "mean_episode_length_windows": 4.35973597359736,
+          "mean_gap_windows": 72.24834437086092
+        }
+      },
+      "debounce": {
+        "combined": {
+          "debounce_interval": 2,
+          "n_gaps_available": 946
+        },
+        "per_claim": {
+          "Calibration": {
+            "debounce_interval": 2,
+            "mean_episode_length": 7.018425460636516,
+            "mean_gap": 31.761744966442954,
+            "n_episodes": 597
+          },
+          "Signal": {
+            "debounce_interval": 5,
+            "mean_episode_length": 4.35973597359736,
+            "mean_gap": 72.24834437086092,
+            "n_episodes": 303
+          }
+        }
+      },
+      "n_windows": 23207,
+      "per_claim_temporal_summary": {
+        "Calibration": {
+          "1.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7941245261961568,
+              "2": 0.6692310197060517,
+              "5": 0.4019331821682391,
+              "10": 0.12393794943363383,
+              "50": 0.02330496099917745
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7941245261961568,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 5.83871757925072,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 0.27455988455988456,
+            "measured_mean_gap_length": 27.455988455988457,
+            "measured_mean_run_length": 5.8976945244956775,
+            "n_gaps": 693,
+            "n_restricted_windows": 4093,
+            "n_runs": 694,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.1763691989485931,
+            "percentile": 1.0,
+            "predicted_mean_gap_length_independent": 100.0,
+            "predicted_mean_run_length_independent": 1.0101010101010102,
+            "raw_series_autocorrelation": {
+              "1": 0.9165580079541729,
+              "2": 0.8108647192653045,
+              "5": 0.5198419683888928,
+              "10": 0.17814791748641806,
+              "50": 0.04203424861802249
+            },
+            "run_length_ratio_measured_over_predicted": 5.83871757925072,
+            "threshold_raw_measurement": -100.0
+          },
+          "5.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7941245261961568,
+              "2": 0.6692310197060517,
+              "5": 0.4019331821682391,
+              "10": 0.12393794943363383,
+              "50": 0.02330496099917745
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7941245261961568,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 5.602809798270894,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 1.372799422799423,
+            "measured_mean_gap_length": 27.455988455988457,
+            "measured_mean_run_length": 5.8976945244956775,
+            "n_gaps": 693,
+            "n_restricted_windows": 4093,
+            "n_runs": 694,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.1763691989485931,
+            "percentile": 5.0,
+            "predicted_mean_gap_length_independent": 20.0,
+            "predicted_mean_run_length_independent": 1.0526315789473684,
+            "raw_series_autocorrelation": {
+              "1": 0.9165580079541729,
+              "2": 0.8108647192653045,
+              "5": 0.5198419683888928,
+              "10": 0.17814791748641806,
+              "50": 0.04203424861802249
+            },
+            "run_length_ratio_measured_over_predicted": 5.602809798270894,
+            "threshold_raw_measurement": -100.0
+          }
+        },
+        "Signal": {
+          "1.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.718869707347371,
+              "2": 0.4767852211276846,
+              "5": 0.1058486010084029,
+              "10": 0.06289578225495376,
+              "50": 0.00821219983113571
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.718869707347371,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 3.56125,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 3.1563380281690145,
+            "measured_mean_gap_length": 315.63380281690144,
+            "measured_mean_run_length": 3.5972222222222223,
+            "n_gaps": 71,
+            "n_restricted_windows": 259,
+            "n_runs": 72,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.011160425733614858,
+            "percentile": 1.0,
+            "predicted_mean_gap_length_independent": 100.0,
+            "predicted_mean_run_length_independent": 1.0101010101010102,
+            "raw_series_autocorrelation": {
+              "1": 0.9250746910383914,
+              "2": 0.7420185707088682,
+              "5": 0.23101990636850941,
+              "10": 0.08536590600654458,
+              "50": -0.002909368122833954
+            },
+            "run_length_ratio_measured_over_predicted": 3.56125,
+            "threshold_raw_measurement": -42.0
+          },
+          "5.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7247656022939822,
+              "2": 0.48667907385002607,
+              "5": 0.14727526016259734,
+              "10": 0.06452453775701682,
+              "50": -0.007998760985467522
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7247656022939822,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 3.6484662576687117,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 3.3673846153846156,
+            "measured_mean_gap_length": 67.34769230769231,
+            "measured_mean_run_length": 3.8404907975460123,
+            "n_gaps": 325,
+            "n_restricted_windows": 1252,
+            "n_runs": 326,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.053949239453613136,
+            "percentile": 5.0,
+            "predicted_mean_gap_length_independent": 20.0,
+            "predicted_mean_run_length_independent": 1.0526315789473684,
+            "raw_series_autocorrelation": {
+              "1": 0.9250746910383914,
+              "2": 0.7420185707088682,
+              "5": 0.23101990636850941,
+              "10": 0.08536590600654458,
+              "50": -0.002909368122833954
+            },
+            "run_length_ratio_measured_over_predicted": 3.6484662576687117,
+            "threshold_raw_measurement": -30.0
+          }
+        }
+      },
+      "session_duration_s": 2321.64,
+      "subject": 1,
+      "verified_files": {
+        "E": {
+          "key": "A01E",
+          "sha256": "53d415f39c3d7b0c88b894d7b08d99bcdfe855ede63831d3691af1a45607fb62"
+        },
+        "T": {
+          "key": "A01T",
+          "sha256": "054f02e70cf9c4ada1517e9b9864f45407939c1062c6793516585c6f511d0325"
+        }
+      }
+    },
+    {
+      "availability_table": {
+        "Calibration": {
+          "budget_rows": [
+            {
+              "alpha_episode": 1.8404229026838818e-07,
+              "alpha_episode_bp": 0.0018404229026838818,
+              "alpha_per_window": 3.473959453437203e-09,
+              "alpha_per_window_bp": 3.473959453437203e-05,
+              "episode_representable": false,
+              "n_onsets_per_session": 5433.533773904377,
+              "per_window_representable": false,
+              "session_budget": 0.001
+            },
+            {
+              "alpha_episode": 1.8404229026838818e-06,
+              "alpha_episode_bp": 0.018404229026838817,
+              "alpha_per_window": 3.489699884617892e-08,
+              "alpha_per_window_bp": 0.00034896998846178917,
+              "episode_representable": false,
+              "n_onsets_per_session": 5433.533773904377,
+              "per_window_representable": false,
+              "session_budget": 0.01
+            },
+            {
+              "alpha_episode": 9.202114513419408e-06,
+              "alpha_episode_bp": 0.09202114513419409,
+              "alpha_per_window": 1.7810170072074527e-07,
+              "alpha_per_window_bp": 0.0017810170072074527,
+              "episode_representable": false,
+              "n_onsets_per_session": 5433.533773904377,
+              "per_window_representable": false,
+              "session_budget": 0.05
+            }
+          ],
+          "debounce_interval": 2,
+          "mean_episode_length_windows": 44.17351598173516,
+          "mean_gap_windows": 8.83066361556064
+        },
+        "Signal": {
+          "budget_rows": [
+            {
+              "alpha_episode": 2.639437883472342e-07,
+              "alpha_episode_bp": 0.0026394378834723423,
+              "alpha_per_window": 3.473959453437203e-09,
+              "alpha_per_window_bp": 3.473959453437203e-05,
+              "episode_representable": false,
+              "n_onsets_per_session": 3788.6854858824663,
+              "per_window_representable": false,
+              "session_budget": 0.001
+            },
+            {
+              "alpha_episode": 2.6394378834723424e-06,
+              "alpha_episode_bp": 0.026394378834723425,
+              "alpha_per_window": 3.489699884617892e-08,
+              "alpha_per_window_bp": 0.00034896998846178917,
+              "episode_representable": false,
+              "n_onsets_per_session": 3788.6854858824663,
+              "per_window_representable": false,
+              "session_budget": 0.01
+            },
+            {
+              "alpha_episode": 1.3197189417361713e-05,
+              "alpha_episode_bp": 0.13197189417361713,
+              "alpha_per_window": 1.7810170072074527e-07,
+              "alpha_per_window_bp": 0.0017810170072074527,
+              "episode_representable": false,
+              "n_onsets_per_session": 3788.6854858824663,
+              "per_window_representable": false,
+              "session_budget": 0.05
+            }
+          ],
+          "debounce_interval": 6,
+          "mean_episode_length_windows": 4.19344262295082,
+          "mean_gap_windows": 71.82236842105263
+        }
+      },
+      "debounce": {
+        "combined": {
+          "debounce_interval": 2,
+          "n_gaps_available": 629
+        },
+        "per_claim": {
+          "Calibration": {
+            "debounce_interval": 2,
+            "mean_episode_length": 44.17351598173516,
+            "mean_gap": 8.83066361556064,
+            "n_episodes": 438
+          },
+          "Signal": {
+            "debounce_interval": 6,
+            "mean_episode_length": 4.19344262295082,
+            "mean_gap": 71.82236842105263,
+            "n_episodes": 305
+          }
+        }
+      },
+      "n_windows": 23207,
+      "per_claim_temporal_summary": {
+        "Calibration": {
+          "1.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.8168890011275044,
+              "2": 0.7202261303980521,
+              "5": 0.5431003521742244,
+              "10": 0.3797641395008669,
+              "50": 0.33774337087616046
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.8168890011275044,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 31.069148936170212,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 0.06609836065573771,
+            "measured_mean_gap_length": 6.609836065573771,
+            "measured_mean_run_length": 31.382978723404257,
+            "n_gaps": 610,
+            "n_restricted_windows": 19175,
+            "n_runs": 611,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.8262593183091309,
+            "percentile": 1.0,
+            "predicted_mean_gap_length_independent": 100.0,
+            "predicted_mean_run_length_independent": 1.0101010101010102,
+            "raw_series_autocorrelation": {
+              "1": 0.9047369083269575,
+              "2": 0.8006936207178261,
+              "5": 0.5693229531677706,
+              "10": 0.3729313056458767,
+              "50": 0.3251933606924726
+            },
+            "run_length_ratio_measured_over_predicted": 31.069148936170212,
+            "threshold_raw_measurement": -100.0
+          },
+          "5.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.8168890011275044,
+              "2": 0.7202261303980521,
+              "5": 0.5431003521742244,
+              "10": 0.3797641395008669,
+              "50": 0.33774337087616046
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.8168890011275044,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 29.813829787234045,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 0.33049180327868855,
+            "measured_mean_gap_length": 6.609836065573771,
+            "measured_mean_run_length": 31.382978723404257,
+            "n_gaps": 610,
+            "n_restricted_windows": 19175,
+            "n_runs": 611,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.8262593183091309,
+            "percentile": 5.0,
+            "predicted_mean_gap_length_independent": 20.0,
+            "predicted_mean_run_length_independent": 1.0526315789473684,
+            "raw_series_autocorrelation": {
+              "1": 0.9047369083269575,
+              "2": 0.8006936207178261,
+              "5": 0.5693229531677706,
+              "10": 0.3729313056458767,
+              "50": 0.3251933606924726
+            },
+            "run_length_ratio_measured_over_predicted": 29.813829787234045,
+            "threshold_raw_measurement": -100.0
+          }
+        },
+        "Signal": {
+          "1.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.6672035247357428,
+              "2": 0.38781875535806687,
+              "5": 0.03447839296477497,
+              "10": -0.006609842956546413,
+              "50": -0.006628309486618434
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.6672035247357428,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 3.006666666666667,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 2.847875,
+            "measured_mean_gap_length": 284.7875,
+            "measured_mean_run_length": 3.037037037037037,
+            "n_gaps": 80,
+            "n_restricted_windows": 246,
+            "n_runs": 81,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.010600249924591718,
+            "percentile": 1.0,
+            "predicted_mean_gap_length_independent": 100.0,
+            "predicted_mean_run_length_independent": 1.0101010101010102,
+            "raw_series_autocorrelation": {
+              "1": 0.9187019730182266,
+              "2": 0.7196424300828295,
+              "5": 0.17771831508967004,
+              "10": 0.08372880388908892,
+              "50": 0.036349225418080125
+            },
+            "run_length_ratio_measured_over_predicted": 3.006666666666667,
+            "threshold_raw_measurement": -30.0
+          },
+          "5.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7097005886040542,
+              "2": 0.4636537809171275,
+              "5": 0.09369502071538703,
+              "10": 0.03261477227304068,
+              "50": -0.00269886723886198
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7097005886040542,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 3.4495426829268294,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 3.351987767584098,
+            "measured_mean_gap_length": 67.03975535168196,
+            "measured_mean_run_length": 3.6310975609756095,
+            "n_gaps": 327,
+            "n_restricted_windows": 1191,
+            "n_runs": 328,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.05132072219588917,
+            "percentile": 5.0,
+            "predicted_mean_gap_length_independent": 20.0,
+            "predicted_mean_run_length_independent": 1.0526315789473684,
+            "raw_series_autocorrelation": {
+              "1": 0.9187019730182266,
+              "2": 0.7196424300828295,
+              "5": 0.17771831508967004,
+              "10": 0.08372880388908892,
+              "50": 0.036349225418080125
+            },
+            "run_length_ratio_measured_over_predicted": 3.4495426829268294,
+            "threshold_raw_measurement": -20.0
+          }
+        }
+      },
+      "session_duration_s": 2321.64,
+      "subject": 2,
+      "verified_files": {
+        "E": {
+          "key": "A02E",
+          "sha256": "d63c454005d3a9b41d8440629482e855afc823339bdd0b5721842a7ee9cc7b12"
+        },
+        "T": {
+          "key": "A02T",
+          "sha256": "5ddd5cb520b1692c3ba1363f48d98f58f0e46f3699ee50d749947950fc39db27"
+        }
+      }
+    },
+    {
+      "availability_table": {
+        "Calibration": {
+          "budget_rows": [
+            {
+              "alpha_episode": 1.3014212424942532e-07,
+              "alpha_episode_bp": 0.001301421242494253,
+              "alpha_per_window": 3.473959453437203e-09,
+              "alpha_per_window_bp": 3.473959453437203e-05,
+              "episode_representable": false,
+              "n_onsets_per_session": 7683.907157404617,
+              "per_window_representable": false,
+              "session_budget": 0.001
+            },
+            {
+              "alpha_episode": 1.301421242494253e-06,
+              "alpha_episode_bp": 0.01301421242494253,
+              "alpha_per_window": 3.489699884617892e-08,
+              "alpha_per_window_bp": 0.00034896998846178917,
+              "episode_representable": false,
+              "n_onsets_per_session": 7683.907157404617,
+              "per_window_representable": false,
+              "session_budget": 0.01
+            },
+            {
+              "alpha_episode": 6.5071062124712654e-06,
+              "alpha_episode_bp": 0.06507106212471266,
+              "alpha_per_window": 1.7810170072074527e-07,
+              "alpha_per_window_bp": 0.0017810170072074527,
+              "episode_representable": false,
+              "n_onsets_per_session": 7683.907157404617,
+              "per_window_representable": false,
+              "session_budget": 0.05
+            }
+          ],
+          "debounce_interval": 2,
+          "mean_episode_length_windows": 6.303225806451613,
+          "mean_gap_windows": 31.177705977382875
+        },
+        "Signal": {
+          "budget_rows": [
+            {
+              "alpha_episode": 2.4358075976278394e-07,
+              "alpha_episode_bp": 0.0024358075976278395,
+              "alpha_per_window": 3.473959453437203e-09,
+              "alpha_per_window_bp": 3.473959453437203e-05,
+              "episode_representable": false,
+              "n_onsets_per_session": 4105.414569582057,
+              "per_window_representable": false,
+              "session_budget": 0.001
+            },
+            {
+              "alpha_episode": 2.4358075976278394e-06,
+              "alpha_episode_bp": 0.024358075976278395,
+              "alpha_per_window": 3.489699884617892e-08,
+              "alpha_per_window_bp": 0.00034896998846178917,
+              "episode_representable": false,
+              "n_onsets_per_session": 4105.414569582057,
+              "per_window_representable": false,
+              "session_budget": 0.01
+            },
+            {
+              "alpha_episode": 1.2179037988139196e-05,
+              "alpha_episode_bp": 0.12179037988139196,
+              "alpha_per_window": 1.7810170072074527e-07,
+              "alpha_per_window_bp": 0.0017810170072074527,
+              "episode_representable": false,
+              "n_onsets_per_session": 4105.414569582057,
+              "per_window_representable": false,
+              "session_budget": 0.05
+            }
+          ],
+          "debounce_interval": 5,
+          "mean_episode_length_windows": 4.0845921450151055,
+          "mean_gap_windows": 66.06666666666666
+        }
+      },
+      "debounce": {
+        "combined": {
+          "debounce_interval": 2,
+          "n_gaps_available": 996
+        },
+        "per_claim": {
+          "Calibration": {
+            "debounce_interval": 2,
+            "mean_episode_length": 6.303225806451613,
+            "mean_gap": 31.177705977382875,
+            "n_episodes": 620
+          },
+          "Signal": {
+            "debounce_interval": 5,
+            "mean_episode_length": 4.0845921450151055,
+            "mean_gap": 66.06666666666666,
+            "n_episodes": 331
+          }
+        }
+      },
+      "n_windows": 23207,
+      "per_claim_temporal_summary": {
+        "Calibration": {
+          "1.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7793143280599697,
+              "2": 0.6431828332235943,
+              "5": 0.38844850771689565,
+              "10": 0.13875939206700028,
+              "50": 0.03286879286588825
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7793143280599697,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 5.368468085106383,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 0.2753409090909091,
+            "measured_mean_gap_length": 27.53409090909091,
+            "measured_mean_run_length": 5.422695035460993,
+            "n_gaps": 704,
+            "n_restricted_windows": 3823,
+            "n_runs": 705,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.16473477829965097,
+            "percentile": 1.0,
+            "predicted_mean_gap_length_independent": 100.0,
+            "predicted_mean_run_length_independent": 1.0101010101010102,
+            "raw_series_autocorrelation": {
+              "1": 0.9178959675741872,
+              "2": 0.8081147818249855,
+              "5": 0.5218454391226741,
+              "10": 0.21216083229081165,
+              "50": 0.08052918444588007
+            },
+            "run_length_ratio_measured_over_predicted": 5.368468085106383,
+            "threshold_raw_measurement": -100.0
+          },
+          "5.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7793143280599697,
+              "2": 0.6431828332235943,
+              "5": 0.38844850771689565,
+              "10": 0.13875939206700028,
+              "50": 0.03286879286588825
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7793143280599697,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 5.151560283687944,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 1.3767045454545455,
+            "measured_mean_gap_length": 27.53409090909091,
+            "measured_mean_run_length": 5.422695035460993,
+            "n_gaps": 704,
+            "n_restricted_windows": 3823,
+            "n_runs": 705,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.16473477829965097,
+            "percentile": 5.0,
+            "predicted_mean_gap_length_independent": 20.0,
+            "predicted_mean_run_length_independent": 1.0526315789473684,
+            "raw_series_autocorrelation": {
+              "1": 0.9178959675741872,
+              "2": 0.8081147818249855,
+              "5": 0.5218454391226741,
+              "10": 0.21216083229081165,
+              "50": 0.08052918444588007
+            },
+            "run_length_ratio_measured_over_predicted": 5.151560283687944,
+            "threshold_raw_measurement": -100.0
+          }
+        },
+        "Signal": {
+          "1.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7452772142392521,
+              "2": 0.5323121877708518,
+              "5": 0.1857214234120831,
+              "10": 0.09820203660811691,
+              "50": 0.014711899450572444
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7452772142392521,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 3.927540983606557,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 3.7648333333333337,
+            "measured_mean_gap_length": 376.48333333333335,
+            "measured_mean_run_length": 3.9672131147540983,
+            "n_gaps": 60,
+            "n_restricted_windows": 242,
+            "n_runs": 61,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.010427888137199982,
+            "percentile": 1.0,
+            "predicted_mean_gap_length_independent": 100.0,
+            "predicted_mean_run_length_independent": 1.0101010101010102,
+            "raw_series_autocorrelation": {
+              "1": 0.9347957149751681,
+              "2": 0.773699817261192,
+              "5": 0.2990696507564627,
+              "10": 0.111938722648796,
+              "50": 0.06033780626551532
+            },
+            "run_length_ratio_measured_over_predicted": 3.927540983606557,
+            "threshold_raw_measurement": -26.0
+          },
+          "5.0": {
+            "binary_indicator_autocorrelation": {
+              "1": 0.7092148598835474,
+              "2": 0.46853632700922304,
+              "5": 0.13913938841473217,
+              "10": 0.046488779681621274,
+              "50": 0.016314253468023204
+            },
+            "falsification": {
+              "lag1_autocorrelation": 0.7092148598835474,
+              "practical_case_falsified_for_this_claim_and_operating_point": false,
+              "run_length_near_independent_prediction": false,
+              "run_length_ratio": 3.459180790960452,
+              "weak_autocorrelation": false
+            },
+            "gap_ratio_measured_over_predicted": 3.097025495750708,
+            "measured_mean_gap_length": 61.94050991501416,
+            "measured_mean_run_length": 3.6412429378531073,
+            "n_gaps": 353,
+            "n_restricted_windows": 1289,
+            "n_runs": 354,
+            "n_windows": 23207,
+            "observed_restricted_fraction": 0.055543585986986686,
+            "percentile": 5.0,
+            "predicted_mean_gap_length_independent": 20.0,
+            "predicted_mean_run_length_independent": 1.0526315789473684,
+            "raw_series_autocorrelation": {
+              "1": 0.9347957149751681,
+              "2": 0.773699817261192,
+              "5": 0.2990696507564627,
+              "10": 0.111938722648796,
+              "50": 0.06033780626551532
+            },
+            "run_length_ratio_measured_over_predicted": 3.459180790960452,
+            "threshold_raw_measurement": -16.0
+          }
+        }
+      },
+      "session_duration_s": 2321.64,
+      "subject": 3,
+      "verified_files": {
+        "E": {
+          "key": "A03E",
+          "sha256": "d4229267ec7624fa8bd3af5cbebac17f415f7c722de6cb676748f8cb3b717d97"
+        },
+        "T": {
+          "key": "A03T",
+          "sha256": "7e731ee8b681d5da6ecb11ae1d4e64b1653c7f15aad5d6b7620b25ce53141e80"
+        }
+      }
+    }
+  ],
+  "subjects": [
+    1,
+    2,
+    3
+  ]
+}

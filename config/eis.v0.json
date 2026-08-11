@@ -1,0 +1,68 @@
+{
+  "_comment": "Phase 2 (CLAUDE.md §14: Phases 1-7 run under calibration_status: provisional). One PLACEHOLDER claim type per dimension, synthetic ROC, to exercise the bands -> reduce -> CTPR -> pi wiring end-to-end. These are NOT measured detector characterisations and must be replaced by the real per-sensor claim registry + measured ROC in Phase 8. L8->L6 relattice (changelog 2026-07-19): Safety and Context claims removed along with their dimensions; the weak-detector/band_cap=MED demonstration they carried is independently covered by tests/test_bands.py's DeriveThresholdsTests (a pure, config-independent test of derive_thresholds() against a hand-built weak ROC curve), not lost with their removal.",
+  "calibration_status": "provisional",
+  "alpha_bp": 500,
+  "beta_bp": 500,
+  "claims": {
+    "signal.provisional_v0": {
+      "dimension": "Signal", "polarity": 1, "placeholder": true,
+      "roc": [
+        {"threshold": -100, "fpr_bp": 0, "tpr_bp": 0},
+        {"threshold": -50, "fpr_bp": 100, "tpr_bp": 3000},
+        {"threshold": 0, "fpr_bp": 500, "tpr_bp": 8000},
+        {"threshold": 50, "fpr_bp": 2000, "tpr_bp": 9500},
+        {"threshold": 100, "fpr_bp": 10000, "tpr_bp": 10000}
+      ]
+    },
+    "model.provisional_v0": {
+      "dimension": "Model", "polarity": 1, "placeholder": true,
+      "roc": [
+        {"threshold": -100, "fpr_bp": 0, "tpr_bp": 0},
+        {"threshold": -50, "fpr_bp": 100, "tpr_bp": 3000},
+        {"threshold": 0, "fpr_bp": 500, "tpr_bp": 8000},
+        {"threshold": 50, "fpr_bp": 2000, "tpr_bp": 9500},
+        {"threshold": 100, "fpr_bp": 10000, "tpr_bp": 10000}
+      ]
+    },
+    "calibration.provisional_v0": {
+      "dimension": "Calibration", "polarity": 1, "placeholder": true,
+      "roc": [
+        {"threshold": -100, "fpr_bp": 0, "tpr_bp": 0},
+        {"threshold": -50, "fpr_bp": 100, "tpr_bp": 3000},
+        {"threshold": 0, "fpr_bp": 500, "tpr_bp": 8000},
+        {"threshold": 50, "fpr_bp": 2000, "tpr_bp": 9500},
+        {"threshold": 100, "fpr_bp": 10000, "tpr_bp": 10000}
+      ]
+    },
+    "device.provisional_v0": {
+      "dimension": "Device", "polarity": 1, "placeholder": true,
+      "roc": [
+        {"threshold": -100, "fpr_bp": 0, "tpr_bp": 0},
+        {"threshold": -50, "fpr_bp": 100, "tpr_bp": 3000},
+        {"threshold": 0, "fpr_bp": 500, "tpr_bp": 8000},
+        {"threshold": 50, "fpr_bp": 2000, "tpr_bp": 9500},
+        {"threshold": 100, "fpr_bp": 10000, "tpr_bp": 10000}
+      ]
+    },
+    "fsi.provisional_v0": {
+      "dimension": "FSI", "polarity": 1, "placeholder": true,
+      "roc": [
+        {"threshold": -100, "fpr_bp": 0, "tpr_bp": 0},
+        {"threshold": -50, "fpr_bp": 100, "tpr_bp": 3000},
+        {"threshold": 0, "fpr_bp": 500, "tpr_bp": 8000},
+        {"threshold": 50, "fpr_bp": 2000, "tpr_bp": 9500},
+        {"threshold": 100, "fpr_bp": 10000, "tpr_bp": 10000}
+      ]
+    },
+    "actuationfidelity.provisional_v0": {
+      "dimension": "ActuationFidelity", "polarity": 1, "placeholder": true,
+      "roc": [
+        {"threshold": -100, "fpr_bp": 0, "tpr_bp": 0},
+        {"threshold": -50, "fpr_bp": 100, "tpr_bp": 3000},
+        {"threshold": 0, "fpr_bp": 500, "tpr_bp": 8000},
+        {"threshold": 50, "fpr_bp": 2000, "tpr_bp": 9500},
+        {"threshold": 100, "fpr_bp": 10000, "tpr_bp": 10000}
+      ]
+    }
+  }
+}

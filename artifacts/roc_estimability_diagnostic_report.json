@@ -1,0 +1,264 @@
+{
+  "bootstrap_n": 1000,
+  "claims": [
+    {
+      "bootstrap_band_widths": {
+        "full_9": {
+          "fpr_band_width": 0.0003940110323089047,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 1.0
+        },
+        "held_out_6": {
+          "fpr_band_width": 0.000591016548463357,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 1.0
+        }
+      },
+      "claim": "Signal",
+      "class_support": {
+        "n_of_6_held_out_present": 6,
+        "n_of_6_held_out_separating": 5,
+        "sufficiency_floor": 4
+      },
+      "cohort_stability_gap": {
+        "fpr_band_width_ratio_6_over_9": 1.4999999999999998,
+        "tpr_band_width_ratio_6_over_9": 1.0
+      },
+      "leave_one_subject_out_swing_held_out_6": {
+        "max_fpr_swing": 0.0,
+        "max_tpr_swing": 1.0,
+        "n_subjects": 6
+      },
+      "subject_invariant_measurement": false,
+      "sufficiency_verdict": {
+        "failed_tests": [
+          "loso_tpr_swing"
+        ],
+        "sufficient_on_held_out": false
+      }
+    },
+    {
+      "bootstrap_band_widths": {
+        "full_9": {
+          "fpr_band_width": 0.0,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.0031520882584712374
+        },
+        "held_out_6": {
+          "fpr_band_width": 0.000591016548463357,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.008274231678486997
+        }
+      },
+      "claim": "Calibration",
+      "class_support": {
+        "n_of_6_held_out_present": 6,
+        "n_of_6_held_out_separating": 3,
+        "sufficiency_floor": 4
+      },
+      "cohort_stability_gap": {
+        "fpr_band_width_ratio_6_over_9": Infinity,
+        "tpr_band_width_ratio_6_over_9": 2.6249999999999996
+      },
+      "leave_one_subject_out_swing_held_out_6": {
+        "max_fpr_swing": 0.0,
+        "max_tpr_swing": 0.0,
+        "n_subjects": 6
+      },
+      "subject_invariant_measurement": false,
+      "sufficiency_verdict": {
+        "failed_tests": [
+          "class_support",
+          "bootstrap_band_ratio_fpr",
+          "bootstrap_band_ratio_tpr"
+        ],
+        "sufficient_on_held_out": false
+      }
+    },
+    {
+      "bootstrap_band_widths": {
+        "full_9": {
+          "fpr_band_width": 0.0,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.0
+        },
+        "held_out_6": {
+          "fpr_band_width": 0.0,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.0
+        }
+      },
+      "claim": "Model",
+      "class_support": {
+        "n_of_6_held_out_present": 6,
+        "n_of_6_held_out_separating": 6,
+        "sufficiency_floor": 4
+      },
+      "cohort_stability_gap": {
+        "fpr_band_width_ratio_6_over_9": null,
+        "tpr_band_width_ratio_6_over_9": null
+      },
+      "leave_one_subject_out_swing_held_out_6": {
+        "max_fpr_swing": 0.0,
+        "max_tpr_swing": 0.0,
+        "n_subjects": 6
+      },
+      "subject_invariant_measurement": false,
+      "sufficiency_verdict": {
+        "failed_tests": [],
+        "sufficient_on_held_out": true
+      }
+    },
+    {
+      "bootstrap_band_widths": {
+        "full_9": {
+          "fpr_band_width": 0.0,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.0
+        },
+        "held_out_6": {
+          "fpr_band_width": 0.0,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.0
+        }
+      },
+      "claim": "Device",
+      "class_support": {
+        "n_of_6_held_out_present": 6,
+        "n_of_6_held_out_separating": 6,
+        "sufficiency_floor": 4
+      },
+      "cohort_stability_gap": {
+        "fpr_band_width_ratio_6_over_9": null,
+        "tpr_band_width_ratio_6_over_9": null
+      },
+      "leave_one_subject_out_swing_held_out_6": {
+        "max_fpr_swing": 0.0,
+        "max_tpr_swing": 0.0,
+        "n_subjects": 6
+      },
+      "subject_invariant_measurement": true,
+      "sufficiency_verdict": {
+        "failed_tests": [],
+        "sufficient_on_held_out": true
+      }
+    },
+    {
+      "bootstrap_band_widths": {
+        "full_9": {
+          "fpr_band_width": 0.0,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.0
+        },
+        "held_out_6": {
+          "fpr_band_width": 0.0,
+          "n_boot": 1000,
+          "n_resamples_with_data": 1000,
+          "tpr_band_width": 0.0
+        }
+      },
+      "claim": "FSI",
+      "class_support": {
+        "n_of_6_held_out_present": 6,
+        "n_of_6_held_out_separating": 6,
+        "sufficiency_floor": 4
+      },
+      "cohort_stability_gap": {
+        "fpr_band_width_ratio_6_over_9": null,
+        "tpr_band_width_ratio_6_over_9": null
+      },
+      "leave_one_subject_out_swing_held_out_6": {
+        "max_fpr_swing": 0.0,
+        "max_tpr_swing": 0.0,
+        "n_subjects": 6
+      },
+      "subject_invariant_measurement": true,
+      "sufficiency_verdict": {
+        "failed_tests": [],
+        "sufficient_on_held_out": true
+      }
+    },
+    {
+      "claim": "ActuationFidelity",
+      "scope_note": "No per-subject honest/attack sample construction is defined for this diagnostic: ActuationFidelity's raw_measurement (observer/observer.py) depends on a live enforcement pass comparing commanded vs. observed actuation, not on EEG subject identity or offline per-trial data -- the same scope limitation already stated in docs/EVENT-MODEL-INVESTIGATION.md section 0 for streaming measurement. Not assessed by this diagnostic; no sufficiency verdict is given for it."
+    }
+  ],
+  "cohorts": {
+    "full": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "held_out": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "phase_9_gate": {
+    "calibration_status_flipped_to_measured": false,
+    "real_roc_thresholds_derived": false,
+    "theta1_theta2_band_cap_read_off": false
+  },
+  "pre_committed_parameters": {
+    "class_support_min_subjects_of_6": 4,
+    "foil_map_calibration": {
+      "1": 2,
+      "2": 3,
+      "3": 4,
+      "4": 5,
+      "5": 6,
+      "6": 7,
+      "7": 8,
+      "8": 9,
+      "9": 1
+    },
+    "line_noise_amplitude_std_multiple": 3.0,
+    "max_band_width_ratio_6_over_9": 2.0,
+    "max_loso_swing_absolute": 0.15
+  },
+  "recommendation": {
+    "claim_scoped_exceptions": [
+      {
+        "claim": "Signal",
+        "failed_tests": [
+          "loso_tpr_swing"
+        ]
+      },
+      {
+        "claim": "Calibration",
+        "failed_tests": [
+          "class_support",
+          "bootstrap_band_ratio_fpr",
+          "bootstrap_band_ratio_tpr"
+        ]
+      }
+    ],
+    "claims_remaining_held_out": [
+      "Model",
+      "Device",
+      "FSI"
+    ],
+    "decision": "claim-scoped exception",
+    "rationale": "One or more claims fail sufficiency on the held-out cohort; per the task's own gate, this is NOT a blanket Option A recommendation -- only the specific failing claims use the full 9-subject pool."
+  },
+  "task": "roc_estimability_diagnostic"
+}

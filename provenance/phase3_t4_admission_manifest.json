@@ -1,0 +1,48 @@
+{
+  "artifacts": {
+    "cross_domain_replay_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase3_cross_domain_replay.json",
+      "sha256": "65b396a0dcffc2b19c855c36c80b3537d5e7a2bac4d4f34c81c8e70f0152f928"
+    },
+    "sample_verdict_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase3_sample_verdict.json",
+      "sha256": "6feed1854f2af9d15136f9e8814bdaea98a732a6b168a722de1e942df32163da"
+    },
+    "t4_failure_modes_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase3_t4_failure_modes.json",
+      "sha256": "c83e49e27a893418df87286ca22a8df25e2ef2da42e608433b3b085eede383f9"
+    },
+    "t4_failure_modes_md": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase3_t4_failure_modes.md",
+      "sha256": "8aa121c0f60c7753c94ad5a4ed50b5c202e7a76bceeb1e2ef0c59618e5c556ab"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "claim_registry": "384662cff97b8d65732651f72696a74578a7d7c11752354fdd8a4d5013275a7e",
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "eis_v0": "b3feea6f1a62f88eb7b2d4ff53a199264664462d20309d07e02b14ee7488cce6",
+    "key_registry": "f49b115ba2597b956b151f5713024dfa069ef15ab152e1006661aeb5c573b78e"
+  },
+  "experiment": "phase3_t4_admission",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "current_window_id": 7,
+    "evidence_deadline_ms": 60,
+    "on_time_arrival_ms": 10,
+    "window_open_time_ms": 0
+  },
+  "seeds": {
+    "note": "demo sensor/kernel keys derived from named seeds in tests/key_fixtures.py -- provisional, no real hardware provisioning yet"
+  },
+  "timestamp_utc": "2026-07-19T14:25:43.955680+00:00"
+}

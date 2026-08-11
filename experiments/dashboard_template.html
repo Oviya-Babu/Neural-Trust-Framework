@@ -1,0 +1,928 @@
+<title>NTF Runtime Monitor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #10121a;
+    --surface: #171a24;
+    --surface-2: #1e2230;
+    --border: #2a2f40;
+    --text: #eceef3;
+    --text-2: #a6acc0;
+    --text-3: #6e7488;
+    --accent: #3987e5;
+    --accent-dim: #1c5cab;
+    --good: #22c55e;
+    --warning: #fab219;
+    --critical: #e66767;
+    --ord-safe: #184f95;
+    --ord-constrained: #3987e5;
+    --ord-normal: #9ec5f4;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-sans-serif, Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:where(:not([data-theme="dark"])) {
+      --bg: #f5f6f8; --surface: #ffffff; --surface-2: #eef0f4; --border: #dde1e8;
+      --text: #12141a; --text-2: #52586b; --text-3: #838a9c;
+      --accent: #2a78d6; --accent-dim: #cde2fb;
+      --good: #0ca30c; --warning: #b3790c; --critical: #d03b3b;
+      --ord-safe: #0d366b; --ord-constrained: #2a78d6; --ord-normal: #86b6ef;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f6f8; --surface: #ffffff; --surface-2: #eef0f4; --border: #dde1e8;
+    --text: #12141a; --text-2: #52586b; --text-3: #838a9c;
+    --accent: #2a78d6; --accent-dim: #cde2fb;
+    --good: #0ca30c; --warning: #b3790c; --critical: #d03b3b;
+    --ord-safe: #0d366b; --ord-constrained: #2a78d6; --ord-normal: #86b6ef;
+  }
+  :root[data-theme="dark"] {
+    --bg: #10121a; --surface: #171a24; --surface-2: #1e2230; --border: #2a2f40;
+    --text: #eceef3; --text-2: #a6acc0; --text-3: #6e7488;
+    --accent: #3987e5; --accent-dim: #1c5cab;
+    --good: #22c55e; --warning: #fab219; --critical: #e66767;
+    --ord-safe: #184f95; --ord-constrained: #3987e5; --ord-normal: #9ec5f4;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--sans); }
+  body { font-size: 14px; line-height: 1.5; }
+  ::selection { background: var(--accent-dim); }
+  a { color: var(--accent); }
+  .num, .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  h1, h2, h3, h4 { text-wrap: balance; margin: 0 0 4px; font-weight: 650; }
+  h1 { font-size: 17px; letter-spacing: -0.01em; }
+  h2 { font-size: 20px; margin-bottom: 2px; }
+  h3 { font-size: 13.5px; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+  h4 { font-size: 14px; }
+  p { color: var(--text-2); margin: 4px 0; }
+  .app { display: grid; grid-template-columns: 220px 1fr; grid-template-rows: 56px 1fr; min-height: 100vh; }
+  header.topbar {
+    grid-column: 1 / -1; display: flex; align-items: center; gap: 20px; padding: 0 20px;
+    border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 20;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+  .brand .mark { width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(135deg, var(--accent), var(--ord-safe)); display: grid; place-items: center; font-size: 13px; color: white; font-weight: 800; }
+  .topbar-stats { display: flex; gap: 22px; margin-left: auto; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; gap: 1px; }
+  .stat .label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat .value { font-size: 13px; font-weight: 650; }
+  nav.rail {
+    border-right: 1px solid var(--border); background: var(--surface); padding: 10px; position: sticky; top: 56px;
+    height: calc(100vh - 56px); overflow-y: auto;
+  }
+  nav.rail button {
+    display: flex; align-items: center; gap: 9px; width: 100%; text-align: left; padding: 9px 10px; border-radius: 8px;
+    border: none; background: transparent; color: var(--text-2); font-size: 13px; cursor: pointer; font-family: var(--sans);
+    margin-bottom: 2px;
+  }
+  nav.rail button .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-3); flex: none; }
+  nav.rail button:hover { background: var(--surface-2); color: var(--text); }
+  nav.rail button.active { background: var(--accent-dim); color: var(--accent); font-weight: 650; }
+  nav.rail button.active .dot { background: var(--accent); }
+  main.content { padding: 24px 28px 60px; max-width: 1280px; overflow-x: hidden; }
+  section.view { display: none; animation: fade .15s ease; }
+  section.view.active { display: block; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .view-head { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .grid { display: grid; gap: 14px; }
+  .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+  @media (max-width: 1000px) { .grid.cols-2, .grid.cols-3, .grid.cols-4, .grid.cols-6 { grid-template-columns: repeat(2, 1fr); } }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px;
+  }
+  .card.tight { padding: 12px 14px; }
+  .kpi .value { font-size: 26px; font-weight: 700; font-family: var(--mono); }
+  .kpi .label { color: var(--text-2); font-size: 12px; margin-top: 2px; }
+  .kpi .sub { color: var(--text-3); font-size: 11px; margin-top: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--text-3); font-weight: 600; text-transform: uppercase; font-size: 10.5px; letter-spacing: 0.04em; }
+  td.num, th.num { text-align: right; font-family: var(--mono); }
+  .table-wrap { overflow-x: auto; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 999px; font-size: 11.5px;
+    font-weight: 650; white-space: nowrap;
+  }
+  .pill.good { background: color-mix(in oklab, var(--good) 18%, transparent); color: var(--good); }
+  .pill.warning { background: color-mix(in oklab, var(--warning) 20%, transparent); color: var(--warning); }
+  .pill.critical { background: color-mix(in oklab, var(--critical) 18%, transparent); color: var(--critical); }
+  .pill.neutral { background: var(--surface-2); color: var(--text-2); }
+  .pill.accent { background: var(--accent-dim); color: var(--accent); }
+  .chip { display: inline-block; padding: 2px 7px; border-radius: 5px; font-size: 10.5px; font-weight: 650; background: var(--surface-2); color: var(--text-2); }
+  .badge-strict { color: var(--critical); }
+  .badge-lenient { color: var(--warning); }
+  .muted { color: var(--text-3); font-size: 11.5px; }
+  .note { font-size: 12px; color: var(--text-2); background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 6px; padding: 9px 12px; margin-top: 10px; }
+  .note.warn { border-left-color: var(--warning); }
+  .note.crit { border-left-color: var(--critical); }
+  .row { display: flex; align-items: center; gap: 8px; }
+  .spread { display: flex; align-items: center; justify-content: space-between; }
+  svg.chart { width: 100%; height: auto; display: block; }
+  svg text { fill: var(--text-2); font-family: var(--sans); }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11px; color: var(--text-2); margin-top: 8px; }
+  .legend .sw { width: 9px; height: 9px; border-radius: 2px; display: inline-block; margin-right: 5px; vertical-align: -1px; }
+  .export-btn {
+    display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text); cursor: pointer; font-family: var(--sans); font-size: 13px; font-weight: 600;
+    width: 100%; text-align: left;
+  }
+  .export-btn:hover { border-color: var(--accent); }
+  .export-btn .ico { width: 30px; height: 30px; border-radius: 7px; background: var(--accent-dim); color: var(--accent); display: grid; place-items: center; font-size: 12px; font-weight: 800; flex: none; }
+  .toast {
+    position: fixed; bottom: 20px; right: 20px; background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); padding: 10px 16px; border-radius: 9px; font-size: 12.5px; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    opacity: 0; transform: translateY(6px); transition: all .2s ease; pointer-events: none; z-index: 50;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  code.hash { font-family: var(--mono); font-size: 11px; color: var(--text-3); }
+  @media print {
+    nav.rail, header.topbar, .no-print { display: none !important; }
+    section.view { display: block !important; }
+    main.content { max-width: none; padding: 0; }
+    body { background: white; color: black; }
+    .card { break-inside: avoid; border-color: #ccc; }
+  }
+</style>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="mark">NT</span><span id="brand-name">NTF Runtime Monitor</span></div>
+    <div class="topbar-stats" id="topbar-stats"></div>
+  </header>
+  <nav class="rail" id="nav-rail"></nav>
+  <main class="content" id="content"></main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script id="dashboard-data" type="application/json">/*__DASHBOARD_DATA__*/null</script>
+<script>
+"use strict";
+const DATA = JSON.parse(document.getElementById("dashboard-data").textContent);
+
+const ORD_COLOR = { Safe: "var(--ord-safe)", Constrained: "var(--ord-constrained)", Normal: "var(--ord-normal)" };
+const RES_PILL = { stable: "good", tail_floor: "warning", pending: "neutral" };
+
+function el(tag, attrs, children) {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) {
+    if (k === "class") e.className = attrs[k];
+    else if (k === "html") e.innerHTML = attrs[k];
+    else e.setAttribute(k, attrs[k]);
+  }
+  (children || []).forEach(c => { if (c) e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+  return e;
+}
+function fmt(n, d) { if (n === null || n === undefined) return "--"; return Number(n).toFixed(d === undefined ? 2 : d); }
+function pill(text, kind) { return el("span", { class: "pill " + (kind || "neutral") }, [text]); }
+function chip(text) { return el("span", { class: "chip" }, [text]); }
+function svgns(tag) { return document.createElementNS("http://www.w3.org/2000/svg", tag); }
+
+/* ---------------- Section registry ---------------- */
+const SECTIONS = [
+  { id: "overview", label: "Overview", render: renderOverview },
+  { id: "evidence", label: "Evidence & EEG", render: renderEvidence },
+  { id: "trust", label: "Trust Dimensions & ROC", render: renderTrust },
+  { id: "ctpr", label: "CTPR & Policy", render: renderCtpr },
+  { id: "enforcement", label: "Enforcement", render: renderEnforcement },
+  { id: "attacks", label: "Attacks", render: renderAttacks },
+  { id: "robustness", label: "Robustness", render: renderRobustness },
+  { id: "latency", label: "Latency", render: renderLatency },
+  { id: "audit", label: "Audit & Provenance", render: renderAudit },
+  { id: "export", label: "Export", render: renderExport },
+];
+
+function buildNav() {
+  const rail = document.getElementById("nav-rail");
+  SECTIONS.forEach((s, i) => {
+    const btn = el("button", { "data-target": s.id }, [el("span", { class: "dot" }), s.label]);
+    btn.addEventListener("click", () => showSection(s.id));
+    rail.appendChild(btn);
+  });
+}
+function showSection(id) {
+  document.querySelectorAll("nav.rail button").forEach(b => b.classList.toggle("active", b.dataset.target === id));
+  document.querySelectorAll("section.view").forEach(v => v.classList.toggle("active", v.id === "view-" + id));
+  const s = SECTIONS.find(s => s.id === id);
+  if (s && !s._rendered) { s.render(); s._rendered = true; }
+}
+
+function buildTopbarStats() {
+  const wrap = document.getElementById("topbar-stats");
+  const honest = (DATA.fault_injection.honest_operation || {}).shipped_measured_config || {};
+  const dist = honest.distribution || {};
+  const cov = DATA.attacks.coverage_summary || {};
+  const stats = [
+    ["Calibration", DATA.calibration_status || "--"],
+    ["Honest Normal-rate", dist.fraction_normal !== undefined ? (dist.fraction_normal * 100).toFixed(1) + "%" : "--"],
+    ["Attacks detected", cov.detected_count !== undefined ? cov.detected_count + "/" + cov.n_attacks : "--"],
+    ["Consequence-bounded", cov.consequence_bounded_count !== undefined ? cov.consequence_bounded_count + "/" + cov.n_attacks : "--"],
+    ["Mutation", DATA.mutation.all_100_percent ? "100%" : "check"],
+    ["Generated", new Date(DATA.generated_at_utc).toISOString().slice(0, 16).replace("T", " ") + " UTC"],
+  ];
+  stats.forEach(([label, value]) => {
+    wrap.appendChild(el("div", { class: "stat" }, [el("div", { class: "label" }, [label]), el("div", { class: "value num" }, [value])]));
+  });
+}
+
+function view(id, title, subtitle) {
+  const s = el("section", { class: "view", id: "view-" + id });
+  s.appendChild(el("div", { class: "view-head" }, [el("h2", {}, [title]), el("p", {}, [subtitle || ""])]));
+  document.getElementById("content").appendChild(s);
+  return s;
+}
+
+/* ================= Overview ================= */
+function renderOverview() {
+  const v = view("overview", "System overview", "NTF Runtime Monitor -- reference demonstration artifact, not a research contribution (CLAUDE.md §16a). Every value below is read from a real measured JSON artifact.");
+  const cov = DATA.attacks.coverage_summary || {};
+  const honest = ((DATA.fault_injection.honest_operation || {}).shipped_measured_config || {}).distribution || {};
+  const lat = DATA.latency.headline_overhead_fraction || {};
+  const kpis = el("div", { class: "grid cols-4" }, [
+    kpiCard("Verdict under honest operation", (honest.fraction_normal !== undefined ? (honest.fraction_normal * 100).toFixed(2) : "--") + "% Normal", `${honest.fraction_constrained !== undefined ? (honest.fraction_constrained * 100).toFixed(1) : "--"}% Constrained, ${honest.fraction_safe !== undefined ? (honest.fraction_safe * 100).toFixed(1) : "--"}% Safe (n=${(DATA.fault_injection.honest_operation || {}).n_honest_windows || "?"} real windows)`),
+    kpiCard("Attack detection", `${cov.detected_count ?? "--"}/${cov.n_attacks ?? "--"}`, `${cov.no_detector_count ?? "--"} no-detector-by-design; ${cov.consequence_bounded_count ?? "--"}/${cov.n_attacks ?? "--"} consequence-bounded regardless (T5)`),
+    kpiCard("Latency overhead", `${lat.p99 !== undefined ? (lat.p99 * 100).toFixed(2) : "--"}%`, "of the 100ms window budget, p99 (4-producer path, excl. FSI)"),
+    kpiCard("Mutation kill rate", DATA.mutation.all_100_percent ? "100%" : "see audit", `${(DATA.mutation.harnesses || []).reduce((a, h) => a + (h.total || 0), 0)} mutants across ${(DATA.mutation.harnesses || []).length} harnesses`),
+  ]);
+  v.appendChild(kpis);
+
+  const arch = el("div", { class: "card", style: "margin-top:14px" }, [
+    el("h3", {}, ["Architecture"]),
+    el("p", {}, ["EEG Dataset → Streaming Acquisition → Signal Processing → Artifact Detection → Feature Extraction → Classification → Predicted Intent → Security Instrumentation → Evidence Producers → Evidence Interface → Runtime Trust Orchestrator → Policy → Enforcement → Simulated Actuator"]),
+    el("div", { class: "row", style: "gap:6px;flex-wrap:wrap;margin-top:8px" }, DATA.architecture.dimensions.map(d => chip(d))),
+    el("p", { class: "note warn" }, [DATA.architecture.position_a]),
+  ]);
+  v.appendChild(arch);
+
+  const lim = el("div", { class: "card", style: "margin-top:14px" }, [
+    el("h3", {}, ["Limitations (stated plainly)"]),
+    el("ul", { style: "margin:6px 0 0;padding-left:18px;color:var(--text-2);font-size:12.5px;line-height:1.7" },
+      DATA.limitations.map(l => el("li", {}, [l]))),
+  ]);
+  v.appendChild(lim);
+}
+function kpiCard(label, value, sub) {
+  return el("div", { class: "card kpi" }, [
+    el("div", { class: "value" }, [value]),
+    el("div", { class: "label" }, [label]),
+    el("div", { class: "sub" }, [sub || ""]),
+  ]);
+}
+
+/* ================= Evidence & EEG ================= */
+function renderEvidence() {
+  const v = view("evidence", "Live EEG replay & evidence producers", "A real recorded trial, replayed for display -- this project is software-only offline (CLAUDE.md §1); there is no live acquisition to show.");
+  const eeg = DATA.eeg_sample || {};
+  if (eeg.channels) {
+    const card = el("div", { class: "card" });
+    card.appendChild(el("h3", {}, [`Subject ${eeg.subject}, trial ${eeg.trial_index} -- true=${eeg.true_label}, predicted=${eeg.predicted_label}`]));
+    card.appendChild(eegSvg(eeg));
+    card.appendChild(el("div", { class: "legend" }, [
+      el("span", {}, [el("span", { class: "sw", style: "background:var(--accent)" }), "filtered (band-pass + notch)"]),
+      el("span", {}, [el("span", { class: "sw", style: "background:var(--text-3)" }), "raw"]),
+    ]));
+    card.appendChild(posteriorBars(eeg));
+    card.appendChild(el("p", { class: "note" }, [eeg.note]));
+    v.appendChild(card);
+  }
+
+  const grid = el("div", { class: "grid cols-3", style: "margin-top:14px" });
+  DATA.architecture.dimensions.forEach(dim => {
+    const t = DATA.trust_dimensions[dim] || {};
+    const srcPill = { REAL: "good", EMULATED_PROTOCOL: "warning", SIMULATED: "neutral" }[t.measurement_source] || "neutral";
+    grid.appendChild(el("div", { class: "card" }, [
+      el("div", { class: "spread" }, [el("h4", {}, [dim]), pill(t.measurement_source || "?", srcPill)]),
+      el("p", { class: "muted" }, [t.claim_type || ""]),
+      el("div", { class: "row", style: "gap:6px;margin:6px 0" }, [
+        chip(t.host_independence || "?"),
+        el("span", { class: t.forgeable_under_A_code === "TRUE" ? "chip badge-strict" : "chip" }, [`forgeable_under_A_code=${t.forgeable_under_A_code}`]),
+      ]),
+      el("p", { style: "font-size:11.5px" }, [t.provenance_note || ""]),
+    ]));
+  });
+  v.appendChild(grid);
+}
+function eegSvg(eeg) {
+  const W = 900, H = 220, pad = 30;
+  const chans = eeg.channels;
+  const rowH = (H - pad) / chans.length;
+  const svg = svgns("svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("class", "chart");
+  chans.forEach((ch, i) => {
+    const raw = eeg.raw[ch], filt = eeg.filtered[ch];
+    const all = raw.concat(filt);
+    const min = Math.min(...all), max = Math.max(...all);
+    const yMid = pad + i * rowH + rowH / 2;
+    const scale = (rowH * 0.42) / Math.max(1e-9, (max - min) / 2);
+    const path = (arr, color, opacity) => {
+      const p = svgns("path");
+      const d = arr.map((y, x) => `${x === 0 ? "M" : "L"} ${(x / (arr.length - 1)) * W} ${yMid - (y - (min + max) / 2) * scale}`).join(" ");
+      p.setAttribute("d", d); p.setAttribute("stroke", color); p.setAttribute("fill", "none");
+      p.setAttribute("stroke-width", "1.3"); p.setAttribute("opacity", opacity);
+      return p;
+    };
+    svg.appendChild(path(raw, "var(--text-3)", 0.55));
+    svg.appendChild(path(filt, "var(--accent)", 0.95));
+    const label = svgns("text"); label.setAttribute("x", 4); label.setAttribute("y", yMid - rowH * 0.32);
+    label.setAttribute("font-size", "10"); label.textContent = ch;
+    svg.appendChild(label);
+  });
+  return svg;
+}
+function posteriorBars(eeg) {
+  const wrap = el("div", { style: "margin-top:10px" });
+  wrap.appendChild(el("h3", {}, ["Real classifier posterior (this trial)"]));
+  const row = el("div", { class: "row", style: "gap:10px;align-items:flex-end;height:70px" });
+  const max = Math.max(...eeg.posterior);
+  eeg.classes.forEach((c, i) => {
+    const p = eeg.posterior[i];
+    const bar = el("div", { style: `width:44px;height:${Math.max(2, (p / max) * 56)}px;background:${c === eeg.predicted_label ? "var(--accent)" : "var(--surface-2)"};border-radius:4px 4px 0 0` });
+    const col = el("div", { style: "display:flex;flex-direction:column;align-items:center;gap:4px" }, [bar, el("div", { class: "muted num" }, [fmt(p, 2)]), el("div", { class: "muted" }, [c])]);
+    row.appendChild(col);
+  });
+  wrap.appendChild(row);
+  return wrap;
+}
+
+/* ================= Trust Dimensions & ROC ================= */
+function renderTrust() {
+  const v = view("trust", "Trust dimensions & measured ROC", "Per-claim θ1/θ2/band_cap at each swept budget, sourced from Phase 9's measured ROC (calibration_status: " + DATA.calibration_status + ").");
+  const grid = el("div", { class: "grid cols-2" });
+  DATA.architecture.dimensions.forEach(dim => {
+    const t = DATA.trust_dimensions[dim] || {};
+    const card = el("div", { class: "card" });
+    card.appendChild(el("div", { class: "spread" }, [
+      el("h4", {}, [dim]),
+      el("span", { class: t.class === "strict" ? "chip badge-strict" : "chip badge-lenient" }, [t.class || "?"]),
+    ]));
+    if (t.budgets && Object.keys(t.budgets).length) {
+      const table = el("table");
+      table.appendChild(el("tr", {}, [el("th", {}, ["Budget"]), el("th", {}, ["θ1"]), el("th", {}, ["θ2"]), el("th", {}, ["band_cap"]), el("th", {}, ["status"])]));
+      Object.entries(t.budgets).forEach(([b, v2]) => {
+        table.appendChild(el("tr", {}, [
+          el("td", {}, [b]), el("td", { class: "num" }, [String(v2.theta1)]), el("td", { class: "num" }, [v2.theta2 === null ? "--" : String(v2.theta2)]),
+          el("td", {}, [v2.band_cap]), el("td", {}, [pill(v2.resolution_status, RES_PILL[v2.resolution_status] || "neutral")]),
+        ]));
+      });
+      card.appendChild(el("div", { class: "table-wrap" }, [table]));
+      card.appendChild(el("p", { class: "muted" }, [`cohort: ${JSON.stringify(t.cohort)}`]));
+    } else {
+      card.appendChild(el("p", { class: "note warn" }, ["No offline measurement path for this claim (resolution_status: pending for every budget)."]));
+    }
+    const roc = DATA.roc[dim];
+    if (roc && roc.roc_points && roc.roc_points.length) card.appendChild(rocSvg(roc));
+    grid.appendChild(card);
+  });
+  v.appendChild(grid);
+}
+function rocSvg(roc) {
+  const W = 260, H = 200, pad = 26;
+  const pts = [...roc.roc_points].sort((a, b) => a.threshold - b.threshold);
+  const x = p => pad + (p.fpr_ppb / 1e9) * (W - pad - 8);
+  const y = p => (H - pad) - (p.tpr_ppb / 1e9) * (H - pad - 8);
+  const svg = svgns("svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("class", "chart");
+  svg.appendChild(axisLine(0, H - pad, W - 8, H - pad)); svg.appendChild(axisLine(pad, 8, pad, H - pad));
+  const diag = svgns("line"); diag.setAttribute("x1", pad); diag.setAttribute("y1", H - pad);
+  diag.setAttribute("x2", W - 8); diag.setAttribute("y2", 8); diag.setAttribute("stroke", "var(--border)"); diag.setAttribute("stroke-dasharray", "2,2");
+  svg.appendChild(diag);
+  const path = svgns("path");
+  path.setAttribute("d", pts.map((p, i) => `${i === 0 ? "M" : "L"} ${x(p)} ${y(p)}`).join(" "));
+  path.setAttribute("stroke", "var(--accent)"); path.setAttribute("fill", "none"); path.setAttribute("stroke-width", "1.6");
+  svg.appendChild(path);
+  Object.entries(roc.budgets || {}).forEach(([b, v]) => {
+    const t1 = pts.find(p => p.threshold === v.theta1);
+    if (t1) {
+      const c = svgns("circle"); c.setAttribute("cx", x(t1)); c.setAttribute("cy", y(t1)); c.setAttribute("r", 3.4);
+      c.setAttribute("fill", v.resolution_status === "stable" ? "var(--good)" : "var(--warning)");
+      svg.appendChild(c);
+    }
+  });
+  return svg;
+}
+function axisLine(x1, y1, x2, y2) {
+  const l = svgns("line"); l.setAttribute("x1", x1); l.setAttribute("y1", y1); l.setAttribute("x2", x2); l.setAttribute("y2", y2);
+  l.setAttribute("stroke", "var(--border)"); return l;
+}
+
+/* ================= CTPR & Policy ================= */
+function renderCtpr() {
+  const v = view("ctpr", "CTPR propagation & policy floor-dominance", "π(e) = ⊓_d crit_d(effective_d) -- machine-checked implementation conformance (CLAUDE.md §12), not independent empirical validation.");
+  const c = DATA.ctpr;
+  v.appendChild(el("div", { class: "card" }, [
+    el("h3", {}, ["CTPR edges"]),
+    el("div", { class: "row", style: "gap:8px" }, (c.edges || []).map(e => chip(`${e.parent} → ${e.child}`))),
+    el("p", { class: "muted" }, [`g = ${c.g} · ${c.match_count}/${c.total_count} propagation cases match expected meet(child, g(FSI))`]),
+  ]));
+  const table = el("table");
+  table.appendChild(el("tr", {}, [el("th", {}, ["Edge"]), el("th", {}, ["FSI level"]), el("th", {}, ["child level"]), el("th", {}, ["effective child"]), el("th", {}, ["match"])]));
+  (c.propagation_rows || []).forEach(r => {
+    table.appendChild(el("tr", {}, [
+      el("td", {}, [r.edge]), el("td", {}, [pill(r.fsi_level, "neutral")]), el("td", {}, [pill(r.child_level, "neutral")]),
+      el("td", {}, [pill(r.effective_child, "neutral")]), el("td", {}, [r.matches_expected ? pill("✓", "good") : pill("✗", "critical")]),
+    ]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap", style: "margin-top:14px" }, [el("h3", {}, ["Propagation table (18/18)"]), table]));
+
+  const fd = el("table");
+  fd.appendChild(el("tr", {}, [el("th", {}, ["Dimension"]), el("th", {}, ["class"]), el("th", {}, ["LOW→"]), el("th", {}, ["MED→"]), el("th", {}, ["HIGH→"])]));
+  const dims = [...new Set((DATA.floor_dominance || []).map(r => r.dimension))];
+  dims.forEach(d => {
+    const rows = DATA.floor_dominance.filter(r => r.dimension === d);
+    const get = lvl => (rows.find(r => r.level === lvl) || {}).floor;
+    fd.appendChild(el("tr", {}, [
+      el("td", {}, [d]), el("td", {}, [rows[0] ? rows[0]["class"] : ""]),
+      el("td", {}, [verdictPill(get("LOW"))]), el("td", {}, [verdictPill(get("MED"))]), el("td", {}, [verdictPill(get("HIGH"))]),
+    ]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap", style: "margin-top:14px" }, [el("h3", {}, ["Floor-dominance table (T2)"]), fd]));
+}
+function verdictPill(name) {
+  if (!name) return "--";
+  return el("span", { class: "pill", style: `background:color-mix(in oklab, ${ORD_COLOR[name]} 25%, transparent); color:${ORD_COLOR[name]}` }, [name]);
+}
+
+/* ================= Enforcement ================= */
+function renderEnforcement() {
+  const v = view("enforcement", "Enforcement plane", "realise(ν) = Env(π̂(ν)) ⊓ Ceil -- Ceil is a load-time constant, never a function of ν (T5(a)).");
+  const t5 = DATA.figure_t5 || {};
+  const card = el("div", { class: "card" });
+  card.appendChild(el("h3", {}, [`Figure [T5] -- Ceil = ${JSON.stringify(t5.ceil)}`]));
+  card.appendChild(t5Svg(t5));
+  v.appendChild(card);
+
+  const af = DATA.adversarial_forcing;
+  v.appendChild(el("div", { class: "grid cols-2", style: "margin-top:14px" }, [
+    kpiCard("Adversarial forcing", `${af.violation_count ?? "--"}/${af.attack_class_count ?? "--"}`, "envelope violations across every forced-Normal attack class (target: 0)"),
+    kpiCard("Tamper evidence", DATA.tamper_evidence.correct ? "PASS" : "CHECK", `first_broken_seq=${DATA.tamper_evidence.first_broken_seq}, broken_seqs=${JSON.stringify(DATA.tamper_evidence.broken_seqs)}`),
+  ]));
+
+  const t4 = el("table");
+  t4.appendChild(el("tr", {}, [el("th", {}, ["Case"]), el("th", {}, ["Failed step"]), el("th", {}, ["Verdict"])]));
+  (DATA.t4_failure_modes || []).forEach(r => {
+    t4.appendChild(el("tr", {}, [el("td", {}, [r.case]), el("td", {}, [r.failed_step || "(none)"]), el("td", {}, [verdictPill(r.resulting_verdict)])]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap", style: "margin-top:14px" }, [el("h3", {}, ["T4 admission failure modes"]), t4]));
+}
+function t5Svg(t5) {
+  const rows = t5.rows || [];
+  const W = 720, H = 220, pad = 40, bw = 26;
+  const svg = svgns("svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("class", "chart");
+  const maxV = Math.max(...rows.map(r => r.env_indicated_max_speed), 1);
+  rows.forEach((r, i) => {
+    const gx = pad + i * ((W - pad) / rows.length);
+    const bar = (v, dx, color) => {
+      const h = (v / maxV) * (H - pad - 30);
+      const rect = svgns("rect"); rect.setAttribute("x", gx + dx); rect.setAttribute("y", H - pad - h);
+      rect.setAttribute("width", bw); rect.setAttribute("height", h); rect.setAttribute("fill", color); rect.setAttribute("rx", 2);
+      svg.appendChild(rect);
+      const t = svgns("text"); t.setAttribute("x", gx + dx + bw / 2); t.setAttribute("y", H - pad - h - 5);
+      t.setAttribute("font-size", "10"); t.setAttribute("text-anchor", "middle"); t.textContent = v; svg.appendChild(t);
+    };
+    bar(r.env_indicated_max_speed, 4, "var(--accent)");
+    bar(r.realised_max_speed, 4 + bw + 4, "var(--warning)");
+    const lbl = svgns("text"); lbl.setAttribute("x", gx + bw + 4); lbl.setAttribute("y", H - pad + 16);
+    lbl.setAttribute("font-size", "11"); lbl.setAttribute("text-anchor", "middle"); lbl.textContent = r.verdict_zone;
+    svg.appendChild(lbl);
+  });
+  return svg;
+}
+
+/* ================= Attacks ================= */
+function renderAttacks() {
+  const v = view("attacks", "Behaviour-level attack framework", DATA.attacks.position_a_scope_note || "");
+  const table = el("table");
+  table.appendChild(el("tr", {}, [el("th", {}, ["Attack"]), el("th", {}, ["Detected"]), el("th", {}, ["Prevented"]), el("th", {}, ["Consequence-bounded"]), el("th", {}, ["Residual"])]));
+  (DATA.attacks.coverage_matrix || []).forEach(r => {
+    table.appendChild(el("tr", {}, [
+      el("td", {}, [r.attack.replace(/_/g, " ")]),
+      el("td", {}, [r.detected ? pill("YES · " + (r.detection_mechanism || ""), "good") : pill("NO -- no detector", "warning")]),
+      el("td", {}, [r.prevented ? pill("YES", "good") : pill("NO", "neutral")]),
+      el("td", {}, [r.consequence_bounded ? pill("YES (T5)", "good") : pill("NO", "critical")]),
+      el("td", { style: "max-width:280px;font-size:11.5px;color:var(--text-2)" }, [r.residual]),
+    ]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap" }, [table]));
+
+  const grid = el("div", { class: "grid cols-2", style: "margin-top:14px" });
+  (DATA.attacks.results || []).forEach(r => {
+    const rc = r.reasoning_correctness || {};
+    const verdict = (rc.controlled_six_dim_verdict || rc.next_window_controlled_verdict || {}).verdict;
+    grid.appendChild(el("div", { class: "card" }, [
+      el("div", { class: "spread" }, [el("h4", {}, [r.attack.replace(/_/g, " ")]), verdict ? verdictPill(verdict) : ""]),
+      el("p", { class: "muted" }, [r.detection && r.detection.mechanism ? r.detection.mechanism : (r.note || "No detector by design")]),
+    ]));
+  });
+  v.appendChild(grid);
+}
+
+/* ================= Robustness ================= */
+function renderRobustness() {
+  const v = view("robustness", "Fault injection & robustness", "6 fault types verified against real kernel/enforcer/producer/log machinery; honest-operation verdict distribution across the 3 swept budgets.");
+  const table = el("table");
+  table.appendChild(el("tr", {}, [el("th", {}, ["Fault"]), el("th", {}, ["Mode verified"]), el("th", {}, ["Result"])]));
+  (DATA.fault_injection.faults || []).forEach(f => {
+    table.appendChild(el("tr", {}, [
+      el("td", {}, [f.fault.replace(/_/g, " ")]), el("td", { style: "font-size:11.5px;color:var(--text-2)" }, [f.mode_verified]),
+      el("td", {}, [f.correct ? pill("CORRECT", "good") : pill("CHECK", "critical")]),
+    ]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap" }, [el("h3", {}, ["Faults"]), table]));
+
+  const honest = DATA.fault_injection.honest_operation || {};
+  const budgets = honest.swept_budget_sensitivity || {};
+  const wrap = el("div", { class: "card", style: "margin-top:14px" });
+  wrap.appendChild(el("h3", {}, [`Honest-operation verdict distribution (n=${honest.n_honest_windows || "?"} real windows, subjects ${JSON.stringify(honest.subjects || [])})`]));
+  wrap.appendChild(budgetBars(budgets));
+  wrap.appendChild(el("p", { class: "note" }, [honest.note || ""]));
+  v.appendChild(wrap);
+}
+function budgetBars(budgets) {
+  const W = 640, H = 200, pad = 40;
+  const keys = Object.keys(budgets);
+  const svg = svgns("svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("class", "chart");
+  keys.forEach((k, i) => {
+    const d = budgets[k].distribution || budgets[k];
+    const gx = pad + i * ((W - pad) / keys.length);
+    const bw = 60;
+    let cursor = H - 30;
+    [["fraction_safe", "var(--ord-safe)"], ["fraction_constrained", "var(--ord-constrained)"], ["fraction_normal", "var(--ord-normal)"]].forEach(([key, color]) => {
+      const frac = d[key] || 0;
+      const h = frac * (H - 60);
+      cursor -= h;
+      const rect = svgns("rect"); rect.setAttribute("x", gx); rect.setAttribute("y", cursor); rect.setAttribute("width", bw);
+      rect.setAttribute("height", h); rect.setAttribute("fill", color); svg.appendChild(rect);
+    });
+    const lbl = svgns("text"); lbl.setAttribute("x", gx + bw / 2); lbl.setAttribute("y", H - 12);
+    lbl.setAttribute("text-anchor", "middle"); lbl.setAttribute("font-size", "11"); lbl.textContent = "budget " + k;
+    svg.appendChild(lbl);
+    const pct = svgns("text"); pct.setAttribute("x", gx + bw / 2); pct.setAttribute("y", cursor - 4);
+    pct.setAttribute("text-anchor", "middle"); pct.setAttribute("font-size", "10");
+    pct.textContent = ((d.fraction_normal || 0) * 100).toFixed(1) + "% Normal";
+    svg.appendChild(pct);
+  });
+  return svg;
+}
+
+/* ================= Latency ================= */
+function renderLatency() {
+  const v = view("latency", "Latency & performance", "Per-stage p50/p99, real subject data, measured config. FSI's real cost shown honestly (see docs/PHASE10-LATENCY-EVALUATION.md §4).");
+  const bv = DATA.latency.budget_verification || {};
+  const fic = bv.fsi_inclusion_correction || {};
+  const d1 = (fic["decision_path_le_67ms_INCLUDING_FSI"] || {});
+  const d2 = (fic["evidence_generation_and_signing_le_delta_60ms_INCLUDING_FSI"] || {});
+  v.appendChild(el("div", { class: "grid cols-4" }, [
+    kpiCard("p50 overhead", (((DATA.latency.headline_overhead_fraction || {}).p50 || 0) * 100).toFixed(2) + "%", "of 100ms window (4-producer path)"),
+    kpiCard("p99 overhead", (((DATA.latency.headline_overhead_fraction || {}).p99 || 0) * 100).toFixed(2) + "%", "of 100ms window (4-producer path)"),
+    kpiCard("Decision path incl. FSI", fmt(d1.measured_p99_ms, 1) + "ms", d1.violated ? "VIOLATES 67ms budget" : "within budget"),
+    kpiCard("Admission incl. FSI", fmt(d2.measured_p99_ms, 1) + "ms", d2.violated ? "VIOLATES 60ms Δ(w)" : "within budget"),
+  ]));
+  if (d1.violated) v.appendChild(el("p", { class: "note crit" }, ["FSI's real per-invocation swtpm quote cost, included honestly, exceeds both frozen timing budgets. Resolved as a performance/deployability question, not a security one -- docs/THREAT-MODEL.md §4."]));
+
+  const table = el("table");
+  table.appendChild(el("tr", {}, [el("th", {}, ["Stage"]), el("th", { class: "num" }, ["baseline p50"]), el("th", { class: "num" }, ["baseline p99"]), el("th", { class: "num" }, ["arch p50"]), el("th", { class: "num" }, ["arch p99"])]));
+  const arch = DATA.latency.architecture_per_stage || {}, base = DATA.latency.baseline_per_stage || {};
+  Object.keys(arch).forEach(stage => {
+    const a = arch[stage], b = base[stage];
+    table.appendChild(el("tr", {}, [
+      el("td", {}, [stage]), el("td", { class: "num" }, [b ? fmt(b.p50_ms, 3) : "--"]), el("td", { class: "num" }, [b ? fmt(b.p99_ms, 3) : "--"]),
+      el("td", { class: "num" }, [fmt(a.p50_ms, 3)]), el("td", { class: "num" }, [fmt(a.p99_ms, 3)]),
+    ]));
+  });
+  const fsi = DATA.latency.fsi_per_stage || {};
+  Object.keys(fsi).forEach(stage => {
+    table.appendChild(el("tr", { style: "color:var(--critical)" }, [
+      el("td", {}, [stage + " (real swtpm, N=" + (DATA.latency.n_trials_fsi || "?") + ")"]), el("td", { class: "num" }, ["--"]), el("td", { class: "num" }, ["--"]),
+      el("td", { class: "num" }, [fmt(fsi[stage].p50_ms, 3)]), el("td", { class: "num" }, [fmt(fsi[stage].p99_ms, 3)]),
+    ]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap", style: "margin-top:14px" }, [el("h3", {}, ["Per-stage latency (ms)"]), table]));
+
+  const cpu = DATA.latency.cpu_memory || {}, tput = DATA.latency.throughput || {};
+  v.appendChild(el("div", { class: "card table-wrap", style: "margin-top:14px" }, [
+    el("h3", {}, ["CPU / memory / throughput"]),
+    el("pre", { class: "mono", style: "font-size:11.5px;color:var(--text-2);white-space:pre-wrap" }, [JSON.stringify({ cpu_memory: cpu, throughput: tput }, null, 2)]),
+  ]));
+
+  const hung = DATA.latency.hung_producer_demonstration || {};
+  if (Object.keys(hung).length) {
+    v.appendChild(el("div", { class: "card", style: "margin-top:14px" }, [
+      el("h3", {}, ["Deadline-invariant demonstration"]),
+      el("pre", { class: "mono", style: "font-size:11.5px;color:var(--text-2);white-space:pre-wrap" }, [JSON.stringify(hung, null, 2)]),
+      el("p", { class: "note" }, ["A hung/slow producer is never waited for -- absent, not delaying, the verdict (CLAUDE.md §7)."]),
+    ]));
+  }
+}
+
+/* ================= Audit & Provenance ================= */
+function renderAudit() {
+  const v = view("audit", "Audit & provenance", "Every verdict is replayable from the immutable log; every config is fail-closed validated before it can be hashed into a verdict.");
+  v.appendChild(el("div", { class: "card" }, [
+    el("h3", {}, ["CLAUDE.md integrity"]),
+    el("p", {}, ["sha256: ", el("code", { class: "hash" }, [DATA.claude_md.sha256])]),
+    el("p", { class: "muted" }, [DATA.claude_md.frozen_hash_recorded_at_sba_freeze]),
+  ]));
+
+  const mtable = el("table");
+  mtable.appendChild(el("tr", {}, [el("th", {}, ["Harness"]), el("th", {}, ["Result"]), el("th", {}, ["Line"])]));
+  (DATA.mutation.harnesses || []).forEach(h => {
+    mtable.appendChild(el("tr", {}, [el("td", {}, [h.harness]), el("td", {}, [h.all_killed ? pill("100%", "good") : pill(`${h.killed}/${h.total}`, "critical")]), el("td", { class: "muted" }, [h.line])]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap", style: "margin-top:14px" }, [el("h3", {}, ["Mutation kill rates"]), mtable]));
+
+  const mftable = el("table");
+  mftable.appendChild(el("tr", {}, [el("th", {}, ["Experiment"]), el("th", {}, ["Timestamp (UTC)"]), el("th", {}, ["calibration_status"]), el("th", {}, ["post-hoc annotation"])]));
+  Object.values(DATA.manifests || {}).forEach(m => {
+    mftable.appendChild(el("tr", {}, [
+      el("td", {}, [m.experiment || ""]), el("td", { class: "mono" }, [(m.timestamp_utc || "").slice(0, 19)]),
+      el("td", {}, [m.calibration_status || ""]), el("td", {}, [m.post_hoc_report_annotation ? pill("yes -- disclosed", "warning") : "--"]),
+    ]));
+  });
+  v.appendChild(el("div", { class: "card table-wrap", style: "margin-top:14px" }, [el("h3", {}, ["Manifests"]), mftable]));
+}
+
+/* ================= Export ================= */
+/* This page can run two ways: published to the claude.ai artifact viewer
+   (a sandboxed frame -- a raw Blob + <a download> click is silently
+   swallowed there; files must go through window.claude.downloads, which
+   also only accepts a fixed extension allowlist, no .csv/.svg/.pdf), or
+   opened directly as the plain file this repo's generate_dashboard.py
+   writes to artifacts/ntf_runtime_monitor.html (an ordinary browser tab,
+   where the Blob approach works fine and isn't extension-restricted).
+   Every export below detects which one it's in and adapts. */
+function hasClaudeDownloads() {
+  return !!(window.claude && window.claude.downloads);
+}
+const DOWNLOAD_ERROR_MESSAGES = {
+  rejected_extension: "That file type isn't accepted for download here.",
+  too_large: "File is too large to download here (16 MiB limit).",
+  declined: "Download declined.",
+  rate_limited: "A download prompt is already open -- try again in a moment.",
+  bad_request: "Could not prepare that file for download.",
+  unavailable: "Downloads aren't available in this view.",
+  not_granted: "Downloads aren't available in this view.",
+  capability_disabled: "Downloads aren't available in this view.",
+  capability_removed: "Downloads aren't available in this view.",
+  transform_error: "Could not prepare that file for download.",
+};
+async function saveFile(filename, content, mime) {
+  if (hasClaudeDownloads()) {
+    try {
+      await window.claude.downloads.save({ filename, data: content });
+      toast(`Saved ${filename}`);
+    } catch (err) {
+      toast(DOWNLOAD_ERROR_MESSAGES[err && err.code] || "Download failed.");
+    }
+    return;
+  }
+  const blob = content instanceof Blob ? content : new Blob([content], { type: mime || "application/octet-stream" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  toast(`Downloaded ${filename}`);
+}
+function blobToDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(blob);
+  });
+}
+function resolveCssVars(str) {
+  const cs = getComputedStyle(document.documentElement);
+  return str.replace(/var\((--[a-zA-Z0-9-]+)\)/g, (m, name) => cs.getPropertyValue(name).trim() || m);
+}
+function serializeChartSvg(svg) {
+  const vb = svg.getAttribute("viewBox");
+  const [, , w, h] = vb ? vb.split(/\s+/).map(Number) : [0, 0, svg.clientWidth || 600, svg.clientHeight || 400];
+  const clone = svg.cloneNode(true);
+  clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  clone.setAttribute("width", w);
+  clone.setAttribute("height", h);
+  // Chart marks carry literal "var(--x)" strings as attribute values, and
+  // text fill comes from the page's external `svg text{fill:...}` rule --
+  // both only resolve while attached to this document. Inline the current
+  // theme's resolved colors so a detached, standalone export isn't blank/black.
+  clone.querySelectorAll("text").forEach(t => {
+    if (!t.getAttribute("fill")) t.setAttribute("fill", getComputedStyle(document.documentElement).getPropertyValue("--text-2").trim());
+  });
+  const svgText = resolveCssVars(new XMLSerializer().serializeToString(clone));
+  return { svgText, w, h };
+}
+function svgToPngBlob(svgText, w, h) {
+  return new Promise((resolve, reject) => {
+    const scale = 2;
+    const svgBlob = new Blob([svgText], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(svgBlob);
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(w * scale));
+      canvas.height = Math.max(1, Math.round(h * scale));
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--surface").trim() || "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(url);
+      canvas.toBlob(b => (b ? resolve(b) : reject(new Error("canvas.toBlob returned null"))), "image/png");
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("chart SVG failed to rasterize")); };
+    img.src = url;
+  });
+}
+function renderExport() {
+  const v = view("export", "Export", "Every export is generated client-side from the same embedded data the page renders -- nothing is re-fetched or re-derived.");
+  const claudeDl = hasClaudeDownloads();
+  const grid = el("div", { class: "grid cols-2" });
+  grid.appendChild(exportBtn("PDF", claudeDl
+    ? "Publication-quality report -- saved as Markdown here (this view's frame isn't granted browser-print permission, and .pdf isn't on its download allowlist); every section this dashboard shows, as text/tables"
+    : "Publication-quality report -- dashboard summary, all sections, figures, timestamps, manifest hashes", exportPdf));
+  grid.appendChild(exportBtn("JSON", "Complete experiment data + manifests, for reproducibility", () => saveFile("ntf_runtime_monitor_data.json", JSON.stringify(DATA, null, 2), "application/json")));
+  grid.appendChild(exportBtn("CSV", "Evidence-coverage matrix + latency per-stage tables" + (claudeDl ? " -- saved as .txt here (comma-separated; rename to .csv to open in a spreadsheet app)" : ""), exportCsvBundle));
+  grid.appendChild(exportBtn("Charts", "All rendered figures on this page, as individual " + (claudeDl ? "PNG files (this view's download allowlist has no .svg)" : "SVG files"), exportAllCharts));
+  v.appendChild(grid);
+  v.appendChild(el("p", { class: "muted", style: "margin-top:10px" }, [claudeDl
+    ? "PDF export needs both browser-print permission and a .pdf-capable save target, neither of which this view's frame grants -- the Markdown report carries the same content instead."
+    : "PDF uses the browser's print dialog with a print stylesheet (no external library, no CSP exception needed) -- choose \"Save as PDF\" as the destination."]));
+  if (claudeDl) v.appendChild(el("p", { class: "muted" }, ["Downloads in this view go through the viewer's own save prompt -- accept it to save the file."]));
+}
+function exportBtn(label, desc, fn) {
+  const b = el("button", { class: "export-btn" }, [el("span", { class: "ico" }, [label[0]]), el("div", {}, [el("div", {}, [label]), el("div", { class: "muted" }, [desc])])]);
+  b.addEventListener("click", fn);
+  return b;
+}
+function exportPdf() {
+  if (hasClaudeDownloads()) {
+    // window.print() needs the "allow-modals" sandbox permission, which
+    // this view's frame doesn't grant, and a real .pdf file isn't
+    // reachable through the downloads capability either (its allowlist
+    // has no .pdf) -- ship the same report content as Markdown instead,
+    // which is on the allowlist and carries every section/number.
+    saveFile("ntf_runtime_monitor_report.md", buildReportMarkdown(), "text/markdown");
+    return;
+  }
+  try { window.print(); }
+  catch (e) { toast("Print is unavailable in this view."); }
+}
+function mdTable(headers, rows) {
+  const esc = v => String(v === undefined || v === null ? "--" : v).replace(/\|/g, "\\|").replace(/\n/g, " ");
+  const lines = [
+    "| " + headers.join(" | ") + " |",
+    "| " + headers.map(() => "---").join(" | ") + " |",
+    ...rows.map(r => "| " + r.map(esc).join(" | ") + " |"),
+  ];
+  return lines.join("\n");
+}
+function buildReportMarkdown() {
+  const d = DATA;
+  const honest = ((d.fault_injection.honest_operation || {}).shipped_measured_config || {}).distribution || {};
+  const cov = d.attacks.coverage_summary || {};
+  const lat = d.latency.headline_overhead_fraction || {};
+  const bv = d.latency.budget_verification || {};
+  const fic = bv.fsi_inclusion_correction || {};
+  const parts = [];
+  parts.push(`# NTF Runtime Monitor -- Report`);
+  parts.push(`Generated: ${d.generated_at_utc}`);
+  parts.push(d.architecture.subtitle);
+  parts.push(`\n## Dashboard summary`);
+  parts.push(`- Verdict under honest operation: ${fmt((honest.fraction_normal || 0) * 100, 2)}% Normal, ${fmt((honest.fraction_constrained || 0) * 100, 1)}% Constrained, ${fmt((honest.fraction_safe || 0) * 100, 1)}% Safe (n=${(d.fault_injection.honest_operation || {}).n_honest_windows || "?"} real windows)`);
+  parts.push(`- Attack detection: ${cov.detected_count ?? "--"}/${cov.n_attacks ?? "--"} detected, ${cov.no_detector_count ?? "--"} no-detector-by-design, ${cov.consequence_bounded_count ?? "--"}/${cov.n_attacks ?? "--"} consequence-bounded (T5)`);
+  parts.push(`- Latency overhead (4-producer path, excl. FSI): p50 ${fmt((lat.p50 || 0) * 100, 2)}%, p99 ${fmt((lat.p99 || 0) * 100, 2)}% of the 100ms window`);
+  parts.push(`- Mutation kill rate: ${d.mutation.all_100_percent ? "100%" : "see Mutation section"}`);
+  parts.push(`- calibration_status: ${d.calibration_status}`);
+
+  parts.push(`\n## Architecture status`);
+  parts.push(d.architecture.position_a);
+  parts.push(`Dimensions: ${d.architecture.dimensions.join(", ")} (lattice ${d.architecture.lattice_size})`);
+  parts.push(`Ceil: ${JSON.stringify(d.architecture.ceil)} · Env: ${JSON.stringify(d.architecture.env)}`);
+
+  parts.push(`\n## Trust dimensions & measured ROC (calibration_status: ${d.calibration_status})`);
+  d.architecture.dimensions.forEach(dim => {
+    const t = d.trust_dimensions[dim] || {};
+    parts.push(`\n### ${dim} (${t.class || "?"})`);
+    parts.push(`claim_type: ${t.claim_type || "--"} · measurement_source: ${t.measurement_source || "--"} · host_independence: ${t.host_independence || "--"} · forgeable_under_A_code: ${t.forgeable_under_A_code}`);
+    if (t.budgets && Object.keys(t.budgets).length) {
+      parts.push(mdTable(["Budget", "theta1", "theta2", "band_cap", "resolution_status"],
+        Object.entries(t.budgets).map(([b, v]) => [b, v.theta1, v.theta2 === null ? "--" : v.theta2, v.band_cap, v.resolution_status])));
+    } else {
+      parts.push("No offline measurement path for this claim (resolution_status: pending for every budget).");
+    }
+  });
+
+  parts.push(`\n## CTPR propagation`);
+  parts.push(`g = ${d.ctpr.g} · ${d.ctpr.match_count}/${d.ctpr.total_count} propagation cases match expected meet(child, g(FSI))`);
+  parts.push(mdTable(["Edge", "FSI level", "child level", "effective child", "match"],
+    (d.ctpr.propagation_rows || []).map(r => [r.edge, r.fsi_level, r.child_level, r.effective_child, r.matches_expected ? "yes" : "NO"])));
+
+  parts.push(`\n## Floor-dominance table (T2)`);
+  const fdDims = [...new Set((d.floor_dominance || []).map(r => r.dimension))];
+  parts.push(mdTable(["Dimension", "class", "LOW ->", "MED ->", "HIGH ->"], fdDims.map(dim => {
+    const rows = d.floor_dominance.filter(r => r.dimension === dim);
+    const get = lvl => (rows.find(r => r.level === lvl) || {}).floor;
+    return [dim, rows[0] ? rows[0]["class"] : "", get("LOW"), get("MED"), get("HIGH")];
+  })));
+
+  parts.push(`\n## Enforcement (T5)`);
+  parts.push(`Figure [T5] -- Ceil = ${JSON.stringify((d.figure_t5 || {}).ceil)}`);
+  parts.push(`Adversarial forcing: ${d.adversarial_forcing.violation_count ?? "--"}/${d.adversarial_forcing.attack_class_count ?? "--"} envelope violations (target: 0)`);
+  parts.push(`Tamper evidence: ${d.tamper_evidence.correct ? "PASS" : "CHECK"} -- first_broken_seq=${d.tamper_evidence.first_broken_seq}, broken_seqs=${JSON.stringify(d.tamper_evidence.broken_seqs)}`);
+  parts.push(mdTable(["Case", "Failed step", "Verdict"], (d.t4_failure_modes || []).map(r => [r.case, r.failed_step || "(none)", r.resulting_verdict])));
+
+  parts.push(`\n## Attack outcomes -- evidence coverage matrix`);
+  parts.push(d.attacks.position_a_scope_note || "");
+  parts.push(mdTable(["Attack", "Detected", "Prevented", "Consequence-bounded", "Residual"],
+    (d.attacks.coverage_matrix || []).map(r => [r.attack, r.detected ? `YES (${r.detection_mechanism || ""})` : "NO -- no detector", r.prevented ? "YES" : "NO", r.consequence_bounded ? "YES (T5)" : "NO", r.residual])));
+
+  parts.push(`\n## Robustness -- fault injection`);
+  parts.push(mdTable(["Fault", "Mode verified", "Result"], (d.fault_injection.faults || []).map(f => [f.fault, f.mode_verified, f.correct ? "CORRECT" : "CHECK"])));
+  const honestOp = d.fault_injection.honest_operation || {};
+  parts.push(`Honest-operation, n=${honestOp.n_honest_windows || "?"} real windows, subjects ${JSON.stringify(honestOp.subjects || [])}:`);
+  parts.push(mdTable(["Budget", "fraction_safe", "fraction_constrained", "fraction_normal"],
+    Object.entries(honestOp.swept_budget_sensitivity || {}).map(([b, v]) => {
+      const dist = v.distribution || v;
+      return [b, fmt(dist.fraction_safe, 4), fmt(dist.fraction_constrained, 4), fmt(dist.fraction_normal, 4)];
+    })));
+
+  parts.push(`\n## Latency breakdown`);
+  parts.push(`p50 overhead: ${fmt((lat.p50 || 0) * 100, 2)}% · p99 overhead: ${fmt((lat.p99 || 0) * 100, 2)}% of the 100ms window (4-producer path, excl. FSI)`);
+  const d1 = fic["decision_path_le_67ms_INCLUDING_FSI"] || {}, d2 = fic["evidence_generation_and_signing_le_delta_60ms_INCLUDING_FSI"] || {};
+  parts.push(`Decision path incl. FSI: ${fmt(d1.measured_p99_ms, 1)}ms (${d1.violated ? "VIOLATES 67ms budget" : "within budget"})`);
+  parts.push(`Admission incl. FSI: ${fmt(d2.measured_p99_ms, 1)}ms (${d2.violated ? "VIOLATES 60ms Δ(w)" : "within budget"})`);
+  const arch = d.latency.architecture_per_stage || {}, base = d.latency.baseline_per_stage || {}, fsi = d.latency.fsi_per_stage || {};
+  parts.push(mdTable(["Stage", "baseline p50", "baseline p99", "arch p50", "arch p99"],
+    Object.keys(arch).map(stage => { const a = arch[stage], b = base[stage]; return [stage, b ? fmt(b.p50_ms, 3) : "--", b ? fmt(b.p99_ms, 3) : "--", fmt(a.p50_ms, 3), fmt(a.p99_ms, 3)]; })
+      .concat(Object.keys(fsi).map(stage => [`${stage} (real swtpm, N=${d.latency.n_trials_fsi || "?"})`, "--", "--", fmt(fsi[stage].p50_ms, 3), fmt(fsi[stage].p99_ms, 3)]))));
+
+  parts.push(`\n## Mutation testing`);
+  parts.push(mdTable(["Harness", "Result", "Line"], (d.mutation.harnesses || []).map(h => [h.harness, h.all_killed ? "100%" : `${h.killed}/${h.total}`, h.line])));
+
+  parts.push(`\n## System health / manifests`);
+  parts.push(mdTable(["Experiment", "Timestamp (UTC)", "calibration_status", "post-hoc annotation"],
+    Object.values(d.manifests || {}).map(m => [m.experiment || "", (m.timestamp_utc || "").slice(0, 19), m.calibration_status || "", m.post_hoc_report_annotation ? "yes -- disclosed" : "--"])));
+
+  parts.push(`\n## Provenance`);
+  parts.push(`CLAUDE.md sha256: ${d.claude_md.sha256}`);
+  parts.push(d.claude_md.frozen_hash_recorded_at_sba_freeze);
+
+  parts.push(`\n## Limitations`);
+  (d.limitations || []).forEach(l => parts.push(`- ${l}`));
+
+  return parts.join("\n\n") + "\n";
+}
+function toCsv(rows, headers) {
+  const esc = v => `"${String(v === undefined || v === null ? "" : v).replace(/"/g, '""')}"`;
+  return [headers.join(","), ...rows.map(r => headers.map(h => esc(r[h])).join(","))].join("\n");
+}
+function exportCsvBundle() {
+  const ext = hasClaudeDownloads() ? "txt" : "csv";
+  saveFile(`evidence_coverage_matrix.${ext}`, toCsv(DATA.attacks.coverage_matrix || [], ["attack", "detected", "detection_mechanism", "prevented", "consequence_bounded", "residual"]), "text/csv");
+  const latRows = Object.entries(DATA.latency.architecture_per_stage || {}).map(([stage, v]) => ({ stage, p50_ms: v.p50_ms, p99_ms: v.p99_ms }));
+  saveFile(`latency_per_stage.${ext}`, toCsv(latRows, ["stage", "p50_ms", "p99_ms"]), "text/csv");
+}
+async function exportAllCharts() {
+  const svgs = Array.from(document.querySelectorAll("svg.chart"));
+  if (!svgs.length) { toast("No charts rendered yet -- visit a section with a chart first."); return; }
+  if (hasClaudeDownloads()) {
+    // .png is on this view's download allowlist (.svg isn't) -- save each
+    // chart as its own real .png file. saveFile awaits the viewer's save
+    // prompt before returning, so these go out one at a time rather than
+    // firing N prompts at once.
+    let n = 0;
+    for (const svg of svgs) {
+      n++;
+      const { svgText, w, h } = serializeChartSvg(svg);
+      try {
+        const png = await svgToPngBlob(svgText, w, h);
+        await saveFile(`ntf_chart_${n}.png`, png, "image/png");
+      } catch (e) { toast(`Chart ${n} failed to export`); }
+    }
+    return;
+  }
+  let n = 0;
+  for (const svg of svgs) {
+    n++;
+    const { svgText } = serializeChartSvg(svg);
+    await saveFile(`ntf_chart_${n}.svg`, svgText, "image/svg+xml");
+  }
+  toast(`Exported ${n} chart(s) as SVG`);
+}
+function toast(msg) {
+  const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+/* ---------------- Boot ---------------- */
+buildNav();
+buildTopbarStats();
+SECTIONS.forEach(s => { /* placeholder views for print (all rendered) */ });
+showSection("overview");
+/* Pre-render everything so PDF (print) captures all sections regardless of nav state. */
+SECTIONS.forEach(s => { if (!s._rendered) { s.render(); s._rendered = true; } });
+showSection("overview");
+</script>

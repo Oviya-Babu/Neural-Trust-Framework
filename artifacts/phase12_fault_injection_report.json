@@ -1,0 +1,216 @@
+{
+  "all_faults_correct": true,
+  "faults": [
+    {
+      "correct": true,
+      "fault": "kernel_termination",
+      "measurements": {
+        "long_after_kernel_death_accepted": false,
+        "long_after_kernel_death_reason": "expired",
+        "still_within_expiry_accepted": true
+      },
+      "mode_verified": "no fresh verdict past expires_at is ever accepted -- enforcer produces no envelope",
+      "scope_caveat": "Verified: the enforcer never acts on a stale verdict. NOT verified (out of scope for software alone, CLAUDE.md \u00a76): that the physical actuator reaches Safe on its own once no envelope is being refreshed -- that is the watchdog/hardware-liveness mechanism's job, not yet built in V1. This driver does not claim otherwise."
+    },
+    {
+      "correct": true,
+      "fault": "enforcer_termination",
+      "measurements": {
+        "history_length_after_attempted_write_from_replacement": 1,
+        "replacement_write_raised_capability_error": true
+      },
+      "mode_verified": "no process other than the one holding the exact original capability object can write",
+      "scope_caveat": "Verified: no write succeeds without the exact live capability token. NOT verified (same caveat as kernel_termination): that the physical actuator reaches Safe on its own with no enforcer alive to write anything at all -- watchdog/hardware territory, CLAUDE.md \u00a76, not yet built."
+    },
+    {
+      "correct": true,
+      "ctpr_ripple_on_fsi_suppression_observed": true,
+      "fault": "per_producer_suppression",
+      "mode_verified": "a suppressed producer's dimension reads LOW via absence, never a default/substitute value",
+      "note": "Suppressing FSI (a CTPR parent, edges FSI->Signal/FSI->Model) drags Signal's and Model's EFFECTIVE level to LOW via meet(child, g(FSI))=meet(child, LOW)=LOW even though their own raw measurements are untouched -- the same propagation mechanism Phase 11's firmware_modification attack demonstrated, here triggered by absence rather than a failed integrity check.",
+      "rows": [
+        {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "HIGH",
+            "Signal": "LOW"
+          },
+          "suppressed_dimension": "Signal",
+          "suppressed_reads_low_via_absence": true,
+          "verdict": "Safe"
+        },
+        {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "LOW",
+            "Signal": "HIGH"
+          },
+          "suppressed_dimension": "Model",
+          "suppressed_reads_low_via_absence": true,
+          "verdict": "Safe"
+        },
+        {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "LOW",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "HIGH",
+            "Signal": "HIGH"
+          },
+          "suppressed_dimension": "Calibration",
+          "suppressed_reads_low_via_absence": true,
+          "verdict": "Safe"
+        },
+        {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "LOW",
+            "FSI": "HIGH",
+            "Model": "HIGH",
+            "Signal": "HIGH"
+          },
+          "suppressed_dimension": "Device",
+          "suppressed_reads_low_via_absence": true,
+          "verdict": "Constrained"
+        },
+        {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "LOW",
+            "Model": "LOW",
+            "Signal": "LOW"
+          },
+          "suppressed_dimension": "FSI",
+          "suppressed_reads_low_via_absence": true,
+          "verdict": "Safe"
+        },
+        {
+          "effective_dims": {
+            "ActuationFidelity": "LOW",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "HIGH",
+            "Signal": "HIGH"
+          },
+          "suppressed_dimension": "ActuationFidelity",
+          "suppressed_reads_low_via_absence": true,
+          "verdict": "Safe"
+        }
+      ]
+    },
+    {
+      "correct": true,
+      "fault": "verdict_expiry",
+      "measurements": {
+        "t_equals_expiry_accepted": false,
+        "t_minus_1ms_accepted": true,
+        "t_plus_1ms_accepted": false
+      },
+      "mode_verified": "accept(nu) requires now < expires_at strictly -- an expired verdict never produces an envelope"
+    },
+    {
+      "correct": true,
+      "fault": "log_corruption",
+      "measurements": {
+        "broken_seqs": [
+          2,
+          3,
+          4
+        ],
+        "chain_valid": false,
+        "entries_checked": 5,
+        "first_broken_seq": 2
+      },
+      "mode_verified": "a tampered entry is detected, and it plus every subsequent entry is reported broken",
+      "observed_variant": "A raw arbitrary-offset byte flip (tried during development) instead corrupted the CBOR framing itself, causing read_all() to raise CanonError before verify_chain() ran -- also fail-loud, a coarser/earlier failure than the hash-chain check this function isolates. Both are real, observed failure modes; neither is fail-silent."
+    },
+    {
+      "correct": true,
+      "fault": "log_path_exhaustion",
+      "measurements": {
+        "disk_full_mid_write": {
+          "fail_visible": true,
+          "raised": "OSError: [Errno 28] No space left on device"
+        },
+        "permission_denied_directory": {
+          "fail_visible": true,
+          "raised": "PermissionError"
+        }
+      },
+      "mode_verified": "a log that cannot be opened or written fails LOUDLY (real exception propagates), never silently"
+    }
+  ],
+  "honest_operation": {
+    "n_honest_windows": 846,
+    "note": "fraction_not_normal under 100% HONEST operation is the false-positive-like rate at the measured thresholds -- every window here is real, unmanipulated evidence (CLAUDE.md 3's Behaviour-Based Attack Framework: no trust injected). Per-budget distributions use Phase 9's ALREADY-DERIVED theta1/theta2/band_cap per (claim, budget), re-cited from artifacts/phase9_measured_roc_report.json, never re-derived here.",
+    "shipped_measured_config": {
+      "distribution": {
+        "counts": {
+          "Constrained": 841,
+          "Normal": 5,
+          "Safe": 0
+        },
+        "fraction_constrained": 0.9940898345153665,
+        "fraction_normal": 0.00591016548463357,
+        "fraction_not_normal": 0.9940898345153665,
+        "fraction_safe": 0.0,
+        "n": 846
+      },
+      "path": "config/eis.v1-measured.json"
+    },
+    "subjects": [
+      1,
+      2,
+      3
+    ],
+    "swept_budget_sensitivity": {
+      "0.1%": {
+        "counts": {
+          "Constrained": 846,
+          "Normal": 0,
+          "Safe": 0
+        },
+        "fraction_constrained": 1.0,
+        "fraction_normal": 0.0,
+        "fraction_not_normal": 1.0,
+        "fraction_safe": 0.0,
+        "n": 846
+      },
+      "1%": {
+        "counts": {
+          "Constrained": 841,
+          "Normal": 5,
+          "Safe": 0
+        },
+        "fraction_constrained": 0.9940898345153665,
+        "fraction_normal": 0.00591016548463357,
+        "fraction_not_normal": 0.9940898345153665,
+        "fraction_safe": 0.0,
+        "n": 846
+      },
+      "5%": {
+        "counts": {
+          "Constrained": 808,
+          "Normal": 38,
+          "Safe": 0
+        },
+        "fraction_constrained": 0.9550827423167849,
+        "fraction_normal": 0.04491725768321513,
+        "fraction_not_normal": 0.9550827423167849,
+        "fraction_safe": 0.0,
+        "n": 846
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "_comment": "CLAUDE.md §6/§9: sensor public keys, provisioned out-of-band at commissioning. Provisional for Phase 3: no real hardware sensor fleet exists yet, so these keys correspond to the deterministic demo seeds in tests/key_fixtures.py (documented there for reproducibility), not a genuine out-of-band provisioning event. Only public keys are stored here, as a real registry would hold. boundary is simplified to a single tag (TB2, dongle<->host) for all provisional sensors pending real device topology (§2). L8->L6 relattice (changelog 2026-07-19): safety_sensor_v0 and context_sensor_v0 removed.",
+  "schema_version": 1,
+  "keys": {
+    "signal_sensor_v0": {
+      "public_key": "36a1b69b674c16f0a5af8c2e381f332294917c74abae0f493774480ea83250c8",
+      "source_id": "signal_sensor_v0",
+      "boundary": "TB2",
+      "authorized_claim_types": ["signal.provisional_v0"]
+    },
+    "model_sensor_v0": {
+      "public_key": "4227594934a338728e8fc13f1de47dc886654f6941fc1112d6c5b4b3ae293cf8",
+      "source_id": "model_sensor_v0",
+      "boundary": "TB2",
+      "authorized_claim_types": ["model.provisional_v0"]
+    },
+    "calibration_sensor_v0": {
+      "public_key": "efcc099cffabbd6795d68bb4f3ae82693fc6a2e1f901e5704650dc8bee5013e8",
+      "source_id": "calibration_sensor_v0",
+      "boundary": "TB2",
+      "authorized_claim_types": ["calibration.provisional_v0"]
+    },
+    "device_sensor_v0": {
+      "public_key": "564532887b5195eaca8a52a73002690041317240276ad57289847e7b9c92fb18",
+      "source_id": "device_sensor_v0",
+      "boundary": "TB2",
+      "authorized_claim_types": ["device.provisional_v0"]
+    },
+    "fsi_sensor_v0": {
+      "public_key": "09bab84f6a436fe4710913fee342a2a4f91d30805fa46358f9ac397f7279e957",
+      "source_id": "fsi_sensor_v0",
+      "boundary": "TB2",
+      "authorized_claim_types": ["fsi.provisional_v0"]
+    },
+    "actuationfidelity_sensor_v0": {
+      "public_key": "6b61c4e51462da27694a09c4e3c3dac7fff234aa378090efd700814bd0f19e2d",
+      "source_id": "actuationfidelity_sensor_v0",
+      "boundary": "TB2",
+      "authorized_claim_types": ["actuationfidelity.provisional_v0"]
+    }
+  }
+}

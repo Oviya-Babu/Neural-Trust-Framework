@@ -1,0 +1,2561 @@
+{
+  "bootstrap_n": 1000,
+  "bootstrap_seed": 20260721,
+  "claims": {
+    "Calibration": {
+      "budgets": {
+        "0.1%": {
+          "alpha": 1.2855189178356924e-07,
+          "alpha_ppb": 129,
+          "alpha_representability": {
+            "representability_margin": 128.55189178356923,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.001,
+          "beta_ppb": 1000000,
+          "resolution_status": "tail_floor",
+          "session_budget": 0.001,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 9,
+            "class_support_floor": 6,
+            "class_support_n_separating": 5,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0031520882584712374
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta1_failed_tests": [
+              "class_support"
+            ],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 9
+            },
+            "theta1_resolution_status": "tail_floor",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.01773049645390068,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0011820330969267712
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta2_failed_tests": [
+              "class_support"
+            ],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.005319148936170248,
+              "max_tpr_swing": 4.9251379038661725e-05,
+              "n_subjects": 9
+            },
+            "theta2_resolution_status": "tail_floor"
+          },
+          "theta1": -100,
+          "theta2": 11,
+          "theta2_applicable": true
+        },
+        "1%": {
+          "alpha": 1.2855189178356926e-06,
+          "alpha_ppb": 1286,
+          "alpha_representability": {
+            "representability_margin": 1285.5189178356925,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.01,
+          "beta_ppb": 10000000,
+          "resolution_status": "tail_floor",
+          "session_budget": 0.01,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 9,
+            "class_support_floor": 6,
+            "class_support_n_separating": 5,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0031520882584712374
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta1_failed_tests": [
+              "class_support"
+            ],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 9
+            },
+            "theta1_resolution_status": "tail_floor",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.01773049645390068,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0011820330969267712
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta2_failed_tests": [
+              "class_support"
+            ],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.005319148936170248,
+              "max_tpr_swing": 4.9251379038661725e-05,
+              "n_subjects": 9
+            },
+            "theta2_resolution_status": "tail_floor"
+          },
+          "theta1": -100,
+          "theta2": 5,
+          "theta2_applicable": true
+        },
+        "5%": {
+          "alpha": 6.427594589178463e-06,
+          "alpha_ppb": 6428,
+          "alpha_representability": {
+            "representability_margin": 6427.594589178463,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.05,
+          "beta_ppb": 50000000,
+          "resolution_status": "tail_floor",
+          "session_budget": 0.05,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 9,
+            "class_support_floor": 6,
+            "class_support_n_separating": 5,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0031520882584712374
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta1_failed_tests": [
+              "class_support"
+            ],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 9
+            },
+            "theta1_resolution_status": "tail_floor",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.01773049645390068,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0011820330969267712
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta2_failed_tests": [
+              "class_support"
+            ],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.005319148936170248,
+              "max_tpr_swing": 4.9251379038661725e-05,
+              "n_subjects": 9
+            },
+            "theta2_resolution_status": "tail_floor"
+          },
+          "theta1": -100,
+          "theta2": 0,
+          "theta2_applicable": true
+        }
+      },
+      "cohort": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "min_subjects_separating": 6,
+      "n_attack_pooled": 2538,
+      "n_honest_pooled": 2538,
+      "n_roc_points": 108,
+      "per_subject_auc": {
+        "1": 0.8061968710372467,
+        "2": 0.18320255524866705,
+        "3": 0.9083547108411548,
+        "4": 0.557479503192709,
+        "5": 0.00993410783611237,
+        "6": 0.9544099891284518,
+        "7": 0.29626905075026405,
+        "8": 0.19951838433984714,
+        "9": 0.965821638313264
+      },
+      "per_subject_auc_known_issue": "see claims.Signal.per_subject_auc_known_issue (same issue, documented once)",
+      "roc_points": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 12608353,
+          "threshold": -99,
+          "tpr_ppb": 7092199
+        },
+        {
+          "fpr_ppb": 13002364,
+          "threshold": -97,
+          "tpr_ppb": 7880221
+        },
+        {
+          "fpr_ppb": 13396375,
+          "threshold": -96,
+          "tpr_ppb": 8274232
+        },
+        {
+          "fpr_ppb": 13790386,
+          "threshold": -95,
+          "tpr_ppb": 8274232
+        },
+        {
+          "fpr_ppb": 14184397,
+          "threshold": -94,
+          "tpr_ppb": 8274232
+        },
+        {
+          "fpr_ppb": 14184397,
+          "threshold": -93,
+          "tpr_ppb": 8668243
+        },
+        {
+          "fpr_ppb": 14578408,
+          "threshold": -92,
+          "tpr_ppb": 9062254
+        },
+        {
+          "fpr_ppb": 15366430,
+          "threshold": -91,
+          "tpr_ppb": 10638298
+        },
+        {
+          "fpr_ppb": 15366430,
+          "threshold": -89,
+          "tpr_ppb": 11426320
+        },
+        {
+          "fpr_ppb": 16154452,
+          "threshold": -87,
+          "tpr_ppb": 11820331
+        },
+        {
+          "fpr_ppb": 16942474,
+          "threshold": -86,
+          "tpr_ppb": 12214342
+        },
+        {
+          "fpr_ppb": 16942474,
+          "threshold": -85,
+          "tpr_ppb": 13002364
+        },
+        {
+          "fpr_ppb": 17336485,
+          "threshold": -84,
+          "tpr_ppb": 13396375
+        },
+        {
+          "fpr_ppb": 17730496,
+          "threshold": -83,
+          "tpr_ppb": 14578408
+        },
+        {
+          "fpr_ppb": 18518519,
+          "threshold": -82,
+          "tpr_ppb": 14578408
+        },
+        {
+          "fpr_ppb": 18912530,
+          "threshold": -81,
+          "tpr_ppb": 14578408
+        },
+        {
+          "fpr_ppb": 18912530,
+          "threshold": -80,
+          "tpr_ppb": 15760441
+        },
+        {
+          "fpr_ppb": 19306541,
+          "threshold": -79,
+          "tpr_ppb": 16942474
+        },
+        {
+          "fpr_ppb": 20488574,
+          "threshold": -78,
+          "tpr_ppb": 16942474
+        },
+        {
+          "fpr_ppb": 21670607,
+          "threshold": -77,
+          "tpr_ppb": 18518519
+        },
+        {
+          "fpr_ppb": 21670607,
+          "threshold": -76,
+          "tpr_ppb": 18912530
+        },
+        {
+          "fpr_ppb": 22458629,
+          "threshold": -75,
+          "tpr_ppb": 19700552
+        },
+        {
+          "fpr_ppb": 24034673,
+          "threshold": -74,
+          "tpr_ppb": 20488574
+        },
+        {
+          "fpr_ppb": 25216706,
+          "threshold": -73,
+          "tpr_ppb": 22458629
+        },
+        {
+          "fpr_ppb": 26004728,
+          "threshold": -72,
+          "tpr_ppb": 23640662
+        },
+        {
+          "fpr_ppb": 27580772,
+          "threshold": -71,
+          "tpr_ppb": 24822695
+        },
+        {
+          "fpr_ppb": 29156816,
+          "threshold": -70,
+          "tpr_ppb": 27186761
+        },
+        {
+          "fpr_ppb": 30732861,
+          "threshold": -69,
+          "tpr_ppb": 30338849
+        },
+        {
+          "fpr_ppb": 31914894,
+          "threshold": -68,
+          "tpr_ppb": 32702916
+        },
+        {
+          "fpr_ppb": 33096927,
+          "threshold": -67,
+          "tpr_ppb": 35460993
+        },
+        {
+          "fpr_ppb": 35066982,
+          "threshold": -66,
+          "tpr_ppb": 37037037
+        },
+        {
+          "fpr_ppb": 37431048,
+          "threshold": -65,
+          "tpr_ppb": 38613081
+        },
+        {
+          "fpr_ppb": 39401103,
+          "threshold": -64,
+          "tpr_ppb": 39795114
+        },
+        {
+          "fpr_ppb": 41371158,
+          "threshold": -63,
+          "tpr_ppb": 42159180
+        },
+        {
+          "fpr_ppb": 43341214,
+          "threshold": -62,
+          "tpr_ppb": 44523247
+        },
+        {
+          "fpr_ppb": 46493302,
+          "threshold": -61,
+          "tpr_ppb": 48463357
+        },
+        {
+          "fpr_ppb": 49645390,
+          "threshold": -60,
+          "tpr_ppb": 51221434
+        },
+        {
+          "fpr_ppb": 53191489,
+          "threshold": -59,
+          "tpr_ppb": 53979511
+        },
+        {
+          "fpr_ppb": 56737589,
+          "threshold": -58,
+          "tpr_ppb": 57919622
+        },
+        {
+          "fpr_ppb": 59101655,
+          "threshold": -57,
+          "tpr_ppb": 62647754
+        },
+        {
+          "fpr_ppb": 61859732,
+          "threshold": -56,
+          "tpr_ppb": 66981875
+        },
+        {
+          "fpr_ppb": 65799842,
+          "threshold": -55,
+          "tpr_ppb": 70921986
+        },
+        {
+          "fpr_ppb": 69739953,
+          "threshold": -54,
+          "tpr_ppb": 78014184
+        },
+        {
+          "fpr_ppb": 73680063,
+          "threshold": -53,
+          "tpr_ppb": 83924350
+        },
+        {
+          "fpr_ppb": 76832151,
+          "threshold": -52,
+          "tpr_ppb": 89440504
+        },
+        {
+          "fpr_ppb": 81560284,
+          "threshold": -51,
+          "tpr_ppb": 96926714
+        },
+        {
+          "fpr_ppb": 85894405,
+          "threshold": -50,
+          "tpr_ppb": 104412924
+        },
+        {
+          "fpr_ppb": 92592593,
+          "threshold": -49,
+          "tpr_ppb": 111899133
+        },
+        {
+          "fpr_ppb": 96926714,
+          "threshold": -48,
+          "tpr_ppb": 117809299
+        },
+        {
+          "fpr_ppb": 106776990,
+          "threshold": -47,
+          "tpr_ppb": 127265563
+        },
+        {
+          "fpr_ppb": 114657210,
+          "threshold": -46,
+          "tpr_ppb": 134751773
+        },
+        {
+          "fpr_ppb": 124901497,
+          "threshold": -45,
+          "tpr_ppb": 146966115
+        },
+        {
+          "fpr_ppb": 133963751,
+          "threshold": -44,
+          "tpr_ppb": 156816391
+        },
+        {
+          "fpr_ppb": 143814027,
+          "threshold": -43,
+          "tpr_ppb": 167848700
+        },
+        {
+          "fpr_ppb": 154452325,
+          "threshold": -42,
+          "tpr_ppb": 180851064
+        },
+        {
+          "fpr_ppb": 167060678,
+          "threshold": -41,
+          "tpr_ppb": 191883373
+        },
+        {
+          "fpr_ppb": 182427108,
+          "threshold": -40,
+          "tpr_ppb": 204885737
+        },
+        {
+          "fpr_ppb": 193459417,
+          "threshold": -39,
+          "tpr_ppb": 220646178
+        },
+        {
+          "fpr_ppb": 202127660,
+          "threshold": -38,
+          "tpr_ppb": 236800630
+        },
+        {
+          "fpr_ppb": 215524035,
+          "threshold": -37,
+          "tpr_ppb": 249802994
+        },
+        {
+          "fpr_ppb": 226556344,
+          "threshold": -36,
+          "tpr_ppb": 263987392
+        },
+        {
+          "fpr_ppb": 239558708,
+          "threshold": -35,
+          "tpr_ppb": 280929866
+        },
+        {
+          "fpr_ppb": 252561072,
+          "threshold": -34,
+          "tpr_ppb": 299054374
+        },
+        {
+          "fpr_ppb": 269109535,
+          "threshold": -33,
+          "tpr_ppb": 317178881
+        },
+        {
+          "fpr_ppb": 283293932,
+          "threshold": -32,
+          "tpr_ppb": 334515366
+        },
+        {
+          "fpr_ppb": 293932230,
+          "threshold": -31,
+          "tpr_ppb": 353821907
+        },
+        {
+          "fpr_ppb": 304176517,
+          "threshold": -30,
+          "tpr_ppb": 371158392
+        },
+        {
+          "fpr_ppb": 318360914,
+          "threshold": -29,
+          "tpr_ppb": 392828999
+        },
+        {
+          "fpr_ppb": 331363278,
+          "threshold": -28,
+          "tpr_ppb": 411741529
+        },
+        {
+          "fpr_ppb": 351457841,
+          "threshold": -27,
+          "tpr_ppb": 432230102
+        },
+        {
+          "fpr_ppb": 366824271,
+          "threshold": -26,
+          "tpr_ppb": 452324665
+        },
+        {
+          "fpr_ppb": 388494878,
+          "threshold": -25,
+          "tpr_ppb": 473601261
+        },
+        {
+          "fpr_ppb": 408983452,
+          "threshold": -24,
+          "tpr_ppb": 496059890
+        },
+        {
+          "fpr_ppb": 429472025,
+          "threshold": -23,
+          "tpr_ppb": 516942474
+        },
+        {
+          "fpr_ppb": 449960599,
+          "threshold": -22,
+          "tpr_ppb": 540977147
+        },
+        {
+          "fpr_ppb": 469661151,
+          "threshold": -21,
+          "tpr_ppb": 566587864
+        },
+        {
+          "fpr_ppb": 496059890,
+          "threshold": -20,
+          "tpr_ppb": 590622537
+        },
+        {
+          "fpr_ppb": 516942474,
+          "threshold": -19,
+          "tpr_ppb": 615051221
+        },
+        {
+          "fpr_ppb": 542159180,
+          "threshold": -18,
+          "tpr_ppb": 633963751
+        },
+        {
+          "fpr_ppb": 563435776,
+          "threshold": -17,
+          "tpr_ppb": 654846336
+        },
+        {
+          "fpr_ppb": 592198582,
+          "threshold": -16,
+          "tpr_ppb": 684397163
+        },
+        {
+          "fpr_ppb": 617809299,
+          "threshold": -15,
+          "tpr_ppb": 711583924
+        },
+        {
+          "fpr_ppb": 650512214,
+          "threshold": -14,
+          "tpr_ppb": 736012608
+        },
+        {
+          "fpr_ppb": 678486998,
+          "threshold": -13,
+          "tpr_ppb": 752955083
+        },
+        {
+          "fpr_ppb": 710401891,
+          "threshold": -12,
+          "tpr_ppb": 771867612
+        },
+        {
+          "fpr_ppb": 735618597,
+          "threshold": -11,
+          "tpr_ppb": 789598109
+        },
+        {
+          "fpr_ppb": 768321513,
+          "threshold": -10,
+          "tpr_ppb": 811662727
+        },
+        {
+          "fpr_ppb": 797084318,
+          "threshold": -9,
+          "tpr_ppb": 833727344
+        },
+        {
+          "fpr_ppb": 821513002,
+          "threshold": -8,
+          "tpr_ppb": 847123719
+        },
+        {
+          "fpr_ppb": 848305753,
+          "threshold": -7,
+          "tpr_ppb": 862490150
+        },
+        {
+          "fpr_ppb": 872734437,
+          "threshold": -6,
+          "tpr_ppb": 875886525
+        },
+        {
+          "fpr_ppb": 893617021,
+          "threshold": -5,
+          "tpr_ppb": 891646966
+        },
+        {
+          "fpr_ppb": 917257683,
+          "threshold": -4,
+          "tpr_ppb": 908195429
+        },
+        {
+          "fpr_ppb": 934594169,
+          "threshold": -3,
+          "tpr_ppb": 921985816
+        },
+        {
+          "fpr_ppb": 950748621,
+          "threshold": -2,
+          "tpr_ppb": 934200158
+        },
+        {
+          "fpr_ppb": 961780930,
+          "threshold": -1,
+          "tpr_ppb": 943262411
+        },
+        {
+          "fpr_ppb": 972419228,
+          "threshold": 0,
+          "tpr_ppb": 955082742
+        },
+        {
+          "fpr_ppb": 982269504,
+          "threshold": 1,
+          "tpr_ppb": 966115051
+        },
+        {
+          "fpr_ppb": 989361702,
+          "threshold": 2,
+          "tpr_ppb": 974783294
+        },
+        {
+          "fpr_ppb": 992907801,
+          "threshold": 3,
+          "tpr_ppb": 982269504
+        },
+        {
+          "fpr_ppb": 995271868,
+          "threshold": 4,
+          "tpr_ppb": 987785658
+        },
+        {
+          "fpr_ppb": 997241923,
+          "threshold": 5,
+          "tpr_ppb": 991331757
+        },
+        {
+          "fpr_ppb": 998029945,
+          "threshold": 6,
+          "tpr_ppb": 994089835
+        },
+        {
+          "fpr_ppb": 1000000000,
+          "threshold": 7,
+          "tpr_ppb": 998029945
+        },
+        {
+          "fpr_ppb": 1000000000,
+          "threshold": 9,
+          "tpr_ppb": 998423956
+        },
+        {
+          "fpr_ppb": 1000000000,
+          "threshold": 11,
+          "tpr_ppb": 999605989
+        }
+      ]
+    },
+    "Device": {
+      "budgets": {
+        "0.1%": {
+          "alpha": 6.947918906874406e-10,
+          "alpha_ppb": 1,
+          "alpha_representability": {
+            "representability_margin": 0.6947918906874406,
+            "representable_at_ppb_before_rounding": false
+          },
+          "band_cap": "HIGH",
+          "beta": 0.001,
+          "beta_ppb": 1000000,
+          "resolution_status": "stable",
+          "session_budget": 0.001,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        },
+        "1%": {
+          "alpha": 6.979399835849165e-09,
+          "alpha_ppb": 7,
+          "alpha_representability": {
+            "representability_margin": 6.979399835849165,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.01,
+          "beta_ppb": 10000000,
+          "resolution_status": "stable",
+          "session_budget": 0.01,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        },
+        "5%": {
+          "alpha": 3.562034267545755e-08,
+          "alpha_ppb": 36,
+          "alpha_representability": {
+            "representability_margin": 35.62034267545755,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.05,
+          "beta_ppb": 50000000,
+          "resolution_status": "stable",
+          "session_budget": 0.05,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        }
+      },
+      "cohort": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "min_subjects_separating": 4,
+      "n_attack_pooled": 9,
+      "n_honest_pooled": 3,
+      "n_roc_points": 3,
+      "per_subject_auc": {
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0
+      },
+      "per_subject_auc_known_issue": "see claims.Signal.per_subject_auc_known_issue (same issue, documented once)",
+      "roc_points": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": 100,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    },
+    "FSI": {
+      "budgets": {
+        "0.1%": {
+          "alpha": 6.947918906874406e-10,
+          "alpha_ppb": 1,
+          "alpha_representability": {
+            "representability_margin": 0.6947918906874406,
+            "representable_at_ppb_before_rounding": false
+          },
+          "band_cap": "HIGH",
+          "beta": 0.001,
+          "beta_ppb": 1000000,
+          "resolution_status": "stable",
+          "session_budget": 0.001,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        },
+        "1%": {
+          "alpha": 6.979399835849165e-09,
+          "alpha_ppb": 7,
+          "alpha_representability": {
+            "representability_margin": 6.979399835849165,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.01,
+          "beta_ppb": 10000000,
+          "resolution_status": "stable",
+          "session_budget": 0.01,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        },
+        "5%": {
+          "alpha": 3.562034267545755e-08,
+          "alpha_ppb": 36,
+          "alpha_representability": {
+            "representability_margin": 35.62034267545755,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.05,
+          "beta_ppb": 50000000,
+          "resolution_status": "stable",
+          "session_budget": 0.05,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        }
+      },
+      "cohort": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "min_subjects_separating": 4,
+      "n_attack_pooled": 6,
+      "n_honest_pooled": 3,
+      "n_roc_points": 3,
+      "per_subject_auc": {
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0
+      },
+      "per_subject_auc_known_issue": "see claims.Signal.per_subject_auc_known_issue (same issue, documented once)",
+      "roc_points": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": 100,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    },
+    "Model": {
+      "budgets": {
+        "0.1%": {
+          "alpha": 6.947918906874406e-10,
+          "alpha_ppb": 1,
+          "alpha_representability": {
+            "representability_margin": 0.6947918906874406,
+            "representable_at_ppb_before_rounding": false
+          },
+          "band_cap": "HIGH",
+          "beta": 0.001,
+          "beta_ppb": 1000000,
+          "resolution_status": "stable",
+          "session_budget": 0.001,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        },
+        "1%": {
+          "alpha": 6.979399835849165e-09,
+          "alpha_ppb": 7,
+          "alpha_representability": {
+            "representability_margin": 6.979399835849165,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.01,
+          "beta_ppb": 10000000,
+          "resolution_status": "stable",
+          "session_budget": 0.01,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        },
+        "5%": {
+          "alpha": 3.562034267545755e-08,
+          "alpha_ppb": 36,
+          "alpha_representability": {
+            "representability_margin": 35.62034267545755,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.05,
+          "beta_ppb": 50000000,
+          "resolution_status": "stable",
+          "session_budget": 0.05,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 6,
+            "class_support_floor": 4,
+            "class_support_n_separating": 6,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta1_failed_tests": [],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta1_resolution_status": "stable",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": null,
+              "tpr_band_width_ratio_6_over_9": null
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 6
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": 100,
+          "theta2": 100,
+          "theta2_applicable": true
+        }
+      },
+      "cohort": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "min_subjects_separating": 4,
+      "n_attack_pooled": 54,
+      "n_honest_pooled": 18,
+      "n_roc_points": 3,
+      "per_subject_auc": {
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0
+      },
+      "per_subject_auc_known_issue": "see claims.Signal.per_subject_auc_known_issue (same issue, documented once)",
+      "roc_points": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": 100,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    },
+    "Signal": {
+      "budgets": {
+        "0.1%": {
+          "alpha": 1.880484344166872e-07,
+          "alpha_ppb": 188,
+          "alpha_representability": {
+            "representability_margin": 188.0484344166872,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.001,
+          "beta_ppb": 1000000,
+          "resolution_status": "tail_floor",
+          "session_budget": 0.001,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 9,
+            "class_support_floor": 6,
+            "class_support_n_separating": 8,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0003940110323089047,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 1.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta1_failed_tests": [
+              "loso_tpr_swing"
+            ],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 1.0,
+              "n_subjects": 9
+            },
+            "theta1_resolution_status": "tail_floor",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 9
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": -100,
+          "theta2": -99,
+          "theta2_applicable": true
+        },
+        "1%": {
+          "alpha": 1.880484344166872e-06,
+          "alpha_ppb": 1880,
+          "alpha_representability": {
+            "representability_margin": 1880.484344166872,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.01,
+          "beta_ppb": 10000000,
+          "resolution_status": "tail_floor",
+          "session_budget": 0.01,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 9,
+            "class_support_floor": 6,
+            "class_support_n_separating": 8,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0003940110323089047,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 1.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta1_failed_tests": [
+              "loso_tpr_swing"
+            ],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 1.0,
+              "n_subjects": 9
+            },
+            "theta1_resolution_status": "tail_floor",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 9
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": -100,
+          "theta2": -99,
+          "theta2_applicable": true
+        },
+        "5%": {
+          "alpha": 9.40242172083436e-06,
+          "alpha_ppb": 9402,
+          "alpha_representability": {
+            "representability_margin": 9402.42172083436,
+            "representable_at_ppb_before_rounding": true
+          },
+          "band_cap": "HIGH",
+          "beta": 0.05,
+          "beta_ppb": 50000000,
+          "resolution_status": "tail_floor",
+          "session_budget": 0.05,
+          "tail_floor_detail": {
+            "class_support_cohort_size": 9,
+            "class_support_floor": 6,
+            "class_support_n_separating": 8,
+            "theta1_bootstrap_band_widths": {
+              "fpr_band_width": 0.0003940110323089047,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 1.0
+            },
+            "theta1_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta1_failed_tests": [
+              "loso_tpr_swing"
+            ],
+            "theta1_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 1.0,
+              "n_subjects": 9
+            },
+            "theta1_resolution_status": "tail_floor",
+            "theta2_bootstrap_band_widths": {
+              "fpr_band_width": 0.0,
+              "n_boot": 1000,
+              "n_resamples_with_data": 1000,
+              "tpr_band_width": 0.0
+            },
+            "theta2_cohort_stability_gap": {
+              "fpr_band_width_ratio_6_over_9": 1.0,
+              "tpr_band_width_ratio_6_over_9": 1.0
+            },
+            "theta2_failed_tests": [],
+            "theta2_loso_swing": {
+              "max_fpr_swing": 0.0,
+              "max_tpr_swing": 0.0,
+              "n_subjects": 9
+            },
+            "theta2_resolution_status": "stable"
+          },
+          "theta1": -100,
+          "theta2": -99,
+          "theta2_applicable": true
+        }
+      },
+      "cohort": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "min_subjects_separating": 6,
+      "n_attack_pooled": 2538,
+      "n_honest_pooled": 2538,
+      "n_roc_points": 109,
+      "per_subject_auc": {
+        "1": 0.992907801,
+        "2": 0.996453901,
+        "3": 0.996453901,
+        "4": 0.996453901,
+        "5": 0.6861702129999999,
+        "6": 0.996453901,
+        "7": 0.996453901,
+        "8": 0.996453901,
+        "9": 0.996453901
+      },
+      "per_subject_auc_known_issue": {
+        "affected": {
+          "Calibration": "no repeated ceiling-artifact values observed across the 9 subjects (real, spread continuous distribution); each value is a genuine measurement, marginally understated by the same missing final segment (not quantified further here since the understatement is small and the values were never used as a success criterion, per this field's own docstring).",
+          "Device": "all 6 held-out subjects read 0.0; TRUE AUC = 1.0 for all (perfect separation, confirmed by theta1=theta2=100 and the spine sanity check)",
+          "FSI": "all 6 held-out subjects read 0.0; TRUE AUC = 1.0 for all (same as Device)",
+          "Model": "all 6 held-out subjects read 0.0; TRUE AUC = 1.0 for all (same as Device)",
+          "Signal": "7 of 9 subjects (2,3,4,6,7,8,9) read exactly 0.996453901 = 1 - 1/282, the ceiling-artifact signature (282 = pooled honest count / 9 subjects); TRUE AUC = 1.0 for those 7. Subjects 1 (0.992907801) and 5 (0.686170213) show genuine, non-ceiling separation -- real values, marginally (by ~1/282) understated by the same missing segment, not qualitatively wrong."
+        },
+        "bug": "The per_subject_auc field in each claim below was computed by a trapezoidal integration over roc_estimability.threshold_derivation.build_roc_points()'s output, which deliberately has no candidate threshold ABOVE the maximum observed score (theta1/theta2 derivation never needs one). This means the reported AUC never includes the final ROC segment out to FPR=1.0 -- for a claim whose honest distribution is a single repeated ceiling value (Device/Model/FSI's deterministic pass/fail claims), this silently capped every subject's reported AUC toward 0.0 even though separation is perfect (confirmed independently: theta1==theta2==100, band_cap=HIGH for all three, and the spine_sanity_check rows above show clean Safe/Constrained classification for both honest and attack cases).",
+        "fix": "experiments/phase9_measured_roc.py's _per_subject_auc() now appends the standard ROC-closing corner (FPR=1.0, TPR=1.0) before integrating, fixed after this run completed. Per instruction, the experiment was NOT rerun to regenerate corrected numbers; this note documents the known-correct values (analytically derivable from the already-confirmed theta1/theta2 findings above) in place of a full rerun.",
+        "scope_of_impact": "This bug affects ONLY the per_subject_auc reporting field, which CLAUDE.md 14 states is reported as a distribution with no success criterion and is never used to derive theta1/theta2/resolution_status or to steer alpha/beta. It does NOT affect: theta1/theta2/band_cap (derived via trust_kernel.bands.derive_thresholds directly on the same roc_points, whose formula never needed an upper sentinel), resolution_status/Tail-Floor Rule evaluation (driven by class separation/bootstrap width/LOSO swing, none of which use this AUC computation), config/eis.v1-measured.json's content or hash, or the spine sanity check (which independently exercises the real trust_kernel pipeline against the derived thresholds and shows correct classification)."
+      },
+      "roc_points": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 68951931,
+          "threshold": -99,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 71710008,
+          "threshold": -98,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 73286052,
+          "threshold": -97,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 76044129,
+          "threshold": -96,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 79196217,
+          "threshold": -95,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 80378251,
+          "threshold": -94,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 82348306,
+          "threshold": -93,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 84712372,
+          "threshold": -92,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 87076438,
+          "threshold": -91,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 88258471,
+          "threshold": -90,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 90622537,
+          "threshold": -89,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 92198582,
+          "threshold": -88,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 93380615,
+          "threshold": -87,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 94956659,
+          "threshold": -85,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 96926714,
+          "threshold": -84,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 98896769,
+          "threshold": -83,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 100078802,
+          "threshold": -82,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 100866824,
+          "threshold": -81,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 101654846,
+          "threshold": -80,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 102048857,
+          "threshold": -79,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 103230890,
+          "threshold": -78,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 103624901,
+          "threshold": -77,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 104806935,
+          "threshold": -76,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 105200946,
+          "threshold": -74,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 105988968,
+          "threshold": -71,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 107565012,
+          "threshold": -70,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 107959023,
+          "threshold": -68,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 108747045,
+          "threshold": -67,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 109141056,
+          "threshold": -64,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 109535067,
+          "threshold": -63,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 109929078,
+          "threshold": -61,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 110717100,
+          "threshold": -60,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 111111111,
+          "threshold": -51,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 112293144,
+          "threshold": -49,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 112687155,
+          "threshold": -48,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 113475177,
+          "threshold": -47,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 114263199,
+          "threshold": -46,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 115445232,
+          "threshold": -45,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 117809299,
+          "threshold": -44,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 119385343,
+          "threshold": -43,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 121749409,
+          "threshold": -42,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 122537431,
+          "threshold": -41,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 125295508,
+          "threshold": -40,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 127265563,
+          "threshold": -39,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 129235619,
+          "threshold": -38,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 132781718,
+          "threshold": -37,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 135539795,
+          "threshold": -36,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 137903861,
+          "threshold": -35,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 138691883,
+          "threshold": -34,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 141449961,
+          "threshold": -33,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 144602049,
+          "threshold": -32,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 147360126,
+          "threshold": -31,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 150906225,
+          "threshold": -30,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 153664303,
+          "threshold": -29,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 156422380,
+          "threshold": -28,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 159968479,
+          "threshold": -27,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 163514578,
+          "threshold": -26,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 167060678,
+          "threshold": -25,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 169424744,
+          "threshold": -24,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 171000788,
+          "threshold": -23,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 176122931,
+          "threshold": -22,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 180457053,
+          "threshold": -21,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 185185185,
+          "threshold": -20,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 192671395,
+          "threshold": -19,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 202127660,
+          "threshold": -18,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 214342002,
+          "threshold": -17,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 226162333,
+          "threshold": -16,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 241922774,
+          "threshold": -15,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 255713160,
+          "threshold": -14,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 271867612,
+          "threshold": -13,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 294720252,
+          "threshold": -12,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 318360914,
+          "threshold": -11,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 343577620,
+          "threshold": -10,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 371552403,
+          "threshold": -9,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 395587076,
+          "threshold": -8,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 423955871,
+          "threshold": -7,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 455870764,
+          "threshold": -6,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 487785658,
+          "threshold": -5,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 519700552,
+          "threshold": -4,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 557131600,
+          "threshold": -3,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 587076438,
+          "threshold": -2,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 617415288,
+          "threshold": -1,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 653270292,
+          "threshold": 0,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 692277384,
+          "threshold": 1,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 724586288,
+          "threshold": 2,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 753743105,
+          "threshold": 3,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 783687943,
+          "threshold": 4,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 810874704,
+          "threshold": 5,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 834515366,
+          "threshold": 6,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 853821907,
+          "threshold": 7,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 870764381,
+          "threshold": 8,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 895193065,
+          "threshold": 9,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 915287628,
+          "threshold": 10,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 930260047,
+          "threshold": 11,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 944444444,
+          "threshold": 12,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 955870764,
+          "threshold": 13,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 962568952,
+          "threshold": 14,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 972813239,
+          "threshold": 15,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 981481481,
+          "threshold": 16,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 985421592,
+          "threshold": 17,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 990149724,
+          "threshold": 18,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 993301812,
+          "threshold": 19,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 995665879,
+          "threshold": 20,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 997241923,
+          "threshold": 21,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 998817967,
+          "threshold": 22,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 999211978,
+          "threshold": 23,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 999605989,
+          "threshold": 24,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    }
+  },
+  "cohorts": {
+    "full": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "held_out": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "config_transition": {
+    "attempted_calibration_status": "measured",
+    "derived_theta_by_claim": {
+      "actuationfidelity.provisional_v0": [
+        -100,
+        100,
+        "HIGH"
+      ],
+      "calibration.provisional_v0": [
+        -100,
+        5,
+        "HIGH"
+      ],
+      "device.provisional_v0": [
+        100,
+        100,
+        "HIGH"
+      ],
+      "fsi.provisional_v0": [
+        100,
+        100,
+        "HIGH"
+      ],
+      "model.provisional_v0": [
+        100,
+        100,
+        "HIGH"
+      ],
+      "signal.provisional_v0": [
+        -100,
+        -99,
+        "HIGH"
+      ]
+    },
+    "eis_v0_hash_matches_known_good": true,
+    "eis_v1_placeholder_hash_matches_known_good": true,
+    "final_calibration_status": "provisional",
+    "measured_config_roc_config_hash": "beb166a43c77c59edccc373941b6c2272c37c8b71027eb59a358d0ae034bf4d3",
+    "nominal_budget_used_for_deployed_operating_point": "1%",
+    "path": "/home/oviya/ProjectBCI-NTF/config/eis.v1-measured.json",
+    "refusal_reason": "calibration_status is 'measured' but claim 'actuationfidelity.provisional_v0' is still a placeholder derivation",
+    "validator_refused_measured_flip": true
+  },
+  "episode_stats_by_subject": {
+    "1": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 7.018425460636516,
+        "mean_gap_windows": 31.761744966442954,
+        "n_episodes": 597,
+        "n_onsets_per_session": 7426.475872290003
+      },
+      "Signal": {
+        "debounce_interval": 5,
+        "mean_episode_length_windows": 4.35973597359736,
+        "mean_gap_windows": 72.24834437086092,
+        "n_episodes": 303,
+        "n_onsets_per_session": 3759.394553486335
+      }
+    },
+    "2": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 44.17351598173516,
+        "mean_gap_windows": 8.83066361556064,
+        "n_episodes": 438,
+        "n_onsets_per_session": 5433.533773904377
+      },
+      "Signal": {
+        "debounce_interval": 6,
+        "mean_episode_length_windows": 4.19344262295082,
+        "mean_gap_windows": 71.82236842105263,
+        "n_episodes": 305,
+        "n_onsets_per_session": 3788.6854858824663
+      }
+    },
+    "3": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 6.303225806451613,
+        "mean_gap_windows": 31.177705977382875,
+        "n_episodes": 620,
+        "n_onsets_per_session": 7683.907157404617
+      },
+      "Signal": {
+        "debounce_interval": 5,
+        "mean_episode_length_windows": 4.0845921450151055,
+        "mean_gap_windows": 66.06666666666666,
+        "n_episodes": 331,
+        "n_onsets_per_session": 4105.414569582057
+      }
+    },
+    "4": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 8.555555555555555,
+        "mean_gap_windows": 28.822580645161292,
+        "n_episodes": 621,
+        "n_onsets_per_session": 7705.039075610107
+      },
+      "Signal": {
+        "debounce_interval": 3,
+        "mean_episode_length_windows": 6.419354838709677,
+        "mean_gap_windows": 118.56216216216217,
+        "n_episodes": 186,
+        "n_onsets_per_session": 2304.3407290214836
+      }
+    },
+    "5": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 46.60532150776053,
+        "mean_gap_windows": 4.862222222222222,
+        "n_episodes": 451,
+        "n_onsets_per_session": 5595.759562782938
+      },
+      "Signal": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 10.555555555555555,
+        "mean_gap_windows": 6.5022091310751104,
+        "n_episodes": 1359,
+        "n_onsets_per_session": 16883.806600153493
+      }
+    },
+    "6": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 6.934472934472934,
+        "mean_gap_windows": 58.93714285714286,
+        "n_episodes": 351,
+        "n_onsets_per_session": 4372.141119341677
+      },
+      "Signal": {
+        "debounce_interval": 5,
+        "mean_episode_length_windows": 3.5336538461538463,
+        "mean_gap_windows": 52.12048192771084,
+        "n_episodes": 416,
+        "n_onsets_per_session": 5174.817576365016
+      }
+    },
+    "7": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 12.322188449848024,
+        "mean_gap_windows": 22.866057838660577,
+        "n_episodes": 658,
+        "n_onsets_per_session": 8184.551103760233
+      },
+      "Signal": {
+        "debounce_interval": 7,
+        "mean_episode_length_windows": 4.089820359281437,
+        "mean_gap_windows": 65.38738738738739,
+        "n_episodes": 334,
+        "n_onsets_per_session": 4145.244308754025
+      }
+    },
+    "8": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 8.339024390243903,
+        "mean_gap_windows": 19.886446886446887,
+        "n_episodes": 820,
+        "n_onsets_per_session": 10203.549736221294
+      },
+      "Signal": {
+        "debounce_interval": 4,
+        "mean_episode_length_windows": 4.5359712230215825,
+        "mean_gap_windows": 78.88447653429603,
+        "n_episodes": 278,
+        "n_onsets_per_session": 3452.3909633982607
+      }
+    },
+    "9": {
+      "Calibration": {
+        "debounce_interval": 2,
+        "mean_episode_length_windows": 12.37962962962963,
+        "mean_gap_windows": 9.103799814643189,
+        "n_episodes": 1080,
+        "n_onsets_per_session": 13405.680910818304
+      },
+      "Signal": {
+        "debounce_interval": 5,
+        "mean_episode_length_windows": 4.005847953216374,
+        "mean_gap_windows": 63.82404692082111,
+        "n_episodes": 342,
+        "n_onsets_per_session": 4245.915470381109
+      }
+    }
+  },
+  "gate": {
+    "note": "This IS Phase 9. calibration_status attempted at 'measured'; see config_transition.validator_refused_measured_flip below."
+  },
+  "mean_n_onsets_by_claim": {
+    "Calibration": 7778.959812459284,
+    "Signal": 5317.778917447138
+  },
+  "mutation": {
+    "eis_v1_kill_rate_line": "eis_v1 mutation kill rate: 11/11 (100%)",
+    "eis_v1_unaffected": true,
+    "pure_core_kill_rate_line": "Mutation kill rate: 61/61 (100%)",
+    "pure_core_unaffected": true,
+    "threshold_derivation_kill_rate_line": "threshold_derivation mutation kill rate: 14/14 (100%)",
+    "threshold_derivation_passed": true
+  },
+  "per_subject_test_accuracy": {
+    "1": 0.5957446808510638,
+    "2": 0.5921985815602837,
+    "3": 0.5531914893617021,
+    "4": 0.3617021276595745,
+    "5": 0.49645390070921985,
+    "6": 0.36879432624113473,
+    "7": 0.5212765957446809,
+    "8": 0.4574468085106383,
+    "9": 0.4574468085106383
+  },
+  "spine_sanity_check": {
+    "core_pure_files_hash_unchanged": {
+      "bands.py": "f9e0418a02f42aadae524872fd61ca7d8c7850147658ceb905f6a2d9f8b6eabb",
+      "canon.py": "af37de63b34a4b66222653a30e1ce038efeb2e9a822756f51bfcdeefb99bdb08",
+      "ctpr.py": "8710aee52cecf71f5d6bb27426753390a897ef26fa8f53e61a9cd765fe9ad7ca",
+      "policy.py": "a917dc8e741210884ada41afdaea3e530390ecc37f036da2f72486537f428d44",
+      "schema.py": "c03c9c5a4701a10328a73c87c48013d3e053e334e01689241f0a9fee31f32883",
+      "sign.py": "3dafa52825b4856edb52f2b8659ff516071b86a1840dc7aceb37e8f52e487415"
+    },
+    "note": "Every row above exercises the real, unmodified trust_kernel.bands/ctpr/policy code path (tests.window_fixtures.compute_verdict), fed the measured config's own theta1/theta2 as reference points -- only the CONFIG changed, not the kernel. 'attack' rows (raw_measurement below that dimension's own theta1) are expected to band LOW and floor that dimension's verdict contribution; 'honest' rows (above theta2, or theta1 when band_cap=MED) are expected to band at band_cap.",
+    "rows": [
+      {
+        "case": "honest",
+        "dimension": "Signal",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": -98,
+        "verdict": "Normal"
+      },
+      {
+        "case": "attack",
+        "dimension": "Signal",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "LOW"
+        },
+        "raw_measurement": -101,
+        "verdict": "Safe"
+      },
+      {
+        "case": "honest",
+        "dimension": "Model",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": 101,
+        "verdict": "Normal"
+      },
+      {
+        "case": "attack",
+        "dimension": "Model",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "LOW",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": 99,
+        "verdict": "Safe"
+      },
+      {
+        "case": "honest",
+        "dimension": "Calibration",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": 6,
+        "verdict": "Normal"
+      },
+      {
+        "case": "attack",
+        "dimension": "Calibration",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "LOW",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": -101,
+        "verdict": "Safe"
+      },
+      {
+        "case": "honest",
+        "dimension": "Device",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": 101,
+        "verdict": "Normal"
+      },
+      {
+        "case": "attack",
+        "dimension": "Device",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "LOW",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": 99,
+        "verdict": "Constrained"
+      },
+      {
+        "case": "honest",
+        "dimension": "FSI",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": 101,
+        "verdict": "Normal"
+      },
+      {
+        "case": "attack",
+        "dimension": "FSI",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "LOW",
+          "Model": "LOW",
+          "Signal": "LOW"
+        },
+        "raw_measurement": 99,
+        "verdict": "Safe"
+      },
+      {
+        "case": "honest",
+        "dimension": "ActuationFidelity",
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": 101,
+        "verdict": "Normal"
+      },
+      {
+        "case": "attack",
+        "dimension": "ActuationFidelity",
+        "effective_dims": {
+          "ActuationFidelity": "LOW",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "raw_measurement": -101,
+        "verdict": "Safe"
+      }
+    ]
+  },
+  "swept_budgets": [
+    0.001,
+    0.01,
+    0.05
+  ],
+  "task": "phase9_measured_roc",
+  "windows_per_session": 288000
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "case": "baseline_all_valid",
+    "description": "All 6 dimensions healthy, no violation",
+    "failed_step": null,
+    "reason": null,
+    "resulting_verdict": "Normal",
+    "signal_dimension_level": "HIGH"
+  },
+  {
+    "case": "invalid_signature",
+    "description": "Signal statement tampered after signing (sig no longer valid)",
+    "failed_step": "signature",
+    "reason": "signature verification failed",
+    "resulting_verdict": "Safe",
+    "signal_dimension_level": "LOW"
+  },
+  {
+    "case": "unsupported_schema_version",
+    "description": "Signal statement declares schema_version=999",
+    "failed_step": "schema",
+    "reason": "unsupported schema_version: 999",
+    "resulting_verdict": "Safe",
+    "signal_dimension_level": "LOW"
+  },
+  {
+    "case": "source_unauthorised_for_boundary",
+    "description": "Signal statement claims boundary TB3 (key is registered only for TB2)",
+    "failed_step": "authorization",
+    "reason": "key_id 'signal_sensor_v0' is not authorised at boundary 'TB3'",
+    "resulting_verdict": "Safe",
+    "signal_dimension_level": "LOW"
+  },
+  {
+    "case": "window_id_mismatch",
+    "description": "Signal statement carries window_id=6, current round is 7",
+    "failed_step": "window_id",
+    "reason": "statement window_id 6 != current round 7",
+    "resulting_verdict": "Safe",
+    "signal_dimension_level": "LOW"
+  },
+  {
+    "case": "late_arrival",
+    "description": "Signal statement arrives at 61ms, deadline Delta(w) is 60ms",
+    "failed_step": "arrival",
+    "reason": "arrived at 61ms, deadline was 60ms",
+    "resulting_verdict": "Safe",
+    "signal_dimension_level": "LOW"
+  }
+]

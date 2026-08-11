@@ -1,0 +1,22 @@
+# CTPR propagation table (§4, §12: "CTPR 18/18")
+
+| edge | fsi_level | child_level | effective_child | matches_expected |
+|---|---|---|---|---|
+| FSI->Signal | LOW | LOW | LOW | True |
+| FSI->Signal | LOW | MED | LOW | True |
+| FSI->Signal | LOW | HIGH | LOW | True |
+| FSI->Signal | MED | LOW | LOW | True |
+| FSI->Signal | MED | MED | MED | True |
+| FSI->Signal | MED | HIGH | MED | True |
+| FSI->Signal | HIGH | LOW | LOW | True |
+| FSI->Signal | HIGH | MED | MED | True |
+| FSI->Signal | HIGH | HIGH | HIGH | True |
+| FSI->Model | LOW | LOW | LOW | True |
+| FSI->Model | LOW | MED | LOW | True |
+| FSI->Model | LOW | HIGH | LOW | True |
+| FSI->Model | MED | LOW | LOW | True |
+| FSI->Model | MED | MED | MED | True |
+| FSI->Model | MED | HIGH | MED | True |
+| FSI->Model | HIGH | LOW | LOW | True |
+| FSI->Model | HIGH | MED | MED | True |
+| FSI->Model | HIGH | HIGH | HIGH | True |

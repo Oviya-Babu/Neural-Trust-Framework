@@ -1,0 +1,27 @@
+{
+  "correct": true,
+  "dynamic_exception": null,
+  "dynamic_ok": true,
+  "static": {
+    "capability.py": {
+      "accessed_string_keys": [],
+      "forbidden_keys_found": []
+    },
+    "clamp.py": {
+      "accessed_string_keys": [
+        "Normal",
+        "max_acceleration",
+        "max_speed"
+      ],
+      "forbidden_keys_found": []
+    },
+    "slew.py": {
+      "accessed_string_keys": [
+        "max_acceleration",
+        "max_speed"
+      ],
+      "forbidden_keys_found": []
+    }
+  },
+  "static_ok": true
+}

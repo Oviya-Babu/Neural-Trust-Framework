@@ -1,0 +1,69 @@
+{
+  "harnesses": [
+    {
+      "harness": "mutation_check.py",
+      "line": "Mutation kill rate: 61/61 (100%)",
+      "killed": 61,
+      "total": 61,
+      "all_killed": true,
+      "returncode": 0
+    },
+    {
+      "harness": "mutation_check_attack_coverage.py",
+      "line": "attack_coverage mutation kill rate: 10/10 (100%)",
+      "killed": 10,
+      "total": 10,
+      "all_killed": true,
+      "returncode": 0
+    },
+    {
+      "harness": "mutation_check_eis_v1.py",
+      "line": "eis_v1 mutation kill rate: 11/11 (100%)",
+      "killed": 11,
+      "total": 11,
+      "all_killed": true,
+      "returncode": 0
+    },
+    {
+      "harness": "mutation_check_event_model.py",
+      "line": "event_model mutation kill rate: 12/12 (100%)",
+      "killed": 12,
+      "total": 12,
+      "all_killed": true,
+      "returncode": 0
+    },
+    {
+      "harness": "mutation_check_latency.py",
+      "line": "latency mutation kill rate: 13/13 (100%)",
+      "killed": 13,
+      "total": 13,
+      "all_killed": true,
+      "returncode": 0
+    },
+    {
+      "harness": "mutation_check_roc_estimability.py",
+      "line": "roc_estimability mutation kill rate: 13/13 (100%)",
+      "killed": 13,
+      "total": 13,
+      "all_killed": true,
+      "returncode": 0
+    },
+    {
+      "harness": "mutation_check_sba.py",
+      "line": "SBA mutation kill rate: 12/12 (100%)",
+      "killed": 12,
+      "total": 12,
+      "all_killed": true,
+      "returncode": 0
+    },
+    {
+      "harness": "mutation_check_threshold_derivation.py",
+      "line": "threshold_derivation mutation kill rate: 14/14 (100%)",
+      "killed": 14,
+      "total": 14,
+      "all_killed": true,
+      "returncode": 0
+    }
+  ],
+  "all_100_percent": true
+}

@@ -1,0 +1,1241 @@
+{
+  "_comment": "Phase 9 (CLAUDE.md 14/20) measured ROC config. eis_schema_version and rate representation (ppb) unchanged from config/eis.v1.json (a REPRESENTATION-only predecessor whose ROC/theta was still the Phase 2 placeholder) -- this file's ROC curves are real, derived from Phase 8 evidence-producer distributions on real BCIC IV 2a data (Model/Device/FSI: held-out subjects 4-9; Signal/Calibration: full 9-subject pool), per docs/PHASE9-MEASURED-ROC.md. alpha_ppb/beta_ppb below are the operating point at the nominal 1%/8h swept budget (CLAUDE.md 20's three swept budgets {0.1%,1%,5%} are a reported feasible region, not simultaneously representable in this single-operating-point config schema; full per-(claim,budget) theta1/theta2/band_cap/resolution_status are in the Phase 9 report/manifest, not here). config/eis.v0.json and config/eis.v1.json are BOTH byte-identical, untouched by this file's existence.",
+  "alpha_ppb": 7,
+  "beta_ppb": 10000000,
+  "calibration_status": "provisional",
+  "claims": {
+    "actuationfidelity.provisional_v0": {
+      "dimension": "ActuationFidelity",
+      "placeholder": true,
+      "polarity": 1,
+      "resolution_status": {
+        "0.1%": "pending",
+        "1%": "pending",
+        "5%": "pending"
+      },
+      "roc": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 10000000,
+          "threshold": -50,
+          "tpr_ppb": 300000000
+        },
+        {
+          "fpr_ppb": 50000000,
+          "threshold": 0,
+          "tpr_ppb": 800000000
+        },
+        {
+          "fpr_ppb": 200000000,
+          "threshold": 50,
+          "tpr_ppb": 950000000
+        },
+        {
+          "fpr_ppb": 1000000000,
+          "threshold": 100,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    },
+    "calibration.provisional_v0": {
+      "dimension": "Calibration",
+      "measured_at_budget": "1%",
+      "placeholder": false,
+      "polarity": 1,
+      "resolution_status": {
+        "0.1%": "tail_floor",
+        "1%": "tail_floor",
+        "5%": "tail_floor"
+      },
+      "roc": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 12608353,
+          "threshold": -99,
+          "tpr_ppb": 7092199
+        },
+        {
+          "fpr_ppb": 13002364,
+          "threshold": -97,
+          "tpr_ppb": 7880221
+        },
+        {
+          "fpr_ppb": 13396375,
+          "threshold": -96,
+          "tpr_ppb": 8274232
+        },
+        {
+          "fpr_ppb": 13790386,
+          "threshold": -95,
+          "tpr_ppb": 8274232
+        },
+        {
+          "fpr_ppb": 14184397,
+          "threshold": -94,
+          "tpr_ppb": 8274232
+        },
+        {
+          "fpr_ppb": 14184397,
+          "threshold": -93,
+          "tpr_ppb": 8668243
+        },
+        {
+          "fpr_ppb": 14578408,
+          "threshold": -92,
+          "tpr_ppb": 9062254
+        },
+        {
+          "fpr_ppb": 15366430,
+          "threshold": -91,
+          "tpr_ppb": 10638298
+        },
+        {
+          "fpr_ppb": 15366430,
+          "threshold": -89,
+          "tpr_ppb": 11426320
+        },
+        {
+          "fpr_ppb": 16154452,
+          "threshold": -87,
+          "tpr_ppb": 11820331
+        },
+        {
+          "fpr_ppb": 16942474,
+          "threshold": -86,
+          "tpr_ppb": 12214342
+        },
+        {
+          "fpr_ppb": 16942474,
+          "threshold": -85,
+          "tpr_ppb": 13002364
+        },
+        {
+          "fpr_ppb": 17336485,
+          "threshold": -84,
+          "tpr_ppb": 13396375
+        },
+        {
+          "fpr_ppb": 17730496,
+          "threshold": -83,
+          "tpr_ppb": 14578408
+        },
+        {
+          "fpr_ppb": 18518519,
+          "threshold": -82,
+          "tpr_ppb": 14578408
+        },
+        {
+          "fpr_ppb": 18912530,
+          "threshold": -81,
+          "tpr_ppb": 14578408
+        },
+        {
+          "fpr_ppb": 18912530,
+          "threshold": -80,
+          "tpr_ppb": 15760441
+        },
+        {
+          "fpr_ppb": 19306541,
+          "threshold": -79,
+          "tpr_ppb": 16942474
+        },
+        {
+          "fpr_ppb": 20488574,
+          "threshold": -78,
+          "tpr_ppb": 16942474
+        },
+        {
+          "fpr_ppb": 21670607,
+          "threshold": -77,
+          "tpr_ppb": 18518519
+        },
+        {
+          "fpr_ppb": 21670607,
+          "threshold": -76,
+          "tpr_ppb": 18912530
+        },
+        {
+          "fpr_ppb": 22458629,
+          "threshold": -75,
+          "tpr_ppb": 19700552
+        },
+        {
+          "fpr_ppb": 24034673,
+          "threshold": -74,
+          "tpr_ppb": 20488574
+        },
+        {
+          "fpr_ppb": 25216706,
+          "threshold": -73,
+          "tpr_ppb": 22458629
+        },
+        {
+          "fpr_ppb": 26004728,
+          "threshold": -72,
+          "tpr_ppb": 23640662
+        },
+        {
+          "fpr_ppb": 27580772,
+          "threshold": -71,
+          "tpr_ppb": 24822695
+        },
+        {
+          "fpr_ppb": 29156816,
+          "threshold": -70,
+          "tpr_ppb": 27186761
+        },
+        {
+          "fpr_ppb": 30732861,
+          "threshold": -69,
+          "tpr_ppb": 30338849
+        },
+        {
+          "fpr_ppb": 31914894,
+          "threshold": -68,
+          "tpr_ppb": 32702916
+        },
+        {
+          "fpr_ppb": 33096927,
+          "threshold": -67,
+          "tpr_ppb": 35460993
+        },
+        {
+          "fpr_ppb": 35066982,
+          "threshold": -66,
+          "tpr_ppb": 37037037
+        },
+        {
+          "fpr_ppb": 37431048,
+          "threshold": -65,
+          "tpr_ppb": 38613081
+        },
+        {
+          "fpr_ppb": 39401103,
+          "threshold": -64,
+          "tpr_ppb": 39795114
+        },
+        {
+          "fpr_ppb": 41371158,
+          "threshold": -63,
+          "tpr_ppb": 42159180
+        },
+        {
+          "fpr_ppb": 43341214,
+          "threshold": -62,
+          "tpr_ppb": 44523247
+        },
+        {
+          "fpr_ppb": 46493302,
+          "threshold": -61,
+          "tpr_ppb": 48463357
+        },
+        {
+          "fpr_ppb": 49645390,
+          "threshold": -60,
+          "tpr_ppb": 51221434
+        },
+        {
+          "fpr_ppb": 53191489,
+          "threshold": -59,
+          "tpr_ppb": 53979511
+        },
+        {
+          "fpr_ppb": 56737589,
+          "threshold": -58,
+          "tpr_ppb": 57919622
+        },
+        {
+          "fpr_ppb": 59101655,
+          "threshold": -57,
+          "tpr_ppb": 62647754
+        },
+        {
+          "fpr_ppb": 61859732,
+          "threshold": -56,
+          "tpr_ppb": 66981875
+        },
+        {
+          "fpr_ppb": 65799842,
+          "threshold": -55,
+          "tpr_ppb": 70921986
+        },
+        {
+          "fpr_ppb": 69739953,
+          "threshold": -54,
+          "tpr_ppb": 78014184
+        },
+        {
+          "fpr_ppb": 73680063,
+          "threshold": -53,
+          "tpr_ppb": 83924350
+        },
+        {
+          "fpr_ppb": 76832151,
+          "threshold": -52,
+          "tpr_ppb": 89440504
+        },
+        {
+          "fpr_ppb": 81560284,
+          "threshold": -51,
+          "tpr_ppb": 96926714
+        },
+        {
+          "fpr_ppb": 85894405,
+          "threshold": -50,
+          "tpr_ppb": 104412924
+        },
+        {
+          "fpr_ppb": 92592593,
+          "threshold": -49,
+          "tpr_ppb": 111899133
+        },
+        {
+          "fpr_ppb": 96926714,
+          "threshold": -48,
+          "tpr_ppb": 117809299
+        },
+        {
+          "fpr_ppb": 106776990,
+          "threshold": -47,
+          "tpr_ppb": 127265563
+        },
+        {
+          "fpr_ppb": 114657210,
+          "threshold": -46,
+          "tpr_ppb": 134751773
+        },
+        {
+          "fpr_ppb": 124901497,
+          "threshold": -45,
+          "tpr_ppb": 146966115
+        },
+        {
+          "fpr_ppb": 133963751,
+          "threshold": -44,
+          "tpr_ppb": 156816391
+        },
+        {
+          "fpr_ppb": 143814027,
+          "threshold": -43,
+          "tpr_ppb": 167848700
+        },
+        {
+          "fpr_ppb": 154452325,
+          "threshold": -42,
+          "tpr_ppb": 180851064
+        },
+        {
+          "fpr_ppb": 167060678,
+          "threshold": -41,
+          "tpr_ppb": 191883373
+        },
+        {
+          "fpr_ppb": 182427108,
+          "threshold": -40,
+          "tpr_ppb": 204885737
+        },
+        {
+          "fpr_ppb": 193459417,
+          "threshold": -39,
+          "tpr_ppb": 220646178
+        },
+        {
+          "fpr_ppb": 202127660,
+          "threshold": -38,
+          "tpr_ppb": 236800630
+        },
+        {
+          "fpr_ppb": 215524035,
+          "threshold": -37,
+          "tpr_ppb": 249802994
+        },
+        {
+          "fpr_ppb": 226556344,
+          "threshold": -36,
+          "tpr_ppb": 263987392
+        },
+        {
+          "fpr_ppb": 239558708,
+          "threshold": -35,
+          "tpr_ppb": 280929866
+        },
+        {
+          "fpr_ppb": 252561072,
+          "threshold": -34,
+          "tpr_ppb": 299054374
+        },
+        {
+          "fpr_ppb": 269109535,
+          "threshold": -33,
+          "tpr_ppb": 317178881
+        },
+        {
+          "fpr_ppb": 283293932,
+          "threshold": -32,
+          "tpr_ppb": 334515366
+        },
+        {
+          "fpr_ppb": 293932230,
+          "threshold": -31,
+          "tpr_ppb": 353821907
+        },
+        {
+          "fpr_ppb": 304176517,
+          "threshold": -30,
+          "tpr_ppb": 371158392
+        },
+        {
+          "fpr_ppb": 318360914,
+          "threshold": -29,
+          "tpr_ppb": 392828999
+        },
+        {
+          "fpr_ppb": 331363278,
+          "threshold": -28,
+          "tpr_ppb": 411741529
+        },
+        {
+          "fpr_ppb": 351457841,
+          "threshold": -27,
+          "tpr_ppb": 432230102
+        },
+        {
+          "fpr_ppb": 366824271,
+          "threshold": -26,
+          "tpr_ppb": 452324665
+        },
+        {
+          "fpr_ppb": 388494878,
+          "threshold": -25,
+          "tpr_ppb": 473601261
+        },
+        {
+          "fpr_ppb": 408983452,
+          "threshold": -24,
+          "tpr_ppb": 496059890
+        },
+        {
+          "fpr_ppb": 429472025,
+          "threshold": -23,
+          "tpr_ppb": 516942474
+        },
+        {
+          "fpr_ppb": 449960599,
+          "threshold": -22,
+          "tpr_ppb": 540977147
+        },
+        {
+          "fpr_ppb": 469661151,
+          "threshold": -21,
+          "tpr_ppb": 566587864
+        },
+        {
+          "fpr_ppb": 496059890,
+          "threshold": -20,
+          "tpr_ppb": 590622537
+        },
+        {
+          "fpr_ppb": 516942474,
+          "threshold": -19,
+          "tpr_ppb": 615051221
+        },
+        {
+          "fpr_ppb": 542159180,
+          "threshold": -18,
+          "tpr_ppb": 633963751
+        },
+        {
+          "fpr_ppb": 563435776,
+          "threshold": -17,
+          "tpr_ppb": 654846336
+        },
+        {
+          "fpr_ppb": 592198582,
+          "threshold": -16,
+          "tpr_ppb": 684397163
+        },
+        {
+          "fpr_ppb": 617809299,
+          "threshold": -15,
+          "tpr_ppb": 711583924
+        },
+        {
+          "fpr_ppb": 650512214,
+          "threshold": -14,
+          "tpr_ppb": 736012608
+        },
+        {
+          "fpr_ppb": 678486998,
+          "threshold": -13,
+          "tpr_ppb": 752955083
+        },
+        {
+          "fpr_ppb": 710401891,
+          "threshold": -12,
+          "tpr_ppb": 771867612
+        },
+        {
+          "fpr_ppb": 735618597,
+          "threshold": -11,
+          "tpr_ppb": 789598109
+        },
+        {
+          "fpr_ppb": 768321513,
+          "threshold": -10,
+          "tpr_ppb": 811662727
+        },
+        {
+          "fpr_ppb": 797084318,
+          "threshold": -9,
+          "tpr_ppb": 833727344
+        },
+        {
+          "fpr_ppb": 821513002,
+          "threshold": -8,
+          "tpr_ppb": 847123719
+        },
+        {
+          "fpr_ppb": 848305753,
+          "threshold": -7,
+          "tpr_ppb": 862490150
+        },
+        {
+          "fpr_ppb": 872734437,
+          "threshold": -6,
+          "tpr_ppb": 875886525
+        },
+        {
+          "fpr_ppb": 893617021,
+          "threshold": -5,
+          "tpr_ppb": 891646966
+        },
+        {
+          "fpr_ppb": 917257683,
+          "threshold": -4,
+          "tpr_ppb": 908195429
+        },
+        {
+          "fpr_ppb": 934594169,
+          "threshold": -3,
+          "tpr_ppb": 921985816
+        },
+        {
+          "fpr_ppb": 950748621,
+          "threshold": -2,
+          "tpr_ppb": 934200158
+        },
+        {
+          "fpr_ppb": 961780930,
+          "threshold": -1,
+          "tpr_ppb": 943262411
+        },
+        {
+          "fpr_ppb": 972419228,
+          "threshold": 0,
+          "tpr_ppb": 955082742
+        },
+        {
+          "fpr_ppb": 982269504,
+          "threshold": 1,
+          "tpr_ppb": 966115051
+        },
+        {
+          "fpr_ppb": 989361702,
+          "threshold": 2,
+          "tpr_ppb": 974783294
+        },
+        {
+          "fpr_ppb": 992907801,
+          "threshold": 3,
+          "tpr_ppb": 982269504
+        },
+        {
+          "fpr_ppb": 995271868,
+          "threshold": 4,
+          "tpr_ppb": 987785658
+        },
+        {
+          "fpr_ppb": 997241923,
+          "threshold": 5,
+          "tpr_ppb": 991331757
+        },
+        {
+          "fpr_ppb": 998029945,
+          "threshold": 6,
+          "tpr_ppb": 994089835
+        },
+        {
+          "fpr_ppb": 1000000000,
+          "threshold": 7,
+          "tpr_ppb": 998029945
+        },
+        {
+          "fpr_ppb": 1000000000,
+          "threshold": 9,
+          "tpr_ppb": 998423956
+        },
+        {
+          "fpr_ppb": 1000000000,
+          "threshold": 11,
+          "tpr_ppb": 999605989
+        }
+      ]
+    },
+    "device.provisional_v0": {
+      "dimension": "Device",
+      "measured_at_budget": "1%",
+      "placeholder": false,
+      "polarity": 1,
+      "resolution_status": {
+        "0.1%": "stable",
+        "1%": "stable",
+        "5%": "stable"
+      },
+      "roc": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": 100,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    },
+    "fsi.provisional_v0": {
+      "dimension": "FSI",
+      "measured_at_budget": "1%",
+      "placeholder": false,
+      "polarity": 1,
+      "resolution_status": {
+        "0.1%": "stable",
+        "1%": "stable",
+        "5%": "stable"
+      },
+      "roc": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": 100,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    },
+    "model.provisional_v0": {
+      "dimension": "Model",
+      "measured_at_budget": "1%",
+      "placeholder": false,
+      "polarity": 1,
+      "resolution_status": {
+        "0.1%": "stable",
+        "1%": "stable",
+        "5%": "stable"
+      },
+      "roc": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": 100,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    },
+    "signal.provisional_v0": {
+      "dimension": "Signal",
+      "measured_at_budget": "1%",
+      "placeholder": false,
+      "polarity": 1,
+      "resolution_status": {
+        "0.1%": "tail_floor",
+        "1%": "tail_floor",
+        "5%": "tail_floor"
+      },
+      "roc": [
+        {
+          "fpr_ppb": 0,
+          "threshold": -101,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 0,
+          "threshold": -100,
+          "tpr_ppb": 0
+        },
+        {
+          "fpr_ppb": 68951931,
+          "threshold": -99,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 71710008,
+          "threshold": -98,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 73286052,
+          "threshold": -97,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 76044129,
+          "threshold": -96,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 79196217,
+          "threshold": -95,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 80378251,
+          "threshold": -94,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 82348306,
+          "threshold": -93,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 84712372,
+          "threshold": -92,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 87076438,
+          "threshold": -91,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 88258471,
+          "threshold": -90,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 90622537,
+          "threshold": -89,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 92198582,
+          "threshold": -88,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 93380615,
+          "threshold": -87,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 94956659,
+          "threshold": -85,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 96926714,
+          "threshold": -84,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 98896769,
+          "threshold": -83,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 100078802,
+          "threshold": -82,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 100866824,
+          "threshold": -81,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 101654846,
+          "threshold": -80,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 102048857,
+          "threshold": -79,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 103230890,
+          "threshold": -78,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 103624901,
+          "threshold": -77,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 104806935,
+          "threshold": -76,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 105200946,
+          "threshold": -74,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 105988968,
+          "threshold": -71,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 107565012,
+          "threshold": -70,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 107959023,
+          "threshold": -68,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 108747045,
+          "threshold": -67,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 109141056,
+          "threshold": -64,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 109535067,
+          "threshold": -63,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 109929078,
+          "threshold": -61,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 110717100,
+          "threshold": -60,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 111111111,
+          "threshold": -51,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 112293144,
+          "threshold": -49,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 112687155,
+          "threshold": -48,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 113475177,
+          "threshold": -47,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 114263199,
+          "threshold": -46,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 115445232,
+          "threshold": -45,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 117809299,
+          "threshold": -44,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 119385343,
+          "threshold": -43,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 121749409,
+          "threshold": -42,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 122537431,
+          "threshold": -41,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 125295508,
+          "threshold": -40,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 127265563,
+          "threshold": -39,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 129235619,
+          "threshold": -38,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 132781718,
+          "threshold": -37,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 135539795,
+          "threshold": -36,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 137903861,
+          "threshold": -35,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 138691883,
+          "threshold": -34,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 141449961,
+          "threshold": -33,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 144602049,
+          "threshold": -32,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 147360126,
+          "threshold": -31,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 150906225,
+          "threshold": -30,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 153664303,
+          "threshold": -29,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 156422380,
+          "threshold": -28,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 159968479,
+          "threshold": -27,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 163514578,
+          "threshold": -26,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 167060678,
+          "threshold": -25,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 169424744,
+          "threshold": -24,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 171000788,
+          "threshold": -23,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 176122931,
+          "threshold": -22,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 180457053,
+          "threshold": -21,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 185185185,
+          "threshold": -20,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 192671395,
+          "threshold": -19,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 202127660,
+          "threshold": -18,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 214342002,
+          "threshold": -17,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 226162333,
+          "threshold": -16,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 241922774,
+          "threshold": -15,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 255713160,
+          "threshold": -14,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 271867612,
+          "threshold": -13,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 294720252,
+          "threshold": -12,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 318360914,
+          "threshold": -11,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 343577620,
+          "threshold": -10,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 371552403,
+          "threshold": -9,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 395587076,
+          "threshold": -8,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 423955871,
+          "threshold": -7,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 455870764,
+          "threshold": -6,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 487785658,
+          "threshold": -5,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 519700552,
+          "threshold": -4,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 557131600,
+          "threshold": -3,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 587076438,
+          "threshold": -2,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 617415288,
+          "threshold": -1,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 653270292,
+          "threshold": 0,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 692277384,
+          "threshold": 1,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 724586288,
+          "threshold": 2,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 753743105,
+          "threshold": 3,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 783687943,
+          "threshold": 4,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 810874704,
+          "threshold": 5,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 834515366,
+          "threshold": 6,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 853821907,
+          "threshold": 7,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 870764381,
+          "threshold": 8,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 895193065,
+          "threshold": 9,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 915287628,
+          "threshold": 10,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 930260047,
+          "threshold": 11,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 944444444,
+          "threshold": 12,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 955870764,
+          "threshold": 13,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 962568952,
+          "threshold": 14,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 972813239,
+          "threshold": 15,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 981481481,
+          "threshold": 16,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 985421592,
+          "threshold": 17,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 990149724,
+          "threshold": 18,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 993301812,
+          "threshold": 19,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 995665879,
+          "threshold": 20,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 997241923,
+          "threshold": 21,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 998817967,
+          "threshold": 22,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 999211978,
+          "threshold": 23,
+          "tpr_ppb": 1000000000
+        },
+        {
+          "fpr_ppb": 999605989,
+          "threshold": 24,
+          "tpr_ppb": 1000000000
+        }
+      ]
+    }
+  },
+  "eis_schema_version": 1
+}

@@ -1,0 +1,356 @@
+{
+  "off_crypto_path": {
+    "ast_no_bands_import": {
+      "trust_kernel/canon.py": true,
+      "trust_kernel/sign.py": true
+    },
+    "correct": true,
+    "current_hashes": {
+      "trust_kernel/canon.py": "af37de63b34a4b66222653a30e1ce038efeb2e9a822756f51bfcdeefb99bdb08",
+      "trust_kernel/schema.py": "c03c9c5a4701a10328a73c87c48013d3e053e334e01689241f0a9fee31f32883",
+      "trust_kernel/sign.py": "3dafa52825b4856edb52f2b8659ff516071b86a1840dc7aceb37e8f52e487415"
+    },
+    "forbidden_token_hits": {
+      "trust_kernel/canon.py": [],
+      "trust_kernel/sign.py": []
+    },
+    "hash_unchanged": {
+      "trust_kernel/canon.py": true,
+      "trust_kernel/schema.py": true,
+      "trust_kernel/sign.py": true
+    },
+    "pre_change_hashes": {
+      "trust_kernel/canon.py": "af37de63b34a4b66222653a30e1ce038efeb2e9a822756f51bfcdeefb99bdb08",
+      "trust_kernel/schema.py": "c03c9c5a4701a10328a73c87c48013d3e053e334e01689241f0a9fee31f32883",
+      "trust_kernel/sign.py": "3dafa52825b4856edb52f2b8659ff516071b86a1840dc7aceb37e8f52e487415"
+    },
+    "statement_wire_fields_unchanged": true,
+    "verdict_wire_fields_unchanged": true
+  },
+  "sufficiency": {
+    "all_representable_ppb": true,
+    "correct": true,
+    "min_margin_ppb": 130.1421242494253,
+    "n_combinations": 18,
+    "none_representable_bp": true,
+    "rows": [
+      {
+        "alpha_episode": 1.3465336953847038e-07,
+        "claim": "Calibration",
+        "margin_ppb": 134.65336953847037,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.001,
+        "subject": 1
+      },
+      {
+        "alpha_episode": 1.3465336953847038e-06,
+        "claim": "Calibration",
+        "margin_ppb": 1346.5336953847038,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.01,
+        "subject": 1
+      },
+      {
+        "alpha_episode": 6.7326684769235195e-06,
+        "claim": "Calibration",
+        "margin_ppb": 6732.66847692352,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.05,
+        "subject": 1
+      },
+      {
+        "alpha_episode": 2.660002789738135e-07,
+        "claim": "Signal",
+        "margin_ppb": 266.00027897381347,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.001,
+        "subject": 1
+      },
+      {
+        "alpha_episode": 2.660002789738135e-06,
+        "claim": "Signal",
+        "margin_ppb": 2660.0027897381347,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.01,
+        "subject": 1
+      },
+      {
+        "alpha_episode": 1.3300013948690674e-05,
+        "claim": "Signal",
+        "margin_ppb": 13300.013948690674,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.05,
+        "subject": 1
+      },
+      {
+        "alpha_episode": 1.8404229026838818e-07,
+        "claim": "Calibration",
+        "margin_ppb": 184.04229026838817,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.001,
+        "subject": 2
+      },
+      {
+        "alpha_episode": 1.8404229026838818e-06,
+        "claim": "Calibration",
+        "margin_ppb": 1840.4229026838818,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.01,
+        "subject": 2
+      },
+      {
+        "alpha_episode": 9.202114513419408e-06,
+        "claim": "Calibration",
+        "margin_ppb": 9202.114513419408,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.05,
+        "subject": 2
+      },
+      {
+        "alpha_episode": 2.639437883472342e-07,
+        "claim": "Signal",
+        "margin_ppb": 263.9437883472342,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.001,
+        "subject": 2
+      },
+      {
+        "alpha_episode": 2.6394378834723424e-06,
+        "claim": "Signal",
+        "margin_ppb": 2639.4378834723425,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.01,
+        "subject": 2
+      },
+      {
+        "alpha_episode": 1.3197189417361713e-05,
+        "claim": "Signal",
+        "margin_ppb": 13197.189417361713,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.05,
+        "subject": 2
+      },
+      {
+        "alpha_episode": 1.3014212424942532e-07,
+        "claim": "Calibration",
+        "margin_ppb": 130.1421242494253,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.001,
+        "subject": 3
+      },
+      {
+        "alpha_episode": 1.301421242494253e-06,
+        "claim": "Calibration",
+        "margin_ppb": 1301.421242494253,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.01,
+        "subject": 3
+      },
+      {
+        "alpha_episode": 6.5071062124712654e-06,
+        "claim": "Calibration",
+        "margin_ppb": 6507.106212471265,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.05,
+        "subject": 3
+      },
+      {
+        "alpha_episode": 2.4358075976278394e-07,
+        "claim": "Signal",
+        "margin_ppb": 243.58075976278394,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.001,
+        "subject": 3
+      },
+      {
+        "alpha_episode": 2.4358075976278394e-06,
+        "claim": "Signal",
+        "margin_ppb": 2435.8075976278396,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.01,
+        "subject": 3
+      },
+      {
+        "alpha_episode": 1.2179037988139196e-05,
+        "claim": "Signal",
+        "margin_ppb": 12179.037988139196,
+        "representable_bp": false,
+        "representable_ppb": true,
+        "session_budget": 0.05,
+        "subject": 3
+      }
+    ]
+  },
+  "v0_replay_unaffected": {
+    "agreement_rate": 1.0,
+    "correct": true,
+    "roc_config_hash_v0": "087f66e28eb3da71ce13c6c6d2cde863fafeff066d1b01d26b292f879bad8aca",
+    "rows": [
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Constrained",
+        "recorded_verdict": "Constrained",
+        "window_id": 500
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Constrained",
+        "recorded_verdict": "Constrained",
+        "window_id": 501
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 502
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 503
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 504
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 505
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 506
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 507
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 508
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 509
+      }
+    ]
+  },
+  "v1_end_to_end": {
+    "agreement_rate": 1.0,
+    "correct": true,
+    "cross_version_replay_fails_closed": true,
+    "roc_config_hash_v1": "cfeb34557eef7a2eb777d11f845cdcb013c48e3dd4ceadabcd02e3d8f8a8985d",
+    "rows": [
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Constrained",
+        "recorded_verdict": "Constrained",
+        "window_id": 500
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Constrained",
+        "recorded_verdict": "Constrained",
+        "window_id": 501
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 502
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 503
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 504
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 505
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 506
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 507
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 508
+      },
+      {
+        "agreement": true,
+        "config_mismatch": false,
+        "recomputed_verdict": "Normal",
+        "recorded_verdict": "Normal",
+        "window_id": 509
+      }
+    ]
+  }
+}

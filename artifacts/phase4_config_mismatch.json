@@ -1,0 +1,9 @@
+{
+  "config_mismatch_detected": true,
+  "correct": true,
+  "mismatched_hashes": [
+    "roc_config_hash"
+  ],
+  "mutation": "eis.v0.json alpha_bp: 500 -> 1 (post-issuance)",
+  "recomputation_attempted": false
+}

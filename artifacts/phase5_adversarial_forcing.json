@@ -1,0 +1,279 @@
+{
+  "attack_class_count": 12,
+  "honest_pipeline_control_row": {
+    "accepted": true,
+    "attack_class": "honest_pipeline_best_case",
+    "ceil": {
+      "max_acceleration": 500,
+      "max_speed": 1000
+    },
+    "description": "Control row: the best-case honest computation from maximally-healthy-looking evidence, run through the real pi. Post-relattice (L^6) the honest path legitimately reaches Normal under the current provisional EIS config -- included to show what the honest path actually produces, NOT to pad the violation count.",
+    "env_indicated": {
+      "max_acceleration": 800,
+      "max_speed": 1600
+    },
+    "mechanism": "evidence_through_honest_pi",
+    "realised": {
+      "max_acceleration": 500,
+      "max_speed": 1000
+    },
+    "recorded_verdict": "Normal",
+    "violation": false,
+    "window_id": 2012
+  },
+  "rows": [
+    {
+      "accepted": true,
+      "attack_class": "replay",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "Behaviour-Based Attack Framework (\u00a73): a stale verdict re-presented as current, forged fresh to pass freshness.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2000
+    },
+    {
+      "accepted": true,
+      "attack_class": "signal_injection",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "\u00a73: injected raw signal crafted to read as within-detector-range; modeled here as a forced Normal verdict.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2001
+    },
+    {
+      "accepted": true,
+      "attack_class": "adversarial_eeg",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "\u00a73: adversarial EEG crafted to evade the Signal/Model detectors.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2002
+    },
+    {
+      "accepted": true,
+      "attack_class": "firmware_modification",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "\u00a73: board-level firmware tamper below the software evidence layer -- structurally invisible to any sensor here.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2003
+    },
+    {
+      "accepted": true,
+      "attack_class": "model_replacement",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "\u00a73: classifier swapped for an attacker-controlled model that still emits plausible-looking predictions.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2004
+    },
+    {
+      "accepted": true,
+      "attack_class": "model_poisoning_training_pipeline",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "No-detector class (explicit): training-pipeline poisoning corrupts the model before any runtime evidence exists.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2005
+    },
+    {
+      "accepted": true,
+      "attack_class": "communication_tampering",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "\u00a73: TB2/TB3 transport tampering that still arrives as a well-formed, validly-signed statement or verdict.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2006
+    },
+    {
+      "accepted": true,
+      "attack_class": "timing_attack",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "\u00a73: timing manipulation exploiting the [62,170]ms freshness window.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2007
+    },
+    {
+      "accepted": true,
+      "attack_class": "observer_disagreement",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "\u00a73: Observer-reported actuation fidelity disagrees with the commanded envelope; ActuationFidelity evidence forged to hide it.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2008
+    },
+    {
+      "accepted": true,
+      "attack_class": "actuator_manipulation_in_envelope_wrong_command",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "No-detector class (explicit): in-envelope wrong command -- correct magnitude, wrong target; invisible to \u03a6, which bounds magnitude only.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2009
+    },
+    {
+      "accepted": true,
+      "attack_class": "calibration_poisoning_within_prior",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "No-detector class (explicit): within-prior calibration poisoning keeps Calibration at MED/HIGH by construction (\u00a74) -- uncovered, not undefended.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2010
+    },
+    {
+      "accepted": true,
+      "attack_class": "total_kernel_compromise_evidence_forgery",
+      "ceil": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "description": "No-detector class (explicit): evidence forgery via total kernel compromise -- A_data 'compromises... the Trust Kernel' (\u00a73); kernel_sig itself is attacker-produced.",
+      "env_indicated": {
+        "max_acceleration": 800,
+        "max_speed": 1600
+      },
+      "mechanism": "direct",
+      "realised": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "recorded_verdict": "Normal",
+      "violation": false,
+      "window_id": 2011
+    }
+  ],
+  "violation_count": 0
+}

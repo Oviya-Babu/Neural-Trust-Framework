@@ -1,0 +1,7 @@
+{
+  "accepted_as_verdict": false,
+  "attack": "statement's signed bytes presented as a verdict",
+  "reason": "encode_tagged('statement', fields) != encode_tagged('verdict', fields); the domain tag is part of the signed payload, so the signature cannot validate against a different domain even with identical field content.",
+  "rejected": true,
+  "same_signature_bytes_reused": true
+}

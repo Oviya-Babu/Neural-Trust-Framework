@@ -1,0 +1,24 @@
+{
+  "calibration_status": "provisional",
+  "claim_registry_hash": "e8dd8dc63957835074111b1da07c6dbbdfdd1e666e277b17c0ee6f2c2cc47132",
+  "crit_table_hash": "52dddd39a1b7e8caa611a4994b23a9fb146a5c534a453ba73f6994a12f269932",
+  "ctpr_config_hash": "0578a6d572bb1e62f464498d31082ac58c6736370ef46e6e14b0e693d2f30b2b",
+  "effective_dims": {
+    "ActuationFidelity": "HIGH",
+    "Calibration": "HIGH",
+    "Device": "HIGH",
+    "FSI": "HIGH",
+    "Model": "HIGH",
+    "Signal": "HIGH"
+  },
+  "evidence_root": "51f4afebe26cc4fe7ad46751eb595812da7159aca24771a5afe3827ee73ee627",
+  "expires_at": 170,
+  "issued_at": 62,
+  "kernel_sig": "a47c0d5ab3da141860f70215a0b7b94436aaebd8e623da5f3f9c018864f1dbb2d49b7266226ada9397044d1268fcbbef67096fa702a237c0c491f14620eeba09",
+  "key_registry_hash": "1167052c110463aef100d0e5c73658da6e244b587afac1101a554c5c6aa5061c",
+  "policy_version": "v1",
+  "roc_config_hash": "087f66e28eb3da71ce13c6c6d2cde863fafeff066d1b01d26b292f879bad8aca",
+  "schema_version": 1,
+  "verdict": "Normal",
+  "window_id": 7
+}

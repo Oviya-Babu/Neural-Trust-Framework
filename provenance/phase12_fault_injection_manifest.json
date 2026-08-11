@@ -1,0 +1,45 @@
+{
+  "artifacts": {
+    "phase9_source": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase9_measured_roc_report.json",
+      "sha256": "464b288adf212042028c44a754759d6a2dd06da186de98b96aaa4f3881ba8711"
+    },
+    "report_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase12_fault_injection_report.json",
+      "sha256": "c5973b8b125376efd8578718c676f9e1f4a0159a084018a531f5151d72cc4415"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "ceil": "556d19c68ca7c5a6bfd1215cfa909be683bddb00ed00b57eb215c447ac632628",
+    "claim_registry": "c6ce970bb35abd893ac1b22ce7f73b08b6944c083bcf058f44379ba3c2d40eac",
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "dataset_pins": "400af61e7c8369325d670aadb582ee5b5e637c121a75a1e7cb2bff1d401f31ba",
+    "eis_v1_measured": "41236d3ac0d5c68996cd6eed650811b59d7bec621b496b0ece4523b0fce67657",
+    "env": "379f308ca0f15160cd8d887b8f6227231a86f416d6087760edf0790c7e370f1f",
+    "key_registry": "f49b115ba2597b956b151f5713024dfa069ef15ab152e1006661aeb5c573b78e"
+  },
+  "experiment": "phase12_fault_injection",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "fp_subjects": [
+      1,
+      2,
+      3
+    ],
+    "n_honest_windows": 846
+  },
+  "seeds": {
+    "note": "sensor/kernel/artifact-publisher keys from named seeds; single real honest FSI quote and DTLS handshake reused across all windows (session-level, subject-invariant by construction, CLAUDE.md 20); swept-budget theta1/theta2/band_cap re-cited from Phase 9's artifact, not re-derived"
+  },
+  "timestamp_utc": "2026-07-22T16:19:24.447728+00:00"
+}

@@ -1,0 +1,218 @@
+{
+  "consequence_boundedness": {
+    "attack_class_count": 12,
+    "note": "T5 must never be proven from pi (CLAUDE.md 5): under Position A the adversary forges everything, pi legitimately returns Normal, and any bound derived from the verdict is circular. This row restates Phase 5's structural result (realise() never reads Ceil from the verdict) rather than re-deriving it from this driver's six-producer pipeline.",
+    "source": "experiments/phase5_enforcement.py (re-cited, not re-derived here)",
+    "violation_count": 0
+  },
+  "honest_windows": [
+    {
+      "admission_5dim_all_accepted": true,
+      "admission_6dim_all_accepted": true,
+      "commanded": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "effective_dims_6dim": {
+        "ActuationFidelity": "HIGH",
+        "Calibration": "LOW",
+        "Device": "HIGH",
+        "FSI": "HIGH",
+        "Model": "HIGH",
+        "Signal": "LOW"
+      },
+      "observed": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "raw_measurements": {
+        "ActuationFidelity": 100,
+        "Calibration": -13,
+        "Device": 100,
+        "FSI": 100,
+        "Model": 100,
+        "Signal": -14
+      },
+      "true_label": "left_hand",
+      "verdict_a_5dim_for_enforcement": "Safe",
+      "verdict_b_6dim_full_reasoning": "Safe",
+      "window_id": 10000
+    },
+    {
+      "admission_5dim_all_accepted": true,
+      "admission_6dim_all_accepted": true,
+      "commanded": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "effective_dims_6dim": {
+        "ActuationFidelity": "HIGH",
+        "Calibration": "LOW",
+        "Device": "HIGH",
+        "FSI": "HIGH",
+        "Model": "HIGH",
+        "Signal": "LOW"
+      },
+      "observed": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "raw_measurements": {
+        "ActuationFidelity": 100,
+        "Calibration": -8,
+        "Device": 100,
+        "FSI": 100,
+        "Model": 100,
+        "Signal": -17
+      },
+      "true_label": "right_hand",
+      "verdict_a_5dim_for_enforcement": "Safe",
+      "verdict_b_6dim_full_reasoning": "Safe",
+      "window_id": 10001
+    },
+    {
+      "admission_5dim_all_accepted": true,
+      "admission_6dim_all_accepted": true,
+      "commanded": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "effective_dims_6dim": {
+        "ActuationFidelity": "HIGH",
+        "Calibration": "LOW",
+        "Device": "HIGH",
+        "FSI": "HIGH",
+        "Model": "HIGH",
+        "Signal": "LOW"
+      },
+      "observed": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "raw_measurements": {
+        "ActuationFidelity": 100,
+        "Calibration": -1,
+        "Device": 100,
+        "FSI": 100,
+        "Model": 100,
+        "Signal": -14
+      },
+      "true_label": "right_hand",
+      "verdict_a_5dim_for_enforcement": "Safe",
+      "verdict_b_6dim_full_reasoning": "Safe",
+      "window_id": 10002
+    }
+  ],
+  "protocol_validation": {
+    "attack_cases": {
+      "device.provisional_v0": [
+        "invalid cert (not signed by pinned CA) -> DTLS handshake fails (test_device_sensor.py:InvalidCertAttackTests)",
+        "expired cert -> DTLS handshake fails (ExpiredCertAttackTests)",
+        "replayed sequence number -> rejected by SequenceReplayGuard (ReplayedSequenceAttackTests)"
+      ],
+      "fsi.provisional_v0": [
+        "replayed quote (stale quote against a new window's nonce) -> nonce/signature check fails (test_fsi_sensor.py:ReplayedQuoteAttackTests)",
+        "PCR mismatch (attacker boot-event after baseline pinned) -> detected via baseline comparison (PcrMismatchAttackTests)",
+        "missing quote -> producer emits nothing, per CLAUDE.md 10 (MissingQuoteTests)"
+      ],
+      "model.provisional_v0": [
+        "bit-flipped weights -> hash mismatch (tests_sensors/test_model_sensor.py:BitFlippedWeightsAttackTests)",
+        "stripped signature -> verify fail (StrippedSignatureAttackTests)",
+        "unsigned substitute -> rejected (UnsignedSubstituteAttackTests)"
+      ]
+    },
+    "summary": "See tests_sensors/ for the full attack-case suite (34/34 passing, run via .venv-pipeline/bin/python -m unittest discover -s tests_sensors)."
+  },
+  "reasoning_correctness": {
+    "controlled_rows": [
+      {
+        "Device_raw": 100,
+        "FSI_raw": 100,
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "variant": "controlled_honest",
+        "verdict": "Normal"
+      },
+      {
+        "Device_raw": 100,
+        "FSI_raw": -100,
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "HIGH",
+          "FSI": "LOW",
+          "Model": "LOW",
+          "Signal": "LOW"
+        },
+        "variant": "controlled_fsi_pcr_mismatch_attack",
+        "verdict": "Safe"
+      },
+      {
+        "Device_raw": -100,
+        "FSI_raw": 100,
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "HIGH",
+          "Device": "LOW",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "HIGH"
+        },
+        "variant": "controlled_device_invalid_cert_attack",
+        "verdict": "Constrained"
+      }
+    ],
+    "note": "Real-data rows: Signal and Calibration's real raw_measurements (see honest_windows above) are already LOW under config/eis.v0.json's still-placeholder ROC/theta config (calibrated against synthetic values in Phase 2/3, never fit to real producer output -- Phase 9's job, CLAUDE.md 14), so the verdict floors to Safe in all three real-data rows regardless of the FSI/Device attack, which masks rather than demonstrates the CTPR/strict-vs-lenient point. This is reported as found, not hidden. Controlled rows isolate that point: with Signal/Calibration/Model held at the same placeholder-healthy fixture already used throughout Phase 3/5/6 (a real pass through band/reduce/CTPR/policy from raw_measurement=100, not an injected trust value), the controlled_fsi_pcr_mismatch_attack row shows FSI's raw_measurement flooring, which floors FSI's own band to LOW, which via CTPR (config/ctpr.json: FSI->Signal, FSI->Model, meet(child, g(FSI))) floors Signal's and Model's *effective* level to LOW even though their own raw measurements are unchanged -- CTPR dragging dependents down, observed in effective_dims. FSI and Model are both strict, so the verdict floors to Safe. The controlled_device_invalid_cert_attack row floors Device alone (no CTPR edge touches it); Device is the one LENIENT dimension, so the verdict floors only to Constrained, not Safe -- the strict/lenient distinction (CLAUDE.md 4) as an actual verdict difference.",
+    "real_rows": [
+      {
+        "Device_raw": 100,
+        "FSI_raw": 100,
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "LOW",
+          "Device": "HIGH",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "LOW"
+        },
+        "variant": "real_honest",
+        "verdict": "Safe"
+      },
+      {
+        "Device_raw": 100,
+        "FSI_raw": -100,
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "LOW",
+          "Device": "HIGH",
+          "FSI": "LOW",
+          "Model": "LOW",
+          "Signal": "LOW"
+        },
+        "variant": "real_fsi_pcr_mismatch_attack",
+        "verdict": "Safe"
+      },
+      {
+        "Device_raw": -100,
+        "FSI_raw": 100,
+        "effective_dims": {
+          "ActuationFidelity": "HIGH",
+          "Calibration": "LOW",
+          "Device": "LOW",
+          "FSI": "HIGH",
+          "Model": "HIGH",
+          "Signal": "LOW"
+        },
+        "variant": "real_device_invalid_cert_attack",
+        "verdict": "Safe"
+      }
+    ]
+  },
+  "subject": 1
+}

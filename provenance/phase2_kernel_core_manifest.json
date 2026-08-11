@@ -1,0 +1,49 @@
+{
+  "artifacts": {
+    "ctpr_table_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase2_ctpr_table.json",
+      "sha256": "689529d59431d1c7f0fb7eaec59439df59fb0cd21a419b80889e13e630bb6680"
+    },
+    "ctpr_table_md": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase2_ctpr_table.md",
+      "sha256": "84313c9590580b03c31822f05483340d645afbe82e9751159b403203eeddb3b0"
+    },
+    "floor_dominance_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase2_floor_dominance.json",
+      "sha256": "4e46a5ebc5f45b19a062b783d28fe265db4ce29a1af081bb79331105c755bd34"
+    },
+    "floor_dominance_md": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase2_floor_dominance.md",
+      "sha256": "db72ce453fedf77750f9aca225e0cd76ecd5b0f24e103c8d3956b92b3e72d639"
+    },
+    "monotonicity_summary_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase2_monotonicity_summary.json",
+      "sha256": "2ffab3999c65a5724430d8ce9a4130d7b2594e5e6a4571c0d21a1e251e6cc5b8"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "eis_v0": "b3feea6f1a62f88eb7b2d4ff53a199264664462d20309d07e02b14ee7488cce6"
+  },
+  "experiment": "phase2_kernel_core",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "alpha_bp": 500,
+    "beta_bp": 500,
+    "ctpr_g": "identity"
+  },
+  "seeds": {
+    "note": "not applicable -- exhaustive deterministic enumeration, no sampling"
+  },
+  "timestamp_utc": "2026-07-19T14:25:12.017936+00:00"
+}

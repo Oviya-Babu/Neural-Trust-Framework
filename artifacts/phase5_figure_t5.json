@@ -1,0 +1,29 @@
+{
+  "ceil": {
+    "max_acceleration": 500,
+    "max_speed": 1000
+  },
+  "rows": [
+    {
+      "env_indicated_max_acceleration": 0,
+      "env_indicated_max_speed": 0,
+      "realised_max_acceleration": 0,
+      "realised_max_speed": 0,
+      "verdict_zone": "Safe"
+    },
+    {
+      "env_indicated_max_acceleration": 300,
+      "env_indicated_max_speed": 600,
+      "realised_max_acceleration": 300,
+      "realised_max_speed": 600,
+      "verdict_zone": "Constrained"
+    },
+    {
+      "env_indicated_max_acceleration": 800,
+      "env_indicated_max_speed": 1600,
+      "realised_max_acceleration": 500,
+      "realised_max_speed": 1000,
+      "verdict_zone": "Normal"
+    }
+  ]
+}

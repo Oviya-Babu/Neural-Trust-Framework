@@ -1,0 +1,48 @@
+{
+  "artifacts": {
+    "adversarial_forcing_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase5_adversarial_forcing.json",
+      "sha256": "4c334f00b96c6b893aaee4fac46bbe7c98b23fd19c85cfd188849fc228fbe7c1"
+    },
+    "figure_t5_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase5_figure_t5.json",
+      "sha256": "60349d287dc1043e74c7f1714dda0fec2d249662f1a581700154036170c8b8f4"
+    },
+    "slew_containment_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase5_slew_containment.json",
+      "sha256": "f5f88ea1c747af9aef09d62bd978a17cb1e775a984ba8fb2ce5d369ec58a1543"
+    },
+    "structural_check_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase5_structural_check.json",
+      "sha256": "b804616aac96fc1a56e78be1dab7eff981e4462e006aaa1936d1dd672264ae93"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "ceil": "556d19c68ca7c5a6bfd1215cfa909be683bddb00ed00b57eb215c447ac632628",
+    "claim_registry": "384662cff97b8d65732651f72696a74578a7d7c11752354fdd8a4d5013275a7e",
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "eis_v0": "b3feea6f1a62f88eb7b2d4ff53a199264664462d20309d07e02b14ee7488cce6",
+    "env": "379f308ca0f15160cd8d887b8f6227231a86f416d6087760edf0790c7e370f1f",
+    "key_registry": "f49b115ba2597b956b151f5713024dfa069ef15ab152e1006661aeb5c573b78e"
+  },
+  "experiment": "phase5_enforcement",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "attack_class_count": 12,
+    "slew_windows": 20
+  },
+  "seeds": {
+    "note": "demo sensor/kernel keys derived from named seeds in tests/key_fixtures.py"
+  },
+  "timestamp_utc": "2026-07-20T04:27:52.687225+00:00"
+}

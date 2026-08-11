@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "report_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase11_attack_framework_report.json",
+      "sha256": "d467cae168f46cc5fa6f47cc7587650f114d304924b3cd584637f32c09645b62"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "ceil": "556d19c68ca7c5a6bfd1215cfa909be683bddb00ed00b57eb215c447ac632628",
+    "claim_registry": "c6ce970bb35abd893ac1b22ce7f73b08b6944c083bcf058f44379ba3c2d40eac",
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "dataset_pins": "400af61e7c8369325d670aadb582ee5b5e637c121a75a1e7cb2bff1d401f31ba",
+    "eis_v1_measured": "41236d3ac0d5c68996cd6eed650811b59d7bec621b496b0ece4523b0fce67657",
+    "env": "379f308ca0f15160cd8d887b8f6227231a86f416d6087760edf0790c7e370f1f",
+    "key_registry": "f49b115ba2597b956b151f5713024dfa069ef15ab152e1006661aeb5c573b78e"
+  },
+  "experiment": "phase11_attack_framework",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "model_replacement_subject": 2,
+    "n_attacks": 10,
+    "subject": 1
+  },
+  "post_hoc_report_annotation": {
+    "reason": "PI review requested distinguishing WHY adversarial_eeg was not detected: (a) moved toward LOW but fell short of theta1 (Tail-Floor-Rule conservatism) vs (b) did not move toward LOW at all (a genuine detector blind spot). Classified using the already-recorded honest_signal_raw=-14 / attacked_signal_raw=-3 values (attacked_raw > honest_raw -- moved AWAY from LOW) as Case (b), with a mechanistic explanation (in-band 18Hz perturbation raises SignalSensor's SNR numerator regardless of energy source). No new injection, no re-run of the real pipeline, no threshold or measured value changed -- report annotation only, source driver also updated so future runs compute this classification automatically.",
+    "report_sha256_before_annotation": "d467cae168f46cc5fa6f47cc7587650f114d304924b3cd584637f32c09645b62",
+    "report_sha256_after_annotation": "9cfdf5b6aba9ae9eeb90d54a6222776d816d3538b0a05bdb3d602a7f9912f74e"
+  },
+  "seeds": {
+    "note": "sensor/kernel/artifact-publisher keys from named seeds (tests/key_fixtures.py + this driver's own artifact_seed); noise/perturbation rng seeded per-attack (11, 23, 37) for reproducibility; swtpm/DTLS certs freshly generated per run, not seeded"
+  },
+  "timestamp_utc": "2026-07-22T15:35:19.053153+00:00"
+}

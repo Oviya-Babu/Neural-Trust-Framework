@@ -1,0 +1,110 @@
+[
+  {
+    "class": "strict",
+    "dimension": "Signal",
+    "floor": "Safe",
+    "level": "LOW"
+  },
+  {
+    "class": "strict",
+    "dimension": "Signal",
+    "floor": "Constrained",
+    "level": "MED"
+  },
+  {
+    "class": "strict",
+    "dimension": "Signal",
+    "floor": "Normal",
+    "level": "HIGH"
+  },
+  {
+    "class": "strict",
+    "dimension": "Model",
+    "floor": "Safe",
+    "level": "LOW"
+  },
+  {
+    "class": "strict",
+    "dimension": "Model",
+    "floor": "Constrained",
+    "level": "MED"
+  },
+  {
+    "class": "strict",
+    "dimension": "Model",
+    "floor": "Normal",
+    "level": "HIGH"
+  },
+  {
+    "class": "strict",
+    "dimension": "Calibration",
+    "floor": "Safe",
+    "level": "LOW"
+  },
+  {
+    "class": "strict",
+    "dimension": "Calibration",
+    "floor": "Constrained",
+    "level": "MED"
+  },
+  {
+    "class": "strict",
+    "dimension": "Calibration",
+    "floor": "Normal",
+    "level": "HIGH"
+  },
+  {
+    "class": "lenient",
+    "dimension": "Device",
+    "floor": "Constrained",
+    "level": "LOW"
+  },
+  {
+    "class": "lenient",
+    "dimension": "Device",
+    "floor": "Constrained",
+    "level": "MED"
+  },
+  {
+    "class": "lenient",
+    "dimension": "Device",
+    "floor": "Normal",
+    "level": "HIGH"
+  },
+  {
+    "class": "strict",
+    "dimension": "FSI",
+    "floor": "Safe",
+    "level": "LOW"
+  },
+  {
+    "class": "strict",
+    "dimension": "FSI",
+    "floor": "Constrained",
+    "level": "MED"
+  },
+  {
+    "class": "strict",
+    "dimension": "FSI",
+    "floor": "Normal",
+    "level": "HIGH"
+  },
+  {
+    "class": "strict",
+    "dimension": "ActuationFidelity",
+    "floor": "Safe",
+    "level": "LOW"
+  },
+  {
+    "class": "strict",
+    "dimension": "ActuationFidelity",
+    "floor": "Constrained",
+    "level": "MED"
+  },
+  {
+    "class": "strict",
+    "dimension": "ActuationFidelity",
+    "floor": "Normal",
+    "level": "HIGH"
+  }
+]

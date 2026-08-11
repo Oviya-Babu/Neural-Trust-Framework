@@ -1,0 +1,98 @@
+{
+  "bootstrap_band_widths_full_9": {
+    "fpr_band_width": 0.0,
+    "n_boot": 1000,
+    "n_resamples_with_data": 1000,
+    "tpr_band_width": 0.0
+  },
+  "bootstrap_band_widths_full_9_independent_rerun": {
+    "fpr_band_width": 0.0,
+    "n_boot": 1000,
+    "n_resamples_with_data": 1000,
+    "tpr_band_width": 0.0
+  },
+  "bootstrap_n": 1000,
+  "claim": "Calibration",
+  "class_support": {
+    "all_9_subjects_separating": {
+      "1": true,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": false,
+      "6": true,
+      "7": false,
+      "8": false,
+      "9": true
+    },
+    "n_of_9_present": 9,
+    "n_of_9_separating": 5,
+    "subjects_added_by_full_pool_present": {
+      "1": true,
+      "2": true,
+      "3": true
+    },
+    "subjects_added_by_full_pool_separating": {
+      "1": true,
+      "2": false,
+      "3": true
+    },
+    "sufficiency_floor": 6
+  },
+  "cohort": {
+    "full_9": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "subjects_added_vs_held_out_6": [
+      1,
+      2,
+      3
+    ]
+  },
+  "disposition": "tail_floor_rule",
+  "leave_one_subject_out_swing_full_9": {
+    "max_fpr_swing": 0.0,
+    "max_tpr_swing": 0.0,
+    "n_subjects": 9
+  },
+  "phase_9_gate": {
+    "calibration_status_flipped_to_measured": false,
+    "real_roc_thresholds_derived": false,
+    "theta1_theta2_band_cap_read_off": false
+  },
+  "pre_committed_parameters": {
+    "foil_map": {
+      "1": 2,
+      "2": 3,
+      "3": 4,
+      "4": 5,
+      "5": 6,
+      "6": 7,
+      "7": 8,
+      "8": 9,
+      "9": 1
+    },
+    "max_band_width_ratio": 2.0,
+    "max_loso_swing_absolute": 0.15,
+    "min_subjects_separating_of_9": 6
+  },
+  "self_comparison_band_width_ratio": {
+    "fpr_band_width_ratio_6_over_9": null,
+    "tpr_band_width_ratio_6_over_9": null
+  },
+  "sufficiency_verdict": {
+    "failed_tests": [
+      "class_support"
+    ],
+    "sufficient_on_held_out": false
+  },
+  "task": "calibration_full9_sufficiency_part1"
+}

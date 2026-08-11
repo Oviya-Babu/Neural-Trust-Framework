@@ -1,0 +1,88 @@
+{
+  "boundary_case": {
+    "alpha": {
+      "C": 0.02,
+      "P": 0.1
+    },
+    "alpha2": {
+      "C": 0.05,
+      "P": 0.2
+    },
+    "corrected_matches_exact": true,
+    "corrected_p_safe": 0.118,
+    "exact_p_safe": 0.11800000000000001,
+    "naive_p_safe": 0.020000000000000018,
+    "naive_underestimate": 0.09799999999999999,
+    "scenario": "hypothetical lenient-parent(P) -> strict-child(C) edge -- NOT the deployed architecture"
+  },
+  "budget_sweep": [
+    {
+      "alpha_target_bp": 6.947918906874406e-06,
+      "alpha_target_per_strict_claim": 6.947918906874406e-10,
+      "implied_spurious_halts_per_minute_at_target": 2.084375672062322e-06,
+      "naive_matches_exact": true,
+      "representable_at_1bp_granularity": false,
+      "session_budget": 0.001,
+      "session_budget_held_by_naive_formula": true
+    },
+    {
+      "alpha_target_bp": 6.979399835849165e-05,
+      "alpha_target_per_strict_claim": 6.979399835849165e-09,
+      "implied_spurious_halts_per_minute_at_target": 2.093819930770735e-05,
+      "naive_matches_exact": true,
+      "representable_at_1bp_granularity": false,
+      "session_budget": 0.01,
+      "session_budget_held_by_naive_formula": true
+    },
+    {
+      "alpha_target_bp": 0.0003562034267545755,
+      "alpha_target_per_strict_claim": 3.562034267545755e-08,
+      "implied_spurious_halts_per_minute_at_target": 0.00010686102043244716,
+      "naive_matches_exact": true,
+      "representable_at_1bp_granularity": false,
+      "session_budget": 0.05,
+      "session_budget_held_by_naive_formula": true
+    }
+  ],
+  "monte_carlo": {
+    "alpha": 0.01,
+    "alpha2": 0.03,
+    "measured_p_below_normal": 0.163,
+    "measured_p_safe": 0.04805,
+    "n_windows": 20000,
+    "note": "Real trust_kernel.schema.build_statement/sign_statement/verify_statement_signature, trust_kernel.bands.score/band/reduce_dimension, trust_kernel.ctpr.apply_ctpr, and trust_kernel.policy.policy exercised per simulated window -- this is the real code path, not a reimplementation, run at a representable (not session-target-tiny) alpha so sampling noise stays small relative to the effect size.",
+    "p_below_normal_relative_error": 0.02411568832690474,
+    "p_safe_relative_error": 0.019586840999457438,
+    "predicted_p_below_normal": 0.16702799507100002,
+    "predicted_p_safe": 0.049009950100000046
+  },
+  "mutation": {
+    "pure_core_kill_rate_line": "Mutation kill rate: 61/61 (100%)",
+    "pure_core_unaffected": true,
+    "sba_validation_kill_rate_line": "SBA mutation kill rate: 12/12 (100%)",
+    "sba_validation_passed": true
+  },
+  "nominal_budget_result": {
+    "alpha_target_in_basis_points": 6.979399835849165e-05,
+    "alpha_target_per_strict_claim": 6.979399835849165e-09,
+    "ctpr_on_off_identical": true,
+    "exact_p_window_safe_with_ctpr": 3.4896998692125614e-08,
+    "exact_p_window_safe_without_ctpr": 3.4896998692125614e-08,
+    "naive_matches_exact": true,
+    "naive_p_window_safe": 3.4896998735156615e-08,
+    "p_window_safe_target": 3.489699884617892e-08,
+    "representable_at_current_bp_granularity": false,
+    "session_budget_held": true,
+    "session_budget_target": 0.01,
+    "session_p_safe_exact_with_ctpr": 0.009999999958011041,
+    "session_p_safe_naive": 0.009999999958011041,
+    "windows_per_session": 288000
+  },
+  "quantization_finding": {
+    "min_representable_alpha": 0.0001,
+    "note": "Even the smallest nonzero per-claim alpha representable in the current basis-point wire format (CLAUDE.md 8) yields a session-level halt probability of essentially 1.0 over an 8h/288000-window session -- the wire format's rate granularity is far too coarse for any tight session-availability target, independent of CTPR entirely. This is a separate, orthogonal finding to the CTPR question this pass was asked to validate, not something this pass resolves (it touches CLAUDE.md 8's FROZEN wire schema and would require a separate PI-escalated change, CLAUDE.md 18).",
+    "p_window_safe_at_min_alpha": 0.0004999000099993323,
+    "session_p_safe_at_min_alpha": 1.0
+  },
+  "windows_per_session": 288000
+}

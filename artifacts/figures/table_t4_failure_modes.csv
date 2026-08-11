@@ -1,0 +1,7 @@
+case,description,failed_step,reason,resulting_verdict,signal_dimension_level
+baseline_all_valid,"All 6 dimensions healthy, no violation",,,Normal,HIGH
+invalid_signature,Signal statement tampered after signing (sig no longer valid),signature,signature verification failed,Safe,LOW
+unsupported_schema_version,Signal statement declares schema_version=999,schema,unsupported schema_version: 999,Safe,LOW
+source_unauthorised_for_boundary,Signal statement claims boundary TB3 (key is registered only for TB2),authorization,key_id 'signal_sensor_v0' is not authorised at boundary 'TB3',Safe,LOW
+window_id_mismatch,"Signal statement carries window_id=6, current round is 7",window_id,statement window_id 6 != current round 7,Safe,LOW
+late_arrival,"Signal statement arrives at 61ms, deadline Delta(w) is 60ms",arrival,"arrived at 61ms, deadline was 60ms",Safe,LOW

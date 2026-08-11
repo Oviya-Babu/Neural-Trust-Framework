@@ -1,0 +1,53 @@
+{
+  "artifacts": {
+    "config_mismatch_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase4_config_mismatch.json",
+      "sha256": "000cb46dadd46d72c0758bf42f0f58e851a1447006b9c37d3bbb12af7a87cc5d"
+    },
+    "replay_batch_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase4_replay_batch.json",
+      "sha256": "758fc7d71261f1a2ee5996303e1fe2f11ff432def9f604753d25d25b3b2fd19a"
+    },
+    "tamper_evidence_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase4_tamper_evidence.json",
+      "sha256": "ba826b4a277b06b5c3db24982c480411c1905412a0f7c79d447cdfe890c0db77"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "claim_registry": "384662cff97b8d65732651f72696a74578a7d7c11752354fdd8a4d5013275a7e",
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "eis_v0": "b3feea6f1a62f88eb7b2d4ff53a199264664462d20309d07e02b14ee7488cce6",
+    "key_registry": "f49b115ba2597b956b151f5713024dfa069ef15ab152e1006661aeb5c573b78e"
+  },
+  "experiment": "phase4_evidence_log",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "batch_window_ids": [
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209
+    ],
+    "tamper_position_k": 3
+  },
+  "seeds": {
+    "note": "demo sensor/kernel keys derived from named seeds in tests/key_fixtures.py"
+  },
+  "timestamp_utc": "2026-07-19T14:25:44.136852+00:00"
+}

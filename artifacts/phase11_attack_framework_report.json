@@ -1,0 +1,546 @@
+{
+  "attack_results": [
+    {
+      "attack": "replay",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": true,
+        "mechanism": "T4 admission window_id-matches-round check (statement) + enforcement AcceptCache 2-entry ring (verdict)"
+      },
+      "reasoning_correctness": {
+        "statement_replay": {
+          "fresh_presentation_accepted": true,
+          "note": "A replayed statement is REJECTED at admission, never substituted as if fresh -- the dimension then reads LOW via absence (CLAUDE.md 10), not via a stale value entering the lattice.",
+          "replayed_failed_step": "window_id",
+          "replayed_presentation_accepted": false
+        },
+        "verdict_replay": {
+          "first_presentation_accepted": true,
+          "second_presentation_accepted": false,
+          "second_reason": "replay"
+        }
+      }
+    },
+    {
+      "attack": "signal_injection",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": false,
+        "mechanism": null
+      },
+      "reasoning_correctness": {
+        "attacked_claim_level": {
+          "band_cap": "HIGH",
+          "level": "HIGH",
+          "raw_measurement": -25,
+          "score": -25,
+          "theta1": -100,
+          "theta2": -99
+        },
+        "attacked_raw_measurement": -25,
+        "controlled_six_dim_verdict": {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "HIGH",
+            "Signal": "HIGH"
+          },
+          "verdict": "Normal"
+        },
+        "honest_claim_level": {
+          "band_cap": "HIGH",
+          "level": "HIGH",
+          "raw_measurement": -14,
+          "score": -14,
+          "theta1": -100,
+          "theta2": -99
+        },
+        "honest_raw_measurement": -14,
+        "note": "raw_measurement dropped from -14 to -25 (real, measured) but the level stayed HIGH because theta1=-100 sits at signal_sensor.RAW_FLOOR (-100) itself under the measured config's active (tightest-swept-budget) alpha -- Signal is tail_floor-resolved (docs/PHASE9-MEASURED-ROC.md): its ROC jumps from FPR=0 at threshold=-100 directly past the sub-ppb alpha budget at the very next integer threshold, so the Tail-Floor Rule's conservative floor pins theta1 at the absolute measurement floor. LOW is then reachable only by a raw_measurement AT that exact floor -- a correctly-conservative consequence of pricing spurious halts near zero (CLAUDE.md 4: 'alpha prices spurious halts'), not a driver bug or a weak detector: it means only an injection severe enough to saturate the SNR/line-noise composite score at its floor would register as LOW here, and this run's injection did not reach that. [Classified per PI review as Case (a): moved toward LOW but fell short of theta1 -- Tail-Floor-Rule conservatism, contrast with adversarial_eeg Case (b).]"
+      }
+    },
+    {
+      "attack": "adversarial_eeg",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": false,
+        "mechanism": null
+      },
+      "note": "Signal is the only V1 dimension that reads raw EEG; whether an adversarial perturbation crafted to flip the classifier also perturbs Signal's spectral measurement enough to be caught is an empirical question this driver actually measures, per-run, rather than assuming. See reasoning_correctness.note for the case (a)/(b) classification.",
+      "reasoning_correctness": {
+        "attacked_predicted": "4",
+        "attacked_signal_claim": {
+          "band_cap": "HIGH",
+          "level": "HIGH",
+          "raw_measurement": -3,
+          "score": -3,
+          "theta1": -100,
+          "theta2": -99
+        },
+        "attacked_signal_raw": -3,
+        "detector_blind_spot_finding": true,
+        "honest_predicted": "1",
+        "honest_signal_raw": -14,
+        "moved_toward_low": false,
+        "note": "Case (b) -- a genuine detector blind spot, NOT a threshold artifact: raw_measurement did not move toward LOW at all -- it moved AWAY from LOW, from -14 to -3 (more trustworthy-looking after the attack than before), independent of where theta1 sits. Mechanistic reason: this perturbation is a sinusoid at 18 Hz, inside the mu/beta band (8-30 Hz) SignalSensor treats as the wanted signal (sensors/signal_sensor.py: snr_ratio = mu_beta_power / broadband_power). Energy concentrated IN that band raises the SNR numerator regardless of whether the energy is genuine motor-imagery signal or injected adversarial energy -- the measurement cannot distinguish the two by construction. This is a real, reportable blind spot for in-band-concentrated adversarial perturbations specifically, distinct from attack_signal_injection Case (a) (broadband noise, which DOES move the score the correct direction) -- not folded into the Tail-Floor Rule explanation, because no threshold placement would fix a score that moves the wrong way.",
+        "predicted_intent_flipped": true,
+        "true_label": "left_hand"
+      }
+    },
+    {
+      "attack": "model_replacement",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": true,
+        "mechanism": "ModelSensor real SHA-256 artifact-hash mismatch against the pinned signing_record"
+      },
+      "reasoning_correctness": {
+        "attacked_claim": {
+          "band_cap": "HIGH",
+          "level": "LOW",
+          "raw_measurement": -100,
+          "score": -100,
+          "theta1": 100,
+          "theta2": 100
+        },
+        "controlled_six_dim_verdict": {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "LOW",
+            "Signal": "HIGH"
+          },
+          "verdict": "Safe"
+        },
+        "honest_claim": {
+          "band_cap": "HIGH",
+          "level": "HIGH",
+          "raw_measurement": 100,
+          "score": 100,
+          "theta1": 100,
+          "theta2": 100
+        },
+        "note": "replacement model trained on real subject 2 session data (genuinely different weights, still a real fitted classifier -- not a bit-flip or random bytes), substituted for subject 1's pinned artifact without a matching signing record."
+      }
+    },
+    {
+      "attack": "model_poisoning_training_pipeline",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": false,
+        "mechanism": null
+      },
+      "note": "No-detector class by design (CLAUDE.md 3, model_sensor.py's own docstring): training-pipeline poisoning precedes signing. This is reported as uncovered-but-consequence-bounded, not a gap to fill by adding a detector -- ModelSensor verifies artifact integrity, never training provenance.",
+      "reasoning_correctness": {
+        "controlled_six_dim_verdict": {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "HIGH",
+            "Signal": "HIGH"
+          },
+          "verdict": "Normal"
+        },
+        "honest_test_accuracy": 0.5957446808510638,
+        "labels_flipped": 98,
+        "model_claim_after_poisoning": {
+          "band_cap": "HIGH",
+          "level": "HIGH",
+          "raw_measurement": 100,
+          "score": 100,
+          "theta1": 100,
+          "theta2": 100
+        },
+        "n_train_trials": 282,
+        "note": "Model's evidence reads CEIL because the poisoned artifact IS honestly signed and IS the artifact actually running -- integrity, not provenance, is what this claim measures. The real consequence is the measured accuracy drop above, invisible to the evidence layer.",
+        "poisoned_test_accuracy": 0.4787234042553192
+      }
+    },
+    {
+      "attack": "firmware_modification",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": true,
+        "mechanism": "FsiSensor real swtpm PCR-value-vs-baseline comparison"
+      },
+      "reasoning_correctness": {
+        "attacked_claim": {
+          "band_cap": "HIGH",
+          "level": "LOW",
+          "raw_measurement": -100,
+          "score": -100,
+          "theta1": 100,
+          "theta2": 100
+        },
+        "controlled_six_dim_verdict": {
+          "effective_dims": {
+            "ActuationFidelity": "HIGH",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "LOW",
+            "Model": "LOW",
+            "Signal": "LOW"
+          },
+          "verdict": "Safe"
+        },
+        "honest_claim": {
+          "band_cap": "HIGH",
+          "level": "HIGH",
+          "raw_measurement": 100,
+          "score": 100,
+          "theta1": 100,
+          "theta2": 100
+        },
+        "note": "FSI is a CTPR parent (FSI->Signal, FSI->Model): via CTPR, this floors Signal's and Model's EFFECTIVE level even though their own raw measurements are untouched -- see controlled_six_dim_verdict's effective_dims."
+      }
+    },
+    {
+      "attack": "communication_tampering",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": true,
+        "mechanism": "Real OpenSSL DTLS chain verification (device link) + Ed25519 signature verification over the exact signed bytes (any claim type)"
+      },
+      "reasoning_correctness": {
+        "device_link": {
+          "attacked_handshake_ok": false,
+          "controlled_six_dim_verdict": {
+            "effective_dims": {
+              "ActuationFidelity": "HIGH",
+              "Calibration": "HIGH",
+              "Device": "LOW",
+              "FSI": "HIGH",
+              "Model": "HIGH",
+              "Signal": "HIGH"
+            },
+            "verdict": "Constrained"
+          },
+          "device_claim": {
+            "band_cap": "HIGH",
+            "level": "LOW",
+            "raw_measurement": -100,
+            "score": -100,
+            "theta1": 100,
+            "theta2": 100
+          },
+          "honest_handshake_ok": true
+        },
+        "generic_wire_tamper": {
+          "admission_accepted": false,
+          "admission_failed_step": "signature",
+          "sig_valid_after_1_byte_tamper": false,
+          "sig_valid_honest": true
+        }
+      }
+    },
+    {
+      "attack": "timing_attack",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": true,
+        "mechanism": "T4 admission arrival-before-Delta(w) check + enforcement now<expires_at check"
+      },
+      "reasoning_correctness": {
+        "note": "A late statement is never waited for and never substituted -- rejected outright, the dimension then reads LOW via absence (CLAUDE.md \u00a77's deadline invariant, empirically demonstrated separately and more thoroughly in docs/PHASE10-LATENCY-EVALUATION.md \u00a77).",
+        "statement_late_accepted": false,
+        "statement_late_failed_step": "arrival",
+        "statement_on_time_accepted": true,
+        "verdict_after_expiry_accepted": false,
+        "verdict_after_expiry_reason": "expired",
+        "verdict_within_expiry_accepted": true
+      }
+    },
+    {
+      "attack": "observer_disagreement",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": true,
+        "mechanism": "Observer real commanded-vs-observed discrepancy measurement (measure_actuation_fidelity)"
+      },
+      "reasoning_correctness": {
+        "attacked_af_claim": {
+          "band_cap": "HIGH",
+          "level": "MED",
+          "raw_measurement": -100,
+          "score": -100,
+          "theta1": -100,
+          "theta2": 100
+        },
+        "attacked_observed": {
+          "max_acceleration": 300,
+          "max_speed": 600
+        },
+        "commanded": {
+          "max_acceleration": 100,
+          "max_speed": 200
+        },
+        "honest_af_claim": {
+          "band_cap": "HIGH",
+          "level": "HIGH",
+          "raw_measurement": 100,
+          "score": 100,
+          "theta1": -100,
+          "theta2": 100
+        },
+        "honest_observed": {
+          "max_acceleration": 100,
+          "max_speed": 200
+        },
+        "next_window_controlled_verdict": {
+          "effective_dims": {
+            "ActuationFidelity": "MED",
+            "Calibration": "HIGH",
+            "Device": "HIGH",
+            "FSI": "HIGH",
+            "Model": "HIGH",
+            "Signal": "HIGH"
+          },
+          "verdict": "Constrained"
+        },
+        "note": "AF for window w can only be observed AFTER window w's own enforcement action -- this is reactive, one window in arrears, and is documented as such rather than claimed to gate the very actuation that produced it (see experiments/phase8_evidence_producers.py's same, already-documented asymmetry)."
+      }
+    },
+    {
+      "attack": "actuator_manipulation_in_envelope_wrong_command",
+      "consequence_boundedness": {
+        "ceil": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "realised": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        },
+        "recorded_verdict": "Normal",
+        "source": "experiments/phase5_enforcement.py (re-cited, not re-derived)",
+        "violation": false
+      },
+      "detection": {
+        "detected": false,
+        "mechanism": null
+      },
+      "note": "No-detector class by design (CLAUDE.md 3; experiments/phase5_enforcement.py's 'actuator_manipulation_in_envelope_wrong_command' class). T5 bounds MAGNITUDE (realise <= Ceil componentwise); it says nothing about direction/target, and this driver does not claim otherwise. Reported plainly as a residual limitation, not worked around.",
+      "reasoning_correctness": {
+        "envelope_fields": [
+          "max_acceleration",
+          "max_speed"
+        ],
+        "has_direction_or_target_field": false,
+        "note": "Phi's only fields are max_speed and max_acceleration (CLAUDE.md \u00a76) -- magnitude bounds. A command at the SAME magnitude but the WRONG direction/target passes every check in this codebase unchanged, because no field to check against exists. This is a structural fact about the wire/config schema, not a policy gap that could be closed by tuning a threshold.",
+        "realised_envelope": {
+          "max_acceleration": 500,
+          "max_speed": 1000
+        }
+      }
+    }
+  ],
+  "evidence_coverage_matrix": [
+    {
+      "attack": "replay",
+      "consequence_bounded": true,
+      "detected": true,
+      "detection_mechanism": "T4 admission window_id-matches-round check (statement) + enforcement AcceptCache 2-entry ring (verdict)",
+      "prevented": true,
+      "residual": "Bounded to the tested replay window/cache size; a stale statement outside the tested horizon is not separately exercised here."
+    },
+    {
+      "attack": "signal_injection",
+      "consequence_bounded": true,
+      "detected": false,
+      "detection_mechanism": null,
+      "prevented": false,
+      "residual": "Detection depends on the measured Signal threshold at the swept budget in force; Signal is tail-floored (docs/PHASE9-MEASURED-ROC.md) -- a subtler injection near the conservative floor is not separately swept here."
+    },
+    {
+      "attack": "adversarial_eeg",
+      "consequence_bounded": true,
+      "detected": false,
+      "detection_mechanism": null,
+      "prevented": false,
+      "residual": "This run's in-band-concentrated perturbation is a genuine detector BLIND SPOT (case b: raw_measurement moved away from LOW, not merely short of threshold) -- SignalSensor's SNR measure cannot distinguish genuine mu/beta-band signal from adversarial energy placed in the same band. Broadband perturbations (attack_signal_injection) do not share this blind spot. Not a general guarantee against all adversarial crafting either way."
+    },
+    {
+      "attack": "model_replacement",
+      "consequence_bounded": true,
+      "detected": true,
+      "detection_mechanism": "ModelSensor real SHA-256 artifact-hash mismatch against the pinned signing_record",
+      "prevented": false,
+      "residual": "Bounded to substitution without the artifact-publisher's private key; a compromised publisher key is out of scope for this producer (P2/Position A: forgeable_under_A_code TRUE)."
+    },
+    {
+      "attack": "model_poisoning_training_pipeline",
+      "consequence_bounded": true,
+      "detected": false,
+      "detection_mechanism": null,
+      "prevented": false,
+      "residual": "No-detector by design: training-pipeline poisoning precedes signing and is invisible to artifact-integrity verification."
+    },
+    {
+      "attack": "firmware_modification",
+      "consequence_bounded": true,
+      "detected": true,
+      "detection_mechanism": "FsiSensor real swtpm PCR-value-vs-baseline comparison",
+      "prevented": false,
+      "residual": "Bounded to boot-time PCR state; an attacker who achieves code execution AFTER boot (A_code) is invisible to FSI by construction (docs/THREAT-MODEL.md \u00a74)."
+    },
+    {
+      "attack": "communication_tampering",
+      "consequence_bounded": true,
+      "detected": true,
+      "detection_mechanism": "Real OpenSSL DTLS chain verification (device link) + Ed25519 signature verification over the exact signed bytes (any claim type)",
+      "prevented": true,
+      "residual": "Bounded to tamper detectable via signature/handshake failure; a compromised sensor signing key (A_data) produces validly-signed forged evidence undetectably."
+    },
+    {
+      "attack": "timing_attack",
+      "consequence_bounded": true,
+      "detected": true,
+      "detection_mechanism": "T4 admission arrival-before-Delta(w) check + enforcement now<expires_at check",
+      "prevented": true,
+      "residual": "Bounded to the fixed 100ms window/Delta(w)/expiry parameters; does not itself bound clock-source integrity, which Position A assigns to A_data (host clocks are A_data-owned)."
+    },
+    {
+      "attack": "observer_disagreement",
+      "consequence_bounded": true,
+      "detected": true,
+      "detection_mechanism": "Observer real commanded-vs-observed discrepancy measurement (measure_actuation_fidelity)",
+      "prevented": false,
+      "residual": "Reactive by one window (documented asymmetry); cannot gate the very actuation that produced the discrepancy it measures."
+    },
+    {
+      "attack": "actuator_manipulation_in_envelope_wrong_command",
+      "consequence_bounded": true,
+      "detected": false,
+      "detection_mechanism": null,
+      "prevented": false,
+      "residual": "No-detector by design: bounded in magnitude only (T5/Phi); direction/target has no bounding mechanism anywhere in this codebase."
+    }
+  ],
+  "evidence_coverage_summary": {
+    "consequence_bounded_count": 10,
+    "consequence_bounded_fraction": 1.0,
+    "detected_count": 6,
+    "n_attacks": 10,
+    "no_detector_count": 4,
+    "prevented_count": 3
+  },
+  "measured_config": "config/eis.v1-measured.json",
+  "model_replacement_subject": 2,
+  "position_a_scope_note": "Under CLAUDE.md 3 Position A, every statement here is software-forgeable by A_data/A_code, like all V1 evidence. Rows (i)/(ii) above demonstrate honest-evidence reasoning correctness and real protocol-level detection; only row (iii), consequence-boundedness (T5), is unconditional against A_data. No row here establishes an adversarial bound on evidence integrity itself.",
+  "post_hoc_annotation_note": "Post-hoc clarification requested by PI after initial Gate 2 report: adversarial_eeg's reasoning_correctness.note was expanded to explicitly classify case (a) vs (b) (Tail-Floor-Rule conservatism vs. genuine detector blind spot), using the SAME already-measured honest_signal_raw/attacked_signal_raw values recorded in this report -- no new injection, no re-run of the real pipeline, no threshold or measured value changed.",
+  "subject": 1
+}

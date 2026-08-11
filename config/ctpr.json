@@ -1,0 +1,8 @@
+{
+  "_comment": "CLAUDE.md §4/§17: exactly these two edges are FROZEN (FSI->Signal, FSI->Model). The dependency DAG beyond FSI->{Signal, Model} is explicitly listed as still-open (§17) -- do not add edges without PI sign-off. g = identity is an explicit implementation choice for 'monotone in the parent's trust level' (see trust_kernel/ctpr.py docstring); CLAUDE.md does not pin down g's exact shape, so this is flagged for PI confirmation, not asserted as verbatim spec.",
+  "edges": [
+    {"parent": "FSI", "child": "Signal"},
+    {"parent": "FSI", "child": "Model"}
+  ],
+  "g": "identity"
+}

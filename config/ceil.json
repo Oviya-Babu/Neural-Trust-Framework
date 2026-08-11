@@ -1,0 +1,5 @@
+{
+  "_comment": "REFERENCE VALUES (CLAUDE.md §6). Ceil is a deployment-time prescription bound -- the authority a clinician grants this user on this device, provisioned out-of-band at commissioning, computed as the infimum of (U_ISO ∩ U_Robot ∩ U_App) over the operating region. Not a clinical prescription, not a measured quantity, not derived from any runtime observation. The commissioning-time derivation process itself is out of scope for the enforcer -- the enforcer holds this constant only, loaded once at process start, and never receives, derives, or recomputes it from any verdict or evidence.",
+  "max_speed": 1000,
+  "max_acceleration": 500
+}

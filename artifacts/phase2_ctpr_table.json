@@ -1,0 +1,128 @@
+[
+  {
+    "child_level": "LOW",
+    "edge": "FSI->Signal",
+    "effective_child": "LOW",
+    "fsi_level": "LOW",
+    "matches_expected": true
+  },
+  {
+    "child_level": "MED",
+    "edge": "FSI->Signal",
+    "effective_child": "LOW",
+    "fsi_level": "LOW",
+    "matches_expected": true
+  },
+  {
+    "child_level": "HIGH",
+    "edge": "FSI->Signal",
+    "effective_child": "LOW",
+    "fsi_level": "LOW",
+    "matches_expected": true
+  },
+  {
+    "child_level": "LOW",
+    "edge": "FSI->Signal",
+    "effective_child": "LOW",
+    "fsi_level": "MED",
+    "matches_expected": true
+  },
+  {
+    "child_level": "MED",
+    "edge": "FSI->Signal",
+    "effective_child": "MED",
+    "fsi_level": "MED",
+    "matches_expected": true
+  },
+  {
+    "child_level": "HIGH",
+    "edge": "FSI->Signal",
+    "effective_child": "MED",
+    "fsi_level": "MED",
+    "matches_expected": true
+  },
+  {
+    "child_level": "LOW",
+    "edge": "FSI->Signal",
+    "effective_child": "LOW",
+    "fsi_level": "HIGH",
+    "matches_expected": true
+  },
+  {
+    "child_level": "MED",
+    "edge": "FSI->Signal",
+    "effective_child": "MED",
+    "fsi_level": "HIGH",
+    "matches_expected": true
+  },
+  {
+    "child_level": "HIGH",
+    "edge": "FSI->Signal",
+    "effective_child": "HIGH",
+    "fsi_level": "HIGH",
+    "matches_expected": true
+  },
+  {
+    "child_level": "LOW",
+    "edge": "FSI->Model",
+    "effective_child": "LOW",
+    "fsi_level": "LOW",
+    "matches_expected": true
+  },
+  {
+    "child_level": "MED",
+    "edge": "FSI->Model",
+    "effective_child": "LOW",
+    "fsi_level": "LOW",
+    "matches_expected": true
+  },
+  {
+    "child_level": "HIGH",
+    "edge": "FSI->Model",
+    "effective_child": "LOW",
+    "fsi_level": "LOW",
+    "matches_expected": true
+  },
+  {
+    "child_level": "LOW",
+    "edge": "FSI->Model",
+    "effective_child": "LOW",
+    "fsi_level": "MED",
+    "matches_expected": true
+  },
+  {
+    "child_level": "MED",
+    "edge": "FSI->Model",
+    "effective_child": "MED",
+    "fsi_level": "MED",
+    "matches_expected": true
+  },
+  {
+    "child_level": "HIGH",
+    "edge": "FSI->Model",
+    "effective_child": "MED",
+    "fsi_level": "MED",
+    "matches_expected": true
+  },
+  {
+    "child_level": "LOW",
+    "edge": "FSI->Model",
+    "effective_child": "LOW",
+    "fsi_level": "HIGH",
+    "matches_expected": true
+  },
+  {
+    "child_level": "MED",
+    "edge": "FSI->Model",
+    "effective_child": "MED",
+    "fsi_level": "HIGH",
+    "matches_expected": true
+  },
+  {
+    "child_level": "HIGH",
+    "edge": "FSI->Model",
+    "effective_child": "HIGH",
+    "fsi_level": "HIGH",
+    "matches_expected": true
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "artifacts": {
+    "measured_config": {
+      "path": "/home/oviya/ProjectBCI-NTF/config/eis.v1-measured.json",
+      "sha256": "41236d3ac0d5c68996cd6eed650811b59d7bec621b496b0ece4523b0fce67657"
+    },
+    "report": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase9_measured_roc_report.json",
+      "sha256": "464b288adf212042028c44a754759d6a2dd06da186de98b96aaa4f3881ba8711"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "dataset_pins": "400af61e7c8369325d670aadb582ee5b5e637c121a75a1e7cb2bff1d401f31ba",
+    "eis_v0": "b3feea6f1a62f88eb7b2d4ff53a199264664462d20309d07e02b14ee7488cce6",
+    "eis_v1_measured": "41236d3ac0d5c68996cd6eed650811b59d7bec621b496b0ece4523b0fce67657",
+    "eis_v1_placeholder": "049c4232193573e4d233fa93bffc278d86cd17fb6d604fbff86943b6eda68af4"
+  },
+  "experiment": "phase9_measured_roc",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "bootstrap_n": 1000,
+    "bootstrap_seed": 20260721,
+    "debounce_percentile": 5.0,
+    "full_subjects": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "held_out_subjects": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "swept_budgets": [
+      0.001,
+      0.01,
+      0.05
+    ],
+    "windows_per_session": 288000
+  },
+  "post_hoc_report_annotation": {
+    "reason": "per_subject_auc known-issue note added to artifacts/phase9_measured_roc_report.json after this manifest was first written (integration-boundary bug found in AUC reporting; does not affect theta1/theta2/band_cap/resolution_status/config -- see claims.Signal.per_subject_auc_known_issue in the report for the full explanation).",
+    "report_sha256_after_annotation": "464b288adf212042028c44a754759d6a2dd06da186de98b96aaa4f3881ba8711",
+    "report_sha256_before_annotation": "93762974f2560642bbe61d51843196152e2be9e096442d4dbbc98a2a9653423e"
+  },
+  "seeds": {
+    "note": "model artifact-signing keys derived from fixed per-subject seeds (same as roc_estimability_diagnostic.py); bootstrap seed fixed above"
+  },
+  "timestamp_utc": "2026-07-22T04:22:09.334576+00:00"
+}

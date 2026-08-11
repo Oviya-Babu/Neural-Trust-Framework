@@ -1,0 +1,32 @@
+{
+  "attacked": {
+    "admitted": true,
+    "af_dimension_level": "LOW",
+    "commanded": {
+      "max_acceleration": 500,
+      "max_speed": 1000
+    },
+    "observed": {
+      "max_acceleration": 800,
+      "max_speed": 1600
+    },
+    "raw_measurement": -100,
+    "verdict": "Safe"
+  },
+  "healthy": {
+    "admitted": true,
+    "af_dimension_level": "HIGH",
+    "commanded": {
+      "max_acceleration": 500,
+      "max_speed": 1000
+    },
+    "observed": {
+      "max_acceleration": 500,
+      "max_speed": 1000
+    },
+    "raw_measurement": 100,
+    "verdict": "Normal"
+  },
+  "key_id": "actuationfidelity_sensor_v0",
+  "source_id": "actuationfidelity_sensor_v0"
+}

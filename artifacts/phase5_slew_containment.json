@@ -1,0 +1,265 @@
+{
+  "steps": [
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 0
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 1
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 2
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 3
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 4
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 5
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 6
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 7
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 8
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 9
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 10
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 11
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 12
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 13
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 14
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 15
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 16
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 17
+    },
+    {
+      "cmd": {
+        "max_acceleration": 100,
+        "max_speed": 200
+      },
+      "target": {
+        "max_acceleration": 500,
+        "max_speed": 1000
+      },
+      "verdict": "Normal",
+      "violation": false,
+      "window_index": 18
+    },
+    {
+      "cmd": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "target": {
+        "max_acceleration": 0,
+        "max_speed": 0
+      },
+      "verdict": "Safe",
+      "violation": false,
+      "window_index": 19
+    }
+  ],
+  "violation_count": 0
+}

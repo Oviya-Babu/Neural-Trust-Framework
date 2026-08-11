@@ -1,0 +1,39 @@
+{
+  "artifacts": {
+    "report_json": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase8_5_sba_validation_report.json",
+      "sha256": "cc2126bc59b95517d7fb2fa5dc1e8f58ef76c0a6d7f34944cc0be173dd85ea85"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135"
+  },
+  "experiment": "phase8_5_sba_validation",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "mc_alpha": 0.01,
+    "mc_alpha2": 0.03,
+    "mc_n_windows": 20000,
+    "nominal_session_budget": 0.01,
+    "sweep_budgets": [
+      0.001,
+      0.01,
+      0.05
+    ],
+    "windows_per_session": 288000
+  },
+  "seeds": {
+    "monte_carlo_seed": 20260720
+  },
+  "timestamp_utc": "2026-07-20T14:41:02.156086+00:00"
+}

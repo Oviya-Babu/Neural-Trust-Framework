@@ -1,0 +1,44 @@
+{
+  "artifacts": {
+    "report": {
+      "path": "/home/oviya/ProjectBCI-NTF/artifacts/phase10_latency_evaluation_report.json",
+      "sha256": "f1658016dbaec4a0e83dd9aa1f2b9e4a652cb31271ff6830f518cda5bd243e37"
+    }
+  },
+  "calibration_status": "provisional",
+  "config_hashes": {
+    "ceil": "556d19c68ca7c5a6bfd1215cfa909be683bddb00ed00b57eb215c447ac632628",
+    "claim_registry": "c6ce970bb35abd893ac1b22ce7f73b08b6944c083bcf058f44379ba3c2d40eac",
+    "crit_table": "8e56a8ea99b417f22cdc18df84ee830e9ebd4e4e5f94eb1a0849b768e6783429",
+    "ctpr": "512b11db812da21341fc633915d0857141e82ac9cd5bf547737560f595ae9135",
+    "dataset_pins": "400af61e7c8369325d670aadb582ee5b5e637c121a75a1e7cb2bff1d401f31ba",
+    "eis_v1_measured": "41236d3ac0d5c68996cd6eed650811b59d7bec621b496b0ece4523b0fce67657",
+    "env": "379f308ca0f15160cd8d887b8f6227231a86f416d6087760edf0790c7e370f1f",
+    "key_registry": "f49b115ba2597b956b151f5713024dfa069ef15ab152e1006661aeb5c573b78e"
+  },
+  "experiment": "phase10_latency_evaluation",
+  "git": {
+    "available": false,
+    "reason": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+  },
+  "hardware_os": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python_version": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "params": {
+    "n_trials": 200,
+    "n_trials_fsi": 30,
+    "n_warmup": 8,
+    "subject": 1
+  },
+  "post_hoc_report_annotation": {
+    "reason": "budget_verification.fsi_inclusion_correction added after this manifest was first written: the original decision_path_le_67ms/evidence_generation_and_signing_le_delta_60ms checks excluded FSI's real per-window cost (measured separately, real swtpm quotes), which silently hid a real violation (FSI's p99~83ms alone exceeds Delta(w)=60ms) behind the exclusion. Corrected post-hoc from already-recorded per-stage data, no rerun. Source (experiments/phase10_latency_evaluation.py's check_budgets) fixed for future runs to make the FSI-inclusive check a first-class result, not a buried note.",
+    "report_sha256_after_annotation": "f1658016dbaec4a0e83dd9aa1f2b9e4a652cb31271ff6830f518cda5bd243e37",
+    "report_sha256_before_annotation": "1406ac52581b5a7669e8a84f1222dac536a75f5165cf6d08481d39a8251169cc"
+  },
+  "seeds": {
+    "note": "model artifact-signing key from a fixed named seed in this driver; DTLS/swtpm sessions freshly generated per run, not seeded"
+  },
+  "timestamp_utc": "2026-07-22T05:43:09.107971+00:00"
+}
