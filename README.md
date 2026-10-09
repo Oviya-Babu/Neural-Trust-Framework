@@ -1,6 +1,6 @@
 # NTF — Neural Trust Framework
 
-PhD research prototype: a trust-reasoning security architecture for
+research prototype: a trust-reasoning security architecture for
 Brain–Computer Interface cyber-physical systems.
 
 ## Layout
